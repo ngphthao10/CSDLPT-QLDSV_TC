@@ -17,7 +17,6 @@ namespace QLDSV_TC
             this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
             this.sqlDataSource1.Queries[0].Parameters[0].Value = malop;
             this.sqlDataSource1.Fill();
-
             CreateReport(Program.connstr, "sp_BangDiemTongKetTheoLop", malop);
         }
 
@@ -46,6 +45,7 @@ namespace QLDSV_TC
                 if (column.ColumnName != "MASV" && column.ColumnName != "HOTEN")
                 {
                     columns.Add(column.ColumnName);
+
                 }
             }
             return columns;
@@ -53,15 +53,12 @@ namespace QLDSV_TC
 
         public void ConfigureCrossTab(DataTable dataTable, List<string> dynamicColumns)
         {
-            System.Diagnostics.Debug.Print("before " + crossTab.ColumnDefinitions.Count);
             
             //// Add column fields dynamically
             foreach (string columnName in dynamicColumns)
             {
-                CrossTabDataField columnField = new CrossTabDataField { FieldName = columnName, SummaryType = SummaryType.Max };
-                crossTab.DataFields.Add(columnField);
-                
-                //crossTab.ColumnDefinitions.Add(new CrossTabColumnDefinition(100F));
+                CrossTabDataField dataField = new CrossTabDataField { FieldName = columnName, SummaryType = SummaryType.Max };
+                crossTab.DataFields.Add(dataField);
             }
 
             crossTab.PrintOptions.PrintTotalsForSingleValues = false;
@@ -69,21 +66,8 @@ namespace QLDSV_TC
 
             foreach (var c in crossTab.ColumnDefinitions)
             {
-                // Enables auto-width for all columns.
                 c.AutoWidthMode = DevExpress.XtraReports.UI.AutoSizeMode.GrowOnly;
             }
-
-
-
-            System.Diagnostics.Debug.Print("after " + crossTab.ColumnDefinitions.Count);
-
-            // Access the bottom right cell
-            //XRCrossTabCell bottomRightCell = GetBottomRightCell();
-            //if (bottomRightCell != null)
-            //{
-            //    // Perform actions with the bottom right cell, e.g., hide it
-            //    bottomRightCell.Visible = false;
-            //}
         }
 
         public XRCrossTabCell GetBottomRightCell()
@@ -104,6 +88,7 @@ namespace QLDSV_TC
 
         public void CreateReport(string connectionString, string storedProcedure, string malop)
         {
+            
             // Fetch data
             DataTable dataTable = GetData(connectionString, storedProcedure, malop);
 
@@ -114,13 +99,5 @@ namespace QLDSV_TC
             ConfigureCrossTab(dataTable, dynamicColumns);
         }
 
-        private void Xrpt_BangDiemTongKet_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            // Perform any additional tasks before the report is printed
-        }
-
-        private void crossTab_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-        }
     }
 }

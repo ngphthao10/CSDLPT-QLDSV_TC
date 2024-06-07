@@ -4,5 +4,8 @@
 
     partial class QLDSV_TCDataSet
     {
+        partial class SINHVIENDataTable
+        {
+        }
     }
 }

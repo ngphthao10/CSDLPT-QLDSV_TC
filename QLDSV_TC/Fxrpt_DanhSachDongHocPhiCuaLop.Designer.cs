@@ -36,11 +36,11 @@
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.lOPTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
-            this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
             this.cmbTenLop = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.cmbNienKhoa = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.cmbHocKy = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.txtMaLop = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.btnPreview = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             tENLOPLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             // tENLOPLabel
             // 
             tENLOPLabel.AutoSize = true;
-            tENLOPLabel.Location = new System.Drawing.Point(22, 65);
+            tENLOPLabel.Location = new System.Drawing.Point(69, 63);
             tENLOPLabel.Name = "tENLOPLabel";
             tENLOPLabel.Size = new System.Drawing.Size(69, 23);
             tENLOPLabel.TabIndex = 1;
@@ -60,7 +60,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(374, 126);
+            label1.Location = new System.Drawing.Point(421, 124);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(65, 23);
             label1.TabIndex = 5;
@@ -69,7 +69,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(22, 126);
+            label2.Location = new System.Drawing.Point(69, 124);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(92, 23);
             label2.TabIndex = 6;
@@ -101,20 +101,7 @@
             this.tableAdapterManager.LOPTINCHITableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.SP_DSSV_MALOPTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // btnPreview
-            // 
-            this.btnPreview.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreview.Appearance.Options.UseFont = true;
-            this.btnPreview.Location = new System.Drawing.Point(180, 198);
-            this.btnPreview.Margin = new System.Windows.Forms.Padding(6);
-            this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(159, 45);
-            this.btnPreview.TabIndex = 7;
-            this.btnPreview.Text = "Preview";
-            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // cmbTenLop
             // 
@@ -128,7 +115,7 @@
             this.cmbTenLop.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTenLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbTenLop.ItemHeight = 30;
-            this.cmbTenLop.Location = new System.Drawing.Point(120, 62);
+            this.cmbTenLop.Location = new System.Drawing.Point(167, 60);
             this.cmbTenLop.Name = "cmbTenLop";
             this.cmbTenLop.Size = new System.Drawing.Size(280, 36);
             this.cmbTenLop.TabIndex = 9;
@@ -145,7 +132,7 @@
             this.cmbNienKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmbNienKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbNienKhoa.ItemHeight = 30;
-            this.cmbNienKhoa.Location = new System.Drawing.Point(120, 121);
+            this.cmbNienKhoa.Location = new System.Drawing.Point(167, 119);
             this.cmbNienKhoa.Name = "cmbNienKhoa";
             this.cmbNienKhoa.Size = new System.Drawing.Size(219, 36);
             this.cmbNienKhoa.TabIndex = 10;
@@ -165,7 +152,7 @@
             "2",
             "3",
             "4"});
-            this.cmbHocKy.Location = new System.Drawing.Point(445, 121);
+            this.cmbHocKy.Location = new System.Drawing.Point(492, 119);
             this.cmbHocKy.Name = "cmbHocKy";
             this.cmbHocKy.Size = new System.Drawing.Size(99, 36);
             this.cmbHocKy.TabIndex = 11;
@@ -183,7 +170,7 @@
             this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.txtMaLop.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaLop.Location = new System.Drawing.Point(406, 62);
+            this.txtMaLop.Location = new System.Drawing.Point(453, 60);
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.PasswordChar = '\0';
             this.txtMaLop.PlaceholderText = "";
@@ -191,16 +178,32 @@
             this.txtMaLop.Size = new System.Drawing.Size(138, 36);
             this.txtMaLop.TabIndex = 12;
             // 
+            // btnPreview
+            // 
+            this.btnPreview.BorderRadius = 10;
+            this.btnPreview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPreview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPreview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPreview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPreview.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.ForeColor = System.Drawing.Color.White;
+            this.btnPreview.Location = new System.Drawing.Point(630, 80);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(128, 57);
+            this.btnPreview.TabIndex = 13;
+            this.btnPreview.Text = "Preview";
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
             // Fxrpt_DanhSachDongHocPhiCuaLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 282);
+            this.ClientSize = new System.Drawing.Size(853, 214);
+            this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.txtMaLop);
             this.Controls.Add(this.cmbHocKy);
             this.Controls.Add(this.cmbNienKhoa);
             this.Controls.Add(this.cmbTenLop);
-            this.Controls.Add(this.btnPreview);
             this.Controls.Add(label2);
             this.Controls.Add(label1);
             this.Controls.Add(tENLOPLabel);
@@ -222,10 +225,10 @@
         private System.Windows.Forms.BindingSource bdsLop;
         private QLDSV_TCDataSetTableAdapters.LOPTableAdapter lOPTableAdapter;
         private QLDSV_TCDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraEditors.SimpleButton btnPreview;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbTenLop;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbNienKhoa;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbHocKy;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMaLop;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnPreview;
     }
 }

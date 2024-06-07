@@ -61,7 +61,19 @@ namespace QLDSV_TC
             return true;
         }
 
-        private void getTeacher()
+        private void getTeacher(string makhoa)
+        {
+            string command = "SELECT MAGV, HOTEN = RTRIM(MAGV) + ' - ' + HO + ' ' + TEN FROM GIANGVIEN " +
+                "WHERE MAKHOA='" + makhoa + "'";
+            DataTable data = Program.ExecSqlDataTable(command);
+            BindingSource bdsGV = new BindingSource();
+            bdsGV.DataSource = data;
+            cmbGV.DataSource = bdsGV;
+            cmbGV.DisplayMember = "HOTEN";
+            cmbGV.ValueMember = "MAGV";
+        }
+
+        private void getAllTeacher()
         {
             string command = "SELECT MAGV, HOTEN = RTRIM(MAGV) + ' - ' + HO + ' ' + TEN FROM GIANGVIEN";
             DataTable data = Program.ExecSqlDataTable(command);
@@ -71,31 +83,56 @@ namespace QLDSV_TC
             cmbGV.DisplayMember = "HOTEN";
             cmbGV.ValueMember = "MAGV";
         }
+
         private void frmTaoTK_Load(object sender, EventArgs e)
         {   
             if (Program.mGroup != "PKT")
-                Program.bds_dspm.Filter = "TENPM not LIKE '%Phòng kế toán%'";
+                Program.bds_dspm.Filter = "TENPM not LIKE '%Thông tin đóng học phí%'";
 
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENPM";
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedValue = Program.servername;
-            getTeacher();
+         
 
             if (Program.mGroup == "PGV")
             {
+                if (Program.mPhanManh == 0)
+                {
+                    getTeacher("CNTT");
+                }
+                else
+                {
+                    getTeacher("VT");
+                }
                 cmbKhoa.Enabled = true;
                 rdgGroup.Properties.Items[0].Enabled = true; 
-                rdgGroup.Properties.Items[1].Enabled = true; 
+                rdgGroup.Properties.Items[1].Enabled = true;
+                rdgGroup.Properties.Items[2].Enabled = false;
                 rdgGroup.SelectedIndex = 0;
             }
             else if (Program.mGroup == "Khoa")
             {
+                if(Program.mPhanManh == 0)
+                {
+                    getTeacher("CNTT");
+                }
+                else
+                {
+                    getTeacher("VT");
+                }
+                cmbKhoa.Enabled = false;
+                rdgGroup.Properties.Items[0].Enabled = false;
                 rdgGroup.Properties.Items[1].Enabled = true;
+                rdgGroup.Properties.Items[2].Enabled = false;
                 rdgGroup.SelectedIndex = 1; 
             }
             else
             {
+                getAllTeacher();
+                cmbKhoa.Enabled = false;
+                rdgGroup.Properties.Items[0].Enabled = false;
+                rdgGroup.Properties.Items[1].Enabled = false;
                 rdgGroup.Properties.Items[2].Enabled = true;
                 rdgGroup.SelectedIndex = 2;
             }
@@ -122,6 +159,15 @@ namespace QLDSV_TC
         {
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
+
+            if (cmbKhoa.SelectedIndex == 0)
+            {
+                getTeacher("CNTT");
+            }
+            else if (cmbKhoa.SelectedIndex == 1)
+            {
+                getTeacher("VT");
+            }
             Program.servername = cmbKhoa.SelectedValue.ToString();
 
             if (cmbKhoa.SelectedIndex != Program.mPhanManh)
@@ -150,20 +196,14 @@ namespace QLDSV_TC
                 String password = txtMK.Text.Trim();
                 String user = cmbGV.SelectedValue.ToString().Trim();
                 String role = rdgGroup.EditValue.ToString();
-                System.Diagnostics.Debug.Print(login);
-                System.Diagnostics.Debug.Print(password);
-                System.Diagnostics.Debug.Print(user);
-                System.Diagnostics.Debug.Print(role);
-                String query = " DECLARE @return_value INT" +
-                               " EXEC @return_value = [dbo].[SP_TAOLOGIN]" +
+                String query = " DECLARE @return_value INT EXEC @return_value = [dbo].[SP_TAOLOGIN]" +
                                " N'" + login + "', " +
                                " N'" + password + "', " +
                                " N'" + user + "', " +
                                " N'" + role + "'" +
                                " SELECT @return_value";
-                System.Diagnostics.Debug.Print(query);
+       
                 int resultMa = Program.CheckPrimaryKey(query);
-                System.Diagnostics.Debug.Print("" + resultMa);
                 if (resultMa == -1)
                 {
                     MessageBox.Show("Lỗi kết nối với database. Vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -179,6 +219,8 @@ namespace QLDSV_TC
                 if (resultMa == 0)
                 {
                     MessageBox.Show("Tạo tài khoản thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtTenDN.Text = txtMK.Text = txtConfirmMK.Text = "";
+
                 }
             }
         }

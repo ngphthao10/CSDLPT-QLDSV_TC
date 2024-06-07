@@ -35,10 +35,10 @@
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.LOPTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
-            this.btnPreview = new DevExpress.XtraEditors.SimpleButton();
             this.cmbKhoa = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.txtMaLop = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.cmbTenLop = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
+            this.btnPreview = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             tENLOPLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
@@ -91,21 +91,7 @@
             this.tableAdapterManager.LOPTINCHITableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.SP_DSSV_MALOPTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // btnPreview
-            // 
-            this.btnPreview.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPreview.Appearance.Options.UseFont = true;
-            this.btnPreview.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnPreview.AppearanceHovered.Options.UseBackColor = true;
-            this.btnPreview.Location = new System.Drawing.Point(677, 76);
-            this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(125, 40);
-            this.btnPreview.TabIndex = 5;
-            this.btnPreview.Text = "Preview";
-            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // cmbKhoa
             // 
@@ -144,7 +130,7 @@
             this.txtMaLop.PlaceholderText = "";
             this.txtMaLop.ReadOnly = true;
             this.txtMaLop.SelectedText = "";
-            this.txtMaLop.Size = new System.Drawing.Size(138, 36);
+            this.txtMaLop.Size = new System.Drawing.Size(138, 29);
             this.txtMaLop.TabIndex = 16;
             // 
             // cmbTenLop
@@ -166,17 +152,33 @@
             this.cmbTenLop.ValueMember = "MALOP";
             this.cmbTenLop.SelectedIndexChanged += new System.EventHandler(this.cmbTenLop_SelectedIndexChanged);
             // 
+            // btnPreview
+            // 
+            this.btnPreview.BorderRadius = 10;
+            this.btnPreview.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnPreview.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnPreview.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnPreview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPreview.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.ForeColor = System.Drawing.Color.White;
+            this.btnPreview.Location = new System.Drawing.Point(651, 74);
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(127, 50);
+            this.btnPreview.TabIndex = 19;
+            this.btnPreview.Text = "Preview";
+            this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
             // Fxrpt_BangDiemTongKet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 207);
+            this.ClientSize = new System.Drawing.Size(917, 207);
+            this.Controls.Add(this.btnPreview);
             this.Controls.Add(label1);
             this.Controls.Add(tENLOPLabel);
             this.Controls.Add(this.txtMaLop);
             this.Controls.Add(this.cmbTenLop);
             this.Controls.Add(this.cmbKhoa);
-            this.Controls.Add(this.btnPreview);
             this.Name = "Fxrpt_BangDiemTongKet";
             this.Text = "Bảng điểm tổng kết";
             this.Load += new System.EventHandler(this.Fxrpt_BangDiemTongKet_Load);
@@ -193,9 +195,9 @@
         private System.Windows.Forms.BindingSource bdsLop;
         private QLDSV_TCDataSetTableAdapters.LOPTableAdapter LOPTableAdapter;
         private QLDSV_TCDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraEditors.SimpleButton btnPreview;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbKhoa;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMaLop;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbTenLop;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnPreview;
     }
 }

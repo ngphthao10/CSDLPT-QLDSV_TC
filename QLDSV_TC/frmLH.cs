@@ -17,18 +17,11 @@ namespace QLDSV_TC
     public partial class frmLH : DevExpress.XtraEditors.XtraForm
     {
         private int vitriLop = 0;
+        string malop = "";
         private String flag = "";
         public frmLH()
         {
             InitializeComponent();
-        }
-
-        private void lOPBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bdsLop.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.QLDSV_TCDataSet);
-
         }
 
         private void frmLH_Load(object sender, EventArgs e)
@@ -48,12 +41,14 @@ namespace QLDSV_TC
             if (Program.mGroup == "PGV")
             {
                 cmbKhoa.Enabled = true;
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnGhi.Enabled = true;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
+                btnGhi.Enabled = false;
             }
             else
             {
                 cmbKhoa.Enabled = false;
-                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnGhi.Enabled = true;
+                btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
+                btnGhi.Enabled = false;
             }
 
         }
@@ -172,7 +167,6 @@ namespace QLDSV_TC
         {
             vitriLop = bdsLop.Position;
             bdsLop.AddNew();
-            gridViewLop.SetFocusedRowCellValue("MAKHOA", GetMaKhoa());
             txtMaKhoa.Text = GetMaKhoa();
 
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = btnThoat.Enabled = false;
@@ -185,7 +179,8 @@ namespace QLDSV_TC
 
         private void btnSua_ItemClick(object sender, ItemClickEventArgs e)
         {
-            txtMaKhoa.Enabled = true; //không cho sửa mã khoa
+
+            txtMaKhoa.Enabled = false; //không cho sửa mã khoa
             vitriLop = bdsLop.Position;
             panelLop.Enabled = true;
             btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnSua.Enabled = btnThoat.Enabled = false;
@@ -197,7 +192,7 @@ namespace QLDSV_TC
 
         private void btnXoa_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string malop = "";
+            
             if (bdsSV.Count > 0)
             {
                 MessageBox.Show("Không thể xóa lớp này vì đã có sinh viên trong lớp", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -223,6 +218,7 @@ namespace QLDSV_TC
                     return;
                 }
 
+                //nếu không còn lớp nào thì ẩn nút xóa
                 if (bdsLop.Count == 0) btnXoa.Enabled = false;
             }
         }
@@ -254,7 +250,6 @@ namespace QLDSV_TC
         {
             this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.LOPTableAdapter.Fill(this.QLDSV_TCDataSet.LOP);
-
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
         }
@@ -308,6 +303,11 @@ namespace QLDSV_TC
         private void btnTaiSV_Click(object sender, EventArgs e)
         {
             string malop = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString();
+            if(malop == null)
+            {
+                MessageBox.Show("Lớp hiện chưa có sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             ucSV ucsv = new ucSV(malop);
             if (panelucSV.Controls.Count > 0 )
             {

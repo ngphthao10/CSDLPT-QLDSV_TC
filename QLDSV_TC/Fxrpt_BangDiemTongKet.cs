@@ -69,28 +69,7 @@ namespace QLDSV_TC
 
         }
 
-        private void btnPreview_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Debug.Print(maLop);
-            if (CheckData())
-            {
-                Xrpt_BangDiemTongKet rpt = new Xrpt_BangDiemTongKet(maLop);
-                rpt.lblLop.Text = maLop;
-                System.Diagnostics.Debug.Print(maLop);
-                DataTable dt = Program.ExecSqlDataTable("Select * FROM LOP where malop = '" + maLop + "'");
-
-                DataRow row = dt.Rows[0];
-                String makhoa = row["makhoa"].ToString();
-                String khoahoc = row["khoahoc"].ToString();
-
-                rpt.lblKhoaHoc.Text = khoahoc;
-                rpt.lblKhoa.Text = makhoa;
-                
-                ReportPrintTool print = new ReportPrintTool(rpt);
-                print.ShowPreviewDialog();
-            }
-
-        }
+        
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -121,5 +100,24 @@ namespace QLDSV_TC
             }
         }
 
+        private void btnPreview_Click(object sender, EventArgs e)
+        {
+            if (CheckData())
+            {
+                Xrpt_BangDiemTongKet rpt = new Xrpt_BangDiemTongKet(maLop);
+                rpt.lblLop.Text = maLop;
+                DataTable dt = Program.ExecSqlDataTable("Select * FROM LOP where malop = '" + maLop + "'");
+
+                DataRow row = dt.Rows[0];
+                String makhoa = row["makhoa"].ToString();
+                String khoahoc = row["khoahoc"].ToString();
+
+                rpt.lblKhoaHoc.Text = khoahoc;
+                rpt.lblKhoa.Text = makhoa;
+
+                ReportPrintTool print = new ReportPrintTool(rpt);
+                print.ShowPreviewDialog();
+            }
+        }
     }
 }

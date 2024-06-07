@@ -69,7 +69,6 @@
             this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.btnTaiSV = new DevExpress.XtraEditors.SimpleButton();
             this.cmbKhoa = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
-            this.txtKhoa = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.LOPTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
             this.bdsSV = new System.Windows.Forms.BindingSource(this.components);
@@ -140,7 +139,7 @@
             mAKHOALabel.Name = "mAKHOALabel";
             mAKHOALabel.Size = new System.Drawing.Size(69, 20);
             mAKHOALabel.TabIndex = 6;
-            mAKHOALabel.Text = "Mã khóa:";
+            mAKHOALabel.Text = "Mã khoa:";
             // 
             // barManager1
             // 
@@ -352,6 +351,7 @@
             this.gcLop.DataSource = this.bdsLop;
             this.gcLop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcLop.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
+            this.gcLop.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcLop.Location = new System.Drawing.Point(2, 2);
             this.gcLop.MainView = this.gridViewLop;
             this.gcLop.Margin = new System.Windows.Forms.Padding(4);
@@ -521,7 +521,6 @@
             // 
             this.siticonePanel1.Controls.Add(this.btnTaiSV);
             this.siticonePanel1.Controls.Add(this.cmbKhoa);
-            this.siticonePanel1.Controls.Add(this.txtKhoa);
             this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.siticonePanel1.Location = new System.Drawing.Point(2, 2);
             this.siticonePanel1.Margin = new System.Windows.Forms.Padding(5);
@@ -557,26 +556,12 @@
             this.cmbKhoa.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmbKhoa.ItemHeight = 30;
-            this.cmbKhoa.Location = new System.Drawing.Point(95, 22);
+            this.cmbKhoa.Location = new System.Drawing.Point(24, 24);
             this.cmbKhoa.Margin = new System.Windows.Forms.Padding(5);
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(389, 36);
             this.cmbKhoa.TabIndex = 1;
             this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
-            // 
-            // txtKhoa
-            // 
-            this.txtKhoa.AutoSize = false;
-            this.txtKhoa.BackColor = System.Drawing.Color.Transparent;
-            this.txtKhoa.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtKhoa.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKhoa.Location = new System.Drawing.Point(12, 12);
-            this.txtKhoa.Margin = new System.Windows.Forms.Padding(5);
-            this.txtKhoa.Name = "txtKhoa";
-            this.txtKhoa.Size = new System.Drawing.Size(86, 61);
-            this.txtKhoa.TabIndex = 0;
-            this.txtKhoa.Text = "Khoa";
-            this.txtKhoa.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LOPTableAdapter
             // 
@@ -594,7 +579,6 @@
             this.tableAdapterManager.LOPTINCHITableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.SP_DSSV_MALOPTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // bdsSV
@@ -618,7 +602,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLH";
-            this.Text = "frmLH";
+            this.Text = "Quản lý lớp học - sinh viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -663,9 +647,7 @@
         private DevExpress.XtraBars.BarLargeButtonItem btnThoat;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
-        private DevExpress.XtraEditors.SimpleButton btnTaiSV;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbKhoa;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel txtKhoa;
         private System.Windows.Forms.BindingSource bdsLop;
         private QLDSV_TCDataSet QLDSV_TCDataSet;
         private QLDSV_TCDataSetTableAdapters.LOPTableAdapter LOPTableAdapter;
@@ -687,5 +669,6 @@
         private DevExpress.XtraEditors.PanelControl panelucSV;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        public DevExpress.XtraEditors.SimpleButton btnTaiSV;
     }
 }

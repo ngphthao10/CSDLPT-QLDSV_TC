@@ -86,23 +86,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_SINHVIEN.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLH.Designer.cs">
       <DependentUpon>frmLH.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmQLHP.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmQLHP.Designer.cs">
-      <DependentUpon>frmQLHP.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTaoTK.cs">
       <SubType>Form</SubType>
@@ -133,18 +127,6 @@
     </Compile>
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLop.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLop.Designer.cs">
-      <DependentUpon>frmLop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -185,23 +167,14 @@
     <Compile Include="XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLH.resx">
       <DependentUpon>frmLH.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLop.resx">
-      <DependentUpon>frmLop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmQLHP.resx">
-      <DependentUpon>frmQLHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTaoTK.resx">
       <DependentUpon>frmTaoTK.cs</DependentUpon>

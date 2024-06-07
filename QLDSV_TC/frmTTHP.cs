@@ -78,6 +78,11 @@ namespace QLDSV_TC
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSetSV3.SINHVIEN);
 
+            if (Program.mGroup != "PKT")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập màn hình này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
 
         private void btnTaiHP_Click(object sender, EventArgs e)
@@ -88,7 +93,7 @@ namespace QLDSV_TC
             if (sinhVienRows.Length > 0)
             {
                 txtHoTen.Visible = txtMaLop.Visible = lblHoTen.Visible = lblMaLop.Visible = true;
-                string hoTen = sinhVienRows[0]["HO"].ToString() + " " + sinhVienRows[0]["TEN"].ToString(); // Giả sử "hoten" là tên trường chứa họ tên của sinh viên
+                string hoTen = sinhVienRows[0]["HO"].ToString() + " " + sinhVienRows[0]["TEN"].ToString();
                 string malop = sinhVienRows[0]["MALOP"].ToString();
                 txtHoTen.Text = hoTen;
                 txtMaLop.Text = malop;
@@ -103,10 +108,9 @@ namespace QLDSV_TC
 
         private void gridViewHP_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            btnNopHP.Enabled = btnGhiHP.Enabled = true;
+            btnNopHP.Enabled = gcCTHP.Enabled = true;
             if (Convert.ToInt32(gridViewHP.GetFocusedDataRow()["HOCPHI"]) == Convert.ToInt32(gridViewHP.GetFocusedDataRow()["DADONG"]))
                 btnNopHP.Enabled = btnGhiHP.Enabled = false;
-
             else
                 btnNopHP.Enabled = btnGhiHP.Enabled = true;
             loadFrmCTHP();
@@ -115,10 +119,9 @@ namespace QLDSV_TC
         private void btnNopHP_Click(object sender, EventArgs e)
         {
             dateNgay.Properties.MaxValue = DateTime.Now.AddYears(0);
-
+            btnPhucHoi.Visible = true;
             bdsCTHP.AddNew();
-            vitriCTHP = bdsCTHP.Count - 1;
-            gcCTHP.Enabled = false;
+            vitriCTHP = bdsCTHP.Count - 1;  
             btnNopHP.Enabled = false;
             btnGhiHP.Enabled = true;
         }
@@ -145,17 +148,20 @@ namespace QLDSV_TC
                     int hocKy = int.Parse(gridViewHP.GetFocusedDataRow()["HOCKY"].ToString());
                     DateTime dateTime = Convert.ToDateTime(gridViewCTHP.GetFocusedDataRow()["NGAYDONG"]);
 
-                    String spString = "dbo.SP_DONGHOCPHI";
-                    SqlCommand command = Program.conn.CreateCommand();
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = spString;
-                    command.Parameters.Add("@MASV", SqlDbType.NChar).Value = txtMaSV.Text;
-                    command.Parameters.Add("@NIENKHOA", SqlDbType.NChar).Value = nienKhoa;
-                    command.Parameters.Add("@HOCKY", SqlDbType.Int).Value = hocKy;
-                    command.Parameters.Add("@NGAYDONG", SqlDbType.DateTime).Value = dateTime;
-                    command.Parameters.Add("@SOTIENDONG", SqlDbType.Int).Value = money;
+                    // Chuyển đổi DateTime thành chuỗi với định dạng chỉ có ngày tháng
+                    String dateString = dateTime.ToString("dd/MM/yyyy");
 
-                    command.ExecuteNonQuery();
+                    String strLenh = "EXEC dbo.SP_DongHocPhi '" + txtMaSV.Text + "', '"
+                                    + nienKhoa + "', '" + hocKy + "', '" + dateString + "', '" + money + "'" ;
+                    System.Diagnostics.Debug.Print(strLenh);
+
+                    int result = Program.ExecSqlNonQuery(strLenh);
+
+                    if (result != 0)
+                    {
+                        MessageBox.Show("Đã có lỗi xảy ra khi thực thi thủ tục lưu trữ.");
+                        return;
+                    }
                     Program.conn.Close();
 
                     loadFrmHP();
@@ -170,7 +176,12 @@ namespace QLDSV_TC
                 }
 
                 vitriCTHP = -1;
-                btnNopHP.Enabled = btnGhiHP.Enabled = false;
+                btnPhucHoi.Visible = false;
+                btnGhiHP.Enabled = false;
+                if (Convert.ToInt32(gridViewHP.GetFocusedDataRow()["HOCPHI"]) == Convert.ToInt32(gridViewHP.GetFocusedDataRow()["DADONG"]))
+                    btnNopHP.Enabled = btnGhiHP.Enabled = false;
+                else
+                    btnNopHP.Enabled = btnGhiHP.Enabled = true;
             }
         }
 
@@ -187,6 +198,28 @@ namespace QLDSV_TC
             else
             {
                 this.Close();
+            }
+        }
+
+        private void btnPhucHoi_Click(object sender, EventArgs e)
+        {
+            if (dateNgay.Text.ToString() != null  || txtSoTien.Text.Trim().ToString() != null)
+            {
+                DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn làm mới không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialog == DialogResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    bdsCTHP.CancelEdit();
+                    loadFrmCTHP();
+                    if (btnNopHP.Enabled == false) { bdsCTHP.Position = vitriCTHP; }
+                    btnGhiHP.Enabled = false;
+                    btnNopHP.Enabled = true;
+                    btnPhucHoi.Visible = false;
+                    vitriCTHP = -1;
+                }
             }
         }
     }

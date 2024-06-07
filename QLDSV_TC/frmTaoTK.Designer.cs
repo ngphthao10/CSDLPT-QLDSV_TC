@@ -109,13 +109,14 @@
             // 
             // btnTaoTK
             // 
+            this.btnTaoTK.BackColor = System.Drawing.Color.Transparent;
             this.btnTaoTK.BorderRadius = 10;
             this.btnTaoTK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnTaoTK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnTaoTK.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnTaoTK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnTaoTK.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnTaoTK.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTaoTK.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaoTK.ForeColor = System.Drawing.Color.White;
             this.btnTaoTK.Location = new System.Drawing.Point(30, 7);
             this.btnTaoTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -172,7 +173,7 @@
             // 
             // txtConfirmMK
             // 
-            this.txtConfirmMK.BackColor = System.Drawing.Color.White;
+            this.txtConfirmMK.BackColor = System.Drawing.Color.Transparent;
             this.txtConfirmMK.BorderRadius = 10;
             this.txtConfirmMK.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtConfirmMK.DefaultText = "";
@@ -194,7 +195,7 @@
             // 
             // txtMK
             // 
-            this.txtMK.BackColor = System.Drawing.Color.White;
+            this.txtMK.BackColor = System.Drawing.Color.Transparent;
             this.txtMK.BorderRadius = 10;
             this.txtMK.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMK.DefaultText = "";
@@ -216,7 +217,7 @@
             // 
             // txtTenDN
             // 
-            this.txtTenDN.BackColor = System.Drawing.Color.White;
+            this.txtTenDN.BackColor = System.Drawing.Color.Transparent;
             this.txtTenDN.BorderRadius = 10;
             this.txtTenDN.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenDN.DefaultText = "";
@@ -242,6 +243,7 @@
             this.cmbKhoa.BorderRadius = 10;
             this.cmbKhoa.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbKhoa.Enabled = false;
             this.cmbKhoa.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbKhoa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cmbKhoa.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -275,7 +277,8 @@
             this.Controls.Add(this.siticoneContainerControl2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTaoTK";
-            this.Text = "frmTaoTK";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tạo tài khoản";
             this.Load += new System.EventHandler(this.frmTaoTK_Load);
             this.siticoneContainerControl1.ResumeLayout(false);
             this.siticoneContainerControl2.ResumeLayout(false);

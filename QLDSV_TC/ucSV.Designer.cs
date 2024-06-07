@@ -36,7 +36,6 @@
             System.Windows.Forms.Label nGAYSINHLabel;
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label dANGHIHOCLabel;
-            System.Windows.Forms.Label pASSWORDLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucSV));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.gcSV = new DevExpress.XtraGrid.GridControl();
@@ -49,14 +48,12 @@
             this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelSV = new DevExpress.XtraEditors.PanelControl();
-            this.txtPass = new DevExpress.XtraEditors.TextEdit();
-            this.ckbNghi = new System.Windows.Forms.CheckBox();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
+            this.ckbNghi = new System.Windows.Forms.CheckBox();
             this.dateNS = new DevExpress.XtraEditors.DateEdit();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
             this.ckbPhai = new System.Windows.Forms.CheckBox();
@@ -72,8 +69,8 @@
             this.btnThem = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.SINHVIENTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.SINHVIENTableAdapter();
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
-            this.DANGKYTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter();
             this.bdsDK = new System.Windows.Forms.BindingSource(this.components);
+            this.DANGKYTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter();
             mASVLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             pHAILabel = new System.Windows.Forms.Label();
@@ -81,7 +78,6 @@
             nGAYSINHLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             dANGHIHOCLabel = new System.Windows.Forms.Label();
-            pASSWORDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcSV)).BeginInit();
@@ -92,7 +88,6 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelSV)).BeginInit();
             this.panelSV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNS.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNS.Properties)).BeginInit();
@@ -109,7 +104,7 @@
             // 
             mASVLabel.AutoSize = true;
             mASVLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mASVLabel.Location = new System.Drawing.Point(104, 50);
+            mASVLabel.Location = new System.Drawing.Point(74, 64);
             mASVLabel.Name = "mASVLabel";
             mASVLabel.Size = new System.Drawing.Size(94, 20);
             mASVLabel.TabIndex = 0;
@@ -119,7 +114,7 @@
             // 
             hOLabel.AutoSize = true;
             hOLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            hOLabel.Location = new System.Drawing.Point(104, 92);
+            hOLabel.Location = new System.Drawing.Point(74, 106);
             hOLabel.Name = "hOLabel";
             hOLabel.Size = new System.Drawing.Size(76, 20);
             hOLabel.TabIndex = 2;
@@ -129,17 +124,17 @@
             // 
             pHAILabel.AutoSize = true;
             pHAILabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            pHAILabel.Location = new System.Drawing.Point(104, 138);
+            pHAILabel.Location = new System.Drawing.Point(74, 152);
             pHAILabel.Name = "pHAILabel";
-            pHAILabel.Size = new System.Drawing.Size(44, 20);
+            pHAILabel.Size = new System.Drawing.Size(32, 20);
             pHAILabel.TabIndex = 6;
-            pHAILabel.Text = "Nam:";
+            pHAILabel.Text = "Nữ:";
             // 
             // dIACHILabel
             // 
             dIACHILabel.AutoSize = true;
             dIACHILabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dIACHILabel.Location = new System.Drawing.Point(104, 180);
+            dIACHILabel.Location = new System.Drawing.Point(74, 194);
             dIACHILabel.Name = "dIACHILabel";
             dIACHILabel.Size = new System.Drawing.Size(58, 20);
             dIACHILabel.TabIndex = 8;
@@ -149,7 +144,7 @@
             // 
             nGAYSINHLabel.AutoSize = true;
             nGAYSINHLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nGAYSINHLabel.Location = new System.Drawing.Point(104, 222);
+            nGAYSINHLabel.Location = new System.Drawing.Point(74, 236);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
             nGAYSINHLabel.Size = new System.Drawing.Size(77, 20);
             nGAYSINHLabel.TabIndex = 10;
@@ -159,7 +154,7 @@
             // 
             mALOPLabel.AutoSize = true;
             mALOPLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mALOPLabel.Location = new System.Drawing.Point(104, 264);
+            mALOPLabel.Location = new System.Drawing.Point(74, 278);
             mALOPLabel.Name = "mALOPLabel";
             mALOPLabel.Size = new System.Drawing.Size(59, 20);
             mALOPLabel.TabIndex = 12;
@@ -169,21 +164,11 @@
             // 
             dANGHIHOCLabel.AutoSize = true;
             dANGHIHOCLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dANGHIHOCLabel.Location = new System.Drawing.Point(104, 306);
+            dANGHIHOCLabel.Location = new System.Drawing.Point(74, 320);
             dANGHIHOCLabel.Name = "dANGHIHOCLabel";
             dANGHIHOCLabel.Size = new System.Drawing.Size(92, 20);
             dANGHIHOCLabel.TabIndex = 14;
             dANGHIHOCLabel.Text = "Đã nghỉ học:";
-            // 
-            // pASSWORDLabel
-            // 
-            pASSWORDLabel.AutoSize = true;
-            pASSWORDLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            pASSWORDLabel.Location = new System.Drawing.Point(104, 348);
-            pASSWORDLabel.Name = "pASSWORDLabel";
-            pASSWORDLabel.Size = new System.Drawing.Size(90, 20);
-            pASSWORDLabel.TabIndex = 16;
-            pASSWORDLabel.Text = "PASSWORD:";
             // 
             // panelControl1
             // 
@@ -192,7 +177,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1513, 585);
+            this.panelControl1.Size = new System.Drawing.Size(2074, 585);
             this.panelControl1.TabIndex = 1;
             // 
             // gcSV
@@ -203,7 +188,7 @@
             this.gcSV.Location = new System.Drawing.Point(2, 2);
             this.gcSV.MainView = this.gridViewSV;
             this.gcSV.Name = "gcSV";
-            this.gcSV.Size = new System.Drawing.Size(948, 581);
+            this.gcSV.Size = new System.Drawing.Size(1509, 581);
             this.gcSV.TabIndex = 0;
             this.gcSV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSV});
@@ -227,7 +212,6 @@
             this.colPHAI,
             this.colDIACHI,
             this.colNGAYSINH,
-            this.colMALOP,
             this.colDANGHIHOC,
             this.colPASSWORD});
             this.gridViewSV.GridControl = this.gcSV;
@@ -291,7 +275,7 @@
             this.colPHAI.AppearanceHeader.Options.UseFont = true;
             this.colPHAI.AppearanceHeader.Options.UseTextOptions = true;
             this.colPHAI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colPHAI.Caption = "NAM";
+            this.colPHAI.Caption = "NỮ";
             this.colPHAI.FieldName = "PHAI";
             this.colPHAI.MinWidth = 25;
             this.colPHAI.Name = "colPHAI";
@@ -334,23 +318,6 @@
             this.colNGAYSINH.VisibleIndex = 5;
             this.colNGAYSINH.Width = 120;
             // 
-            // colMALOP
-            // 
-            this.colMALOP.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMALOP.AppearanceCell.Options.UseFont = true;
-            this.colMALOP.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMALOP.AppearanceHeader.Options.UseFont = true;
-            this.colMALOP.AppearanceHeader.Options.UseTextOptions = true;
-            this.colMALOP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMALOP.Caption = "MÃ LỚP";
-            this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.MinWidth = 25;
-            this.colMALOP.Name = "colMALOP";
-            this.colMALOP.OptionsColumn.ReadOnly = true;
-            this.colMALOP.Visible = true;
-            this.colMALOP.VisibleIndex = 6;
-            this.colMALOP.Width = 120;
-            // 
             // colDANGHIHOC
             // 
             this.colDANGHIHOC.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -365,7 +332,7 @@
             this.colDANGHIHOC.Name = "colDANGHIHOC";
             this.colDANGHIHOC.OptionsColumn.ReadOnly = true;
             this.colDANGHIHOC.Visible = true;
-            this.colDANGHIHOC.VisibleIndex = 7;
+            this.colDANGHIHOC.VisibleIndex = 6;
             this.colDANGHIHOC.Width = 120;
             // 
             // colPASSWORD
@@ -380,8 +347,6 @@
             this.colPASSWORD.MinWidth = 25;
             this.colPASSWORD.Name = "colPASSWORD";
             this.colPASSWORD.OptionsColumn.ReadOnly = true;
-            this.colPASSWORD.Visible = true;
-            this.colPASSWORD.VisibleIndex = 8;
             this.colPASSWORD.Width = 126;
             // 
             // panelControl2
@@ -389,19 +354,17 @@
             this.panelControl2.Controls.Add(this.panelSV);
             this.panelControl2.Controls.Add(this.panelBtn);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl2.Location = new System.Drawing.Point(950, 2);
+            this.panelControl2.Location = new System.Drawing.Point(1511, 2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(561, 581);
             this.panelControl2.TabIndex = 1;
             // 
             // panelSV
             // 
-            this.panelSV.Controls.Add(pASSWORDLabel);
-            this.panelSV.Controls.Add(this.txtPass);
+            this.panelSV.Controls.Add(this.txtMaLop);
             this.panelSV.Controls.Add(dANGHIHOCLabel);
             this.panelSV.Controls.Add(this.ckbNghi);
             this.panelSV.Controls.Add(mALOPLabel);
-            this.panelSV.Controls.Add(this.txtMaLop);
             this.panelSV.Controls.Add(nGAYSINHLabel);
             this.panelSV.Controls.Add(this.dateNS);
             this.panelSV.Controls.Add(dIACHILabel);
@@ -419,41 +382,35 @@
             this.panelSV.Size = new System.Drawing.Size(557, 416);
             this.panelSV.TabIndex = 0;
             // 
-            // txtPass
-            // 
-            this.txtPass.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "PASSWORD", true));
-            this.txtPass.Location = new System.Drawing.Point(237, 345);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.Properties.Appearance.Options.UseFont = true;
-            this.txtPass.Size = new System.Drawing.Size(224, 26);
-            this.txtPass.TabIndex = 17;
-            // 
-            // ckbNghi
-            // 
-            this.ckbNghi.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsSV, "DANGHIHOC", true));
-            this.ckbNghi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbNghi.Location = new System.Drawing.Point(237, 305);
-            this.ckbNghi.Name = "ckbNghi";
-            this.ckbNghi.Size = new System.Drawing.Size(43, 24);
-            this.ckbNghi.TabIndex = 15;
-            this.ckbNghi.UseVisualStyleBackColor = true;
-            // 
             // txtMaLop
             // 
             this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "MALOP", true));
-            this.txtMaLop.Location = new System.Drawing.Point(237, 263);
+            this.txtMaLop.EditValue = "";
+            this.txtMaLop.Enabled = false;
+            this.txtMaLop.Location = new System.Drawing.Point(237, 271);
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Properties.Appearance.Options.UseFont = true;
-            this.txtMaLop.Size = new System.Drawing.Size(224, 26);
-            this.txtMaLop.TabIndex = 13;
+            this.txtMaLop.Size = new System.Drawing.Size(244, 26);
+            this.txtMaLop.TabIndex = 18;
+            // 
+            // ckbNghi
+            // 
+            this.ckbNghi.Checked = true;
+            this.ckbNghi.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbNghi.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsSV, "DANGHIHOC", true));
+            this.ckbNghi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbNghi.Location = new System.Drawing.Point(237, 317);
+            this.ckbNghi.Name = "ckbNghi";
+            this.ckbNghi.Size = new System.Drawing.Size(28, 24);
+            this.ckbNghi.TabIndex = 15;
+            this.ckbNghi.UseVisualStyleBackColor = true;
             // 
             // dateNS
             // 
             this.dateNS.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "NGAYSINH", true));
             this.dateNS.EditValue = null;
-            this.dateNS.Location = new System.Drawing.Point(237, 221);
+            this.dateNS.Location = new System.Drawing.Point(237, 233);
             this.dateNS.Name = "dateNS";
             this.dateNS.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateNS.Properties.Appearance.Options.UseFont = true;
@@ -461,57 +418,59 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNS.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNS.Size = new System.Drawing.Size(224, 26);
+            this.dateNS.Size = new System.Drawing.Size(244, 26);
             this.dateNS.TabIndex = 11;
             // 
             // txtDiaChi
             // 
             this.txtDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "DIACHI", true));
-            this.txtDiaChi.Location = new System.Drawing.Point(237, 179);
+            this.txtDiaChi.Location = new System.Drawing.Point(237, 191);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Properties.Appearance.Options.UseFont = true;
-            this.txtDiaChi.Size = new System.Drawing.Size(224, 26);
+            this.txtDiaChi.Size = new System.Drawing.Size(244, 26);
             this.txtDiaChi.TabIndex = 9;
             // 
             // ckbPhai
             // 
+            this.ckbPhai.Checked = true;
+            this.ckbPhai.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckbPhai.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.bdsSV, "PHAI", true));
             this.ckbPhai.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbPhai.Location = new System.Drawing.Point(237, 135);
+            this.ckbPhai.Location = new System.Drawing.Point(237, 147);
             this.ckbPhai.Name = "ckbPhai";
-            this.ckbPhai.Size = new System.Drawing.Size(43, 24);
+            this.ckbPhai.Size = new System.Drawing.Size(28, 24);
             this.ckbPhai.TabIndex = 7;
             this.ckbPhai.UseVisualStyleBackColor = true;
             // 
             // txtTen
             // 
             this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "TEN", true));
-            this.txtTen.Location = new System.Drawing.Point(393, 89);
+            this.txtTen.Location = new System.Drawing.Point(406, 101);
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Properties.Appearance.Options.UseFont = true;
-            this.txtTen.Size = new System.Drawing.Size(68, 26);
+            this.txtTen.Size = new System.Drawing.Size(75, 26);
             this.txtTen.TabIndex = 5;
             // 
             // txtHo
             // 
             this.txtHo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "HO", true));
-            this.txtHo.Location = new System.Drawing.Point(237, 89);
+            this.txtHo.Location = new System.Drawing.Point(237, 101);
             this.txtHo.Name = "txtHo";
             this.txtHo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHo.Properties.Appearance.Options.UseFont = true;
-            this.txtHo.Size = new System.Drawing.Size(150, 26);
+            this.txtHo.Size = new System.Drawing.Size(163, 26);
             this.txtHo.TabIndex = 3;
             // 
             // txtMaSV
             // 
             this.txtMaSV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "MASV", true));
-            this.txtMaSV.Location = new System.Drawing.Point(237, 47);
+            this.txtMaSV.Location = new System.Drawing.Point(237, 59);
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaSV.Properties.Appearance.Options.UseFont = true;
-            this.txtMaSV.Size = new System.Drawing.Size(224, 26);
+            this.txtMaSV.Size = new System.Drawing.Size(244, 26);
             this.txtMaSV.TabIndex = 1;
             // 
             // panelBtn
@@ -686,7 +645,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CT_DONGHOCPHITableAdapter = null;
-            this.tableAdapterManager.DANGKYTableAdapter = this.DANGKYTableAdapter;
+            this.tableAdapterManager.DANGKYTableAdapter = null;
             this.tableAdapterManager.GIANGVIENTableAdapter = null;
             this.tableAdapterManager.HOCPHITableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = null;
@@ -694,17 +653,16 @@
             this.tableAdapterManager.LOPTINCHITableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = this.SINHVIENTableAdapter;
-            this.tableAdapterManager.SP_DSSV_MALOPTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // bdsDK
+            // 
+            this.bdsDK.DataMember = "FK_DANGKY_SINHVIEN";
+            this.bdsDK.DataSource = this.bdsSV;
             // 
             // DANGKYTableAdapter
             // 
             this.DANGKYTableAdapter.ClearBeforeFill = true;
-            // 
-            // bdsDK
-            // 
-            this.bdsDK.DataMember = "FK_CTLTC_SINHVIEN";
-            this.bdsDK.DataSource = this.bdsSV;
             // 
             // ucSV
             // 
@@ -712,7 +670,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
             this.Name = "ucSV";
-            this.Size = new System.Drawing.Size(1513, 585);
+            this.Size = new System.Drawing.Size(2074, 585);
             this.Load += new System.EventHandler(this.ucSV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -725,7 +683,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelSV)).EndInit();
             this.panelSV.ResumeLayout(false);
             this.panelSV.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNS.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNS.Properties)).EndInit();
@@ -744,7 +701,6 @@
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private QLDSV_TCDataSet QLDSV_TCDataSet;
-        private System.Windows.Forms.BindingSource bdsSV;
         private QLDSV_TCDataSetTableAdapters.SINHVIENTableAdapter SINHVIENTableAdapter;
         private QLDSV_TCDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gcSV;
@@ -756,13 +712,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
         private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
         private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
         private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
         private DevExpress.XtraEditors.PanelControl panelSV;
-        private DevExpress.XtraEditors.TextEdit txtPass;
         private System.Windows.Forms.CheckBox ckbNghi;
-        private DevExpress.XtraEditors.TextEdit txtMaLop;
         private DevExpress.XtraEditors.DateEdit dateNS;
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
         private System.Windows.Forms.CheckBox ckbPhai;
@@ -776,7 +729,9 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnPhucHoi;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnSua;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnThem;
-        private QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter DANGKYTableAdapter;
+        private DevExpress.XtraEditors.TextEdit txtMaLop;
         private System.Windows.Forms.BindingSource bdsDK;
+        private QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter DANGKYTableAdapter;
+        private System.Windows.Forms.BindingSource bdsSV;
     }
 }
