@@ -19,6 +19,7 @@ namespace QLDSV_TC
         {
             InitializeComponent();
             this.malop = malop;
+            txtMaLop.Text = malop;
         }
 
         private void ucSV_Load(object sender, EventArgs e)
@@ -26,17 +27,11 @@ namespace QLDSV_TC
             gridViewSV.ColumnPanelRowHeight = gridViewSV.RowHeight = 25;
             QLDSV_TCDataSet.EnforceConstraints = false;
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
+            this.SINHVIENTableAdapter.FillBy(this.QLDSV_TCDataSet.SINHVIEN,malop);
             this.DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
             this.DANGKYTableAdapter.Fill(this.QLDSV_TCDataSet.DANGKY);
-        }
 
-        private void sINHVIENBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bdsSV.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.QLDSV_TCDataSet);
-
+            btnGhi.Enabled = btnPhucHoi.Enabled = false;
         }
 
         private bool checkDataSinhVien()
@@ -81,7 +76,8 @@ namespace QLDSV_TC
             dateNS.Properties.MaxValue = DateTime.Now.AddYears(-18);
             vitriSV = bdsSV.Position;
             bdsSV.AddNew();
-
+            txtMaLop.Text = this.malop;
+            
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
             gcSV.Enabled = false;
@@ -92,7 +88,9 @@ namespace QLDSV_TC
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            txtMaSV.Enabled = true; //không cho sửa mã sinh viên
+
+            txtMaLop.Enabled = false; // không cho sửa mã lớp
+    
             dateNS.Properties.MaxValue = DateTime.Now.AddYears(-18);
             vitriSV = bdsSV.Position;
             btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnSua.Enabled = false;
@@ -126,7 +124,7 @@ namespace QLDSV_TC
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi xóa sinh viên: " + ex.Message, "", MessageBoxButtons.OK);
-                    this.SINHVIENTableAdapter.Update(this.QLDSV_TCDataSet.SINHVIEN);
+                    this.SINHVIENTableAdapter.FillBy(this.QLDSV_TCDataSet.SINHVIEN, malop);
                     bdsSV.Position = bdsSV.Find("MASV", masv);
                     return;
                 }
@@ -143,7 +141,6 @@ namespace QLDSV_TC
                 {
                     bdsSV.EndEdit();
                     bdsSV.ResetCurrentItem();
-
                     this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                     DataRow row = ((DataRowView)bdsSV[bdsSV.Position]).Row;
                     this.SINHVIENTableAdapter.Update(row);
@@ -191,10 +188,10 @@ namespace QLDSV_TC
         private void btnReload_Click(object sender, EventArgs e)
         {
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
-
+            this.SINHVIENTableAdapter.FillBy(this.QLDSV_TCDataSet.SINHVIEN, malop);
             this.DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
             this.DANGKYTableAdapter.Fill(this.QLDSV_TCDataSet.DANGKY);
         }
+
     }
 }

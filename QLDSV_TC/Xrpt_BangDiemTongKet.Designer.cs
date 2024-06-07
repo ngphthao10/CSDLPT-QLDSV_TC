@@ -206,7 +206,6 @@
             crossTabRowField2});
             this.crossTab.SizeF = new System.Drawing.SizeF(314.1289F, 105.3334F);
             this.crossTab.TotalAreaStyleName = "crossTabTotalStyle";
-            this.crossTab.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.crossTab_BeforePrint);
             // 
             // xrCrossTabCell1
             // 
@@ -358,7 +357,6 @@
             this.crossTabTotalStyle});
             this.Version = "21.2";
             this.VerticalContentSplitting = DevExpress.XtraPrinting.VerticalContentSplitting.Smart;
-            this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.Xrpt_BangDiemTongKet_BeforePrint);
             ((System.ComponentModel.ISupportInitialize)(this.crossTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

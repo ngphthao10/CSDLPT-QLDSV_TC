@@ -95,16 +95,54 @@ namespace QLDSV_TC
             Program.myReader.Close();
             Program.conn.Close();
 
-            this.Hide();
-            //Fxrpt_BangDiemTongKet frm = new Fxrpt_BangDiemTongKet();
-            //frm.ShowDialog();
-            frmLH frm = new frmLH();
-            frm.ShowDialog();
-            //Fxrpt_DanhSachDongHocPhiCuaLop frm = new Fxrpt_DanhSachDongHocPhiCuaLop();
-            //frm.ShowDialog();
-            this.Close();
-            //MessageBox.Show(Program.username +" " + Program.mHoten + " " + Program.mGroup);
-        }
+            Program.frmChinh.lblMaGV.Text = "Mã NV: " + Program.username;
+            Program.frmChinh.lblHoTen.Text = "Họ tên: " + Program.mHoten;
+            Program.frmChinh.lblNhom.Text = "Nhóm: " + Program.mGroup;
+            Program.frmChinh.HienThiMenu();
 
+            if(Program.mGroup == "PGV")
+            {
+                Program.frmChinh.rbQuanLyLTC.Visible = true;
+                Program.frmChinh.rbpQLSV.Visible = true;
+                Program.frmChinh.rbpQLD.Visible = true;
+                Program.frmChinh.rbpQLHP.Visible = false;
+            }
+            else if(Program.mGroup == "Khoa")
+            {
+                Program.frmChinh.rbQuanLyLTC.Visible = true;
+                Program.frmChinh.rbpQLSV.Visible = true;
+                Program.frmChinh.rbpQLD.Visible = true;
+                Program.frmChinh.rbpQLHP.Visible = false;
+            }
+            else if(Program.mGroup == "PKT")
+            {
+                Program.frmChinh.rbQuanLyLTC.Visible = false;
+                Program.frmChinh.rbpQLSV.Visible = false;
+                Program.frmChinh.rbpQLD.Visible = false;
+                Program.frmChinh.rbpQLHP.Visible = true;
+            }
+            else{ //nhom SV
+                Program.frmChinh.rbQuanLyLTC.Visible = true;
+                Program.frmChinh.rbpQLSV.Visible = false;
+                Program.frmChinh.rbpQLD.Visible = false;
+                Program.frmChinh.rbpQLHP.Visible = true;
+            }
+
+            this.Close();
+        }
+        public void loadData()
+        {
+            cmbKhoa.SelectedItem = Program.mGroup;
+
+            Program.mlogin = "";
+            Program.password = "";
+            Program.mloginDN = "";
+            Program.passwordDN = "";
+            Program.myReader = null;
+
+            txtTenDN.Text = null;
+            txtMatKhau.Text = null;
+            txtTenDN.Focus();
+        }
     }   
 }

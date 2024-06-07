@@ -38,7 +38,6 @@ namespace QLDSV_TC
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
         public static frmMain frmChinh;
         public static frmDangNhap frmDangNhap;
-        public static frmLop frmLop;
 
         public static bool KetNoi()
         {
@@ -135,10 +134,9 @@ namespace QLDSV_TC
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             frmChinh = new frmMain();
-            //Application.Run(frmChinh);
-            frmDangNhap = new frmDangNhap ();
-            frmLop = new frmLop();
-            Application.Run(frmDangNhap);
+            Application.Run(frmChinh);
+            //frmDangNhap = new frmDangNhap ();
+            //Application.Run(frmDangNhap);
         }
     }
 }

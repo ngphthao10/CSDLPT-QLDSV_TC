@@ -37,7 +37,6 @@
             this.siticoneHtmlLabel2 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneContainerControl2 = new Siticone.Desktop.UI.WinForms.SiticoneContainerControl();
             this.siticoneContainerControl8 = new Siticone.Desktop.UI.WinForms.SiticoneContainerControl();
-            this.siticoneHtmlLabel1 = new Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel();
             this.siticoneContainerControl7 = new Siticone.Desktop.UI.WinForms.SiticoneContainerControl();
             this.btnDangNhap = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.siticoneContainerControl4 = new Siticone.Desktop.UI.WinForms.SiticoneContainerControl();
@@ -46,7 +45,6 @@
             this.siticoneContainerControl3 = new Siticone.Desktop.UI.WinForms.SiticoneContainerControl();
             this.siticoneContainerControl1.SuspendLayout();
             this.siticoneContainerControl2.SuspendLayout();
-            this.siticoneContainerControl8.SuspendLayout();
             this.siticoneContainerControl7.SuspendLayout();
             this.siticoneContainerControl4.SuspendLayout();
             this.siticoneContainerControl3.SuspendLayout();
@@ -132,7 +130,6 @@
             // 
             // siticoneContainerControl8
             // 
-            this.siticoneContainerControl8.Controls.Add(this.siticoneHtmlLabel1);
             this.siticoneContainerControl8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.siticoneContainerControl8.Location = new System.Drawing.Point(0, 313);
             this.siticoneContainerControl8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -142,20 +139,6 @@
             this.siticoneContainerControl8.Size = new System.Drawing.Size(403, 31);
             this.siticoneContainerControl8.TabIndex = 9;
             this.siticoneContainerControl8.Text = "siticoneContainerControl8";
-            // 
-            // siticoneHtmlLabel1
-            // 
-            this.siticoneHtmlLabel1.AutoSize = false;
-            this.siticoneHtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.siticoneHtmlLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.siticoneHtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.siticoneHtmlLabel1.Location = new System.Drawing.Point(120, 0);
-            this.siticoneHtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.siticoneHtmlLabel1.Name = "siticoneHtmlLabel1";
-            this.siticoneHtmlLabel1.Size = new System.Drawing.Size(163, 41);
-            this.siticoneHtmlLabel1.TabIndex = 6;
-            this.siticoneHtmlLabel1.Text = "Quên mật khẩu?";
-            this.siticoneHtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
             // siticoneContainerControl7
             // 
@@ -171,6 +154,7 @@
             // 
             // btnDangNhap
             // 
+            this.btnDangNhap.BackColor = System.Drawing.Color.Transparent;
             this.btnDangNhap.BorderRadius = 10;
             this.btnDangNhap.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnDangNhap.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -204,6 +188,7 @@
             // 
             // txtMatKhau
             // 
+            this.txtMatKhau.BackColor = System.Drawing.Color.Transparent;
             this.txtMatKhau.BorderRadius = 10;
             this.txtMatKhau.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMatKhau.DefaultText = "";
@@ -227,6 +212,7 @@
             // 
             // txtTenDN
             // 
+            this.txtTenDN.BackColor = System.Drawing.Color.Transparent;
             this.txtTenDN.BorderRadius = 10;
             this.txtTenDN.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenDN.DefaultText = "";
@@ -269,11 +255,10 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDangNhap";
+            this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.siticoneContainerControl1.ResumeLayout(false);
             this.siticoneContainerControl2.ResumeLayout(false);
-            this.siticoneContainerControl8.ResumeLayout(false);
             this.siticoneContainerControl7.ResumeLayout(false);
             this.siticoneContainerControl4.ResumeLayout(false);
             this.siticoneContainerControl3.ResumeLayout(false);
@@ -294,7 +279,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneContainerControl siticoneContainerControl7;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnDangNhap;
         private Siticone.Desktop.UI.WinForms.SiticoneContainerControl siticoneContainerControl8;
-        private Siticone.Desktop.UI.WinForms.SiticoneHtmlLabel siticoneHtmlLabel1;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMatKhau;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtTenDN;
     }

@@ -66,6 +66,7 @@ namespace QLDSV_TC
             }
             catch (Exception ex) { }
         }
+
         private void btnPreview_Click(object sender, EventArgs e)
         {
             if (checkData())
@@ -80,6 +81,5 @@ namespace QLDSV_TC
                 print.ShowPreviewDialog();
             }
         }
-
     }
 }
