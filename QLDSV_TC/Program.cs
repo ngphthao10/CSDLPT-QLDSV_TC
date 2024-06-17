@@ -4,6 +4,8 @@ using DevExpress.Skins;
 using DevExpress.UserSkins;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -15,6 +17,9 @@ namespace QLDSV_TC
     
     internal static class Program
     {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
         public static String connstr_publisher = "Data Source=LAPTOP-CC48TIIO;Initial Catalog=QLDSV_TC;Integrated Security=True";
@@ -38,6 +43,7 @@ namespace QLDSV_TC
         public static string makhoa;
         public static BindingSource bds_dspm = new BindingSource();
         public static formMain formChinh;
+        public static int mPhanManh = 0;
 
         public static int KetNoi()
         {
@@ -54,6 +60,7 @@ namespace QLDSV_TC
                 Program.conn.Open();
                 return 1;
             }
+
             catch (Exception e)
             {
                 MessageBox.Show("Lỗi kết nối cơ sở dữ liệu ." +
@@ -106,6 +113,7 @@ namespace QLDSV_TC
                 MessageBox.Show(e.Message);
                 return null;
             }
+
         }
 
         // Hiệu chỉnh, trả về số row affected
@@ -131,15 +139,14 @@ namespace QLDSV_TC
                 return e.State; // trạng thái lỗi gửi từ RAISERROR trong SQL Server qua
             }
         }
-
-        public static int checkPrimaryKey(String query)
+        public static int CheckPrimaryKey(String query)
         {
-            SqlDataReader reader = Program.ExecSqlDataReader(query);
-            if (reader == null)
+            SqlDataReader dataReader = Program.ExecSqlDataReader(query);
+            if (dataReader == null)
                 return -1;
-            reader.Read();
-            int result = reader.GetInt32(0);
-            reader.Close();
+            dataReader.Read();
+            int result = dataReader.GetInt32(0);
+            dataReader.Close();
             return result;
         }
 

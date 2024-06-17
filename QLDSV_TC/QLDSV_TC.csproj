@@ -74,7 +74,10 @@
     <Reference Include="DevExpress.XtraReports.v21.2.Extensions, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    <Reference Include="Siticone.Desktop.UI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=9683591576b7f0b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Siticone.Desktop.UI.2.1.1\lib\net40\Siticone.Desktop.UI.dll</HintPath>
     </Reference>
+    <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -86,6 +89,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="chuyenTienSangChu.cs" />
+    <Compile Include="DS.cs">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,69 +110,128 @@
       <DependentUpon>formDKLTC.cs</DependentUpon>
     </Compile>
     <Compile Include="formDKLTC_MSSV.cs">
+    <Compile Include="frmLH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formDKLTC_MSSV.Designer.cs">
       <DependentUpon>formDKLTC_MSSV.cs</DependentUpon>
+    <Compile Include="frmLH.Designer.cs">
+      <DependentUpon>frmLH.cs</DependentUpon>
     </Compile>
     <Compile Include="formLopTinChi.cs">
+    <Compile Include="frmTaoTK.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formLopTinChi.Designer.cs">
       <DependentUpon>formLopTinChi.cs</DependentUpon>
+    <Compile Include="frmTaoTK.Designer.cs">
+      <DependentUpon>frmTaoTK.cs</DependentUpon>
     </Compile>
     <Compile Include="Frpt_DSLTCTheoKhoa.cs">
+    <Compile Include="frmTTHP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frpt_DSLTCTheoKhoa.Designer.cs">
       <DependentUpon>Frpt_DSLTCTheoKhoa.cs</DependentUpon>
+    <Compile Include="frmTTHP.Designer.cs">
+      <DependentUpon>frmTTHP.cs</DependentUpon>
     </Compile>
     <Compile Include="Frpt_DSSV_DKLTC.cs">
+    <Compile Include="Fxrpt_BangDiemTongKet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Frpt_DSSV_DKLTC.Designer.cs">
       <DependentUpon>Frpt_DSSV_DKLTC.cs</DependentUpon>
+    <Compile Include="Fxrpt_BangDiemTongKet.Designer.cs">
+      <DependentUpon>Fxrpt_BangDiemTongKet.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="formMain.cs">
+    <Compile Include="Fxrpt_DanhSachDongHocPhiCuaLop.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formMain.Designer.cs">
       <DependentUpon>formMain.cs</DependentUpon>
+    <Compile Include="Fxrpt_DanhSachDongHocPhiCuaLop.Designer.cs">
+      <DependentUpon>Fxrpt_DanhSachDongHocPhiCuaLop.cs</DependentUpon>
     </Compile>
     <Compile Include="formDangNhap.cs">
+    <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formDangNhap.Designer.cs">
       <DependentUpon>formDangNhap.cs</DependentUpon>
+    <Compile Include="frmDangNhap.Designer.cs">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="Xrpt_DSLTCTheoKhoa.cs">
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLDSV_TCDataSet.cs">
+      <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLDSV_TCDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLDSV_TCDataSetSV3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSV_TCDataSetSV3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ucSV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSV.Designer.cs">
+      <DependentUpon>ucSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_BangDiemTongKet.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Xrpt_DSLTCTheoKhoa.Designer.cs">
       <DependentUpon>Xrpt_DSLTCTheoKhoa.cs</DependentUpon>
+    <Compile Include="Xrpt_BangDiemTongKet.Designer.cs">
+      <DependentUpon>Xrpt_BangDiemTongKet.cs</DependentUpon>
     </Compile>
     <Compile Include="Xrpt_DSSV_DKLTC.cs">
+    <Compile Include="Xrpt_DanhSachDongHocPhiCuaLop.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Xrpt_DSSV_DKLTC.Designer.cs">
       <DependentUpon>Xrpt_DSSV_DKLTC.cs</DependentUpon>
+    <Compile Include="Xrpt_DanhSachDongHocPhiCuaLop.Designer.cs">
+      <DependentUpon>Xrpt_DanhSachDongHocPhiCuaLop.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="formDKLTC.resx">
       <DependentUpon>formDKLTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDKLTC_MSSV.resx">
       <DependentUpon>formDKLTC_MSSV.cs</DependentUpon>
+    <EmbeddedResource Include="frmDangNhap.resx">
+      <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLopTinChi.resx">
       <DependentUpon>formLopTinChi.cs</DependentUpon>
+    <EmbeddedResource Include="frmLH.resx">
+      <DependentUpon>frmLH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frpt_DSLTCTheoKhoa.resx">
       <DependentUpon>Frpt_DSLTCTheoKhoa.cs</DependentUpon>
+    <EmbeddedResource Include="frmTaoTK.resx">
+      <DependentUpon>frmTaoTK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTTHP.resx">
+      <DependentUpon>frmTTHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fxrpt_BangDiemTongKet.resx">
+      <DependentUpon>Fxrpt_BangDiemTongKet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frpt_DSSV_DKLTC.resx">
       <DependentUpon>Frpt_DSSV_DKLTC.cs</DependentUpon>
+    <EmbeddedResource Include="Fxrpt_DanhSachDongHocPhiCuaLop.resx">
+      <DependentUpon>Fxrpt_DanhSachDongHocPhiCuaLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -180,12 +246,18 @@
     </Compile>
     <EmbeddedResource Include="formMain.resx">
       <DependentUpon>formMain.cs</DependentUpon>
+    <EmbeddedResource Include="ucSV.resx">
+      <DependentUpon>ucSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formDangNhap.resx">
       <DependentUpon>formDangNhap.cs</DependentUpon>
+    <EmbeddedResource Include="Xrpt_BangDiemTongKet.resx">
+      <DependentUpon>Xrpt_BangDiemTongKet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_DSLTCTheoKhoa.resx">
       <DependentUpon>Xrpt_DSLTCTheoKhoa.cs</DependentUpon>
+    <EmbeddedResource Include="Xrpt_DanhSachDongHocPhiCuaLop.resx">
+      <DependentUpon>Xrpt_DanhSachDongHocPhiCuaLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_DSSV_DKLTC.resx">
       <DependentUpon>Xrpt_DSSV_DKLTC.cs</DependentUpon>
@@ -213,6 +285,7 @@
     <None Include="DS2.xss">
       <DependentUpon>DS2.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -282,6 +355,28 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+    <None Include="QLDSV_TCDataSet.xsc">
+      <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSV_TCDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSV_TCDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSV_TCDataSet.xss">
+      <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSV_TCDataSetSV3.xsc">
+      <DependentUpon>QLDSV_TCDataSetSV3.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSV_TCDataSetSV3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSV_TCDataSetSV3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSV_TCDataSetSV3.xss">
+      <DependentUpon>QLDSV_TCDataSetSV3.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
