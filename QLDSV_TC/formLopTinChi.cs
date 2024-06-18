@@ -215,7 +215,7 @@ namespace QLDSV_TC
                            tfNhom.Text + "\n" +
                            "SELECT @value";
             System.Diagnostics.Debug.WriteLine(query);
-            int result = Program.checkPrimaryKey(query);
+            int result = Program.CheckPrimaryKey(query);
             if (result == -1)
             {
                 MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
