@@ -73,7 +73,7 @@ namespace QLDSV_TC
                     frm.Close();
                 }
 
-                Program.frmChinh.Close();
+                Program.frmMain.Close();
                 Program.bds_dspm.RemoveFilter();
                 frmMain fr = new frmMain();
                 fr.ShowDialog();

@@ -86,8 +86,6 @@ D:\CSDLPT\QLDSV_TC\QLDSV_TC\bin\Debug\ja\DevExpress.Office.v21.2.Core.resources.
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\bin\Debug\ru\DevExpress.Office.v21.2.Core.resources.dll
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.csproj.AssemblyReference.cache
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Properties.Resources.resources
-D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.formMain.resources
-D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.formDangNhap.resources
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.csproj.GenerateResource.cache
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.exe.licenses
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.csproj.CoreCompileInputs.cache
@@ -200,3 +198,14 @@ D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.formDKLTC.resources
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.formDKLTC_MSSV.resources
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Frpt_DSSV_DKLTC.resources
 D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Xrpt_DSSV_DKLTC.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmDangNhap.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmLH.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmTaoTK.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmTTHP.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Fxrpt_BangDiemTongKet.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Fxrpt_DanhSachDongHocPhiCuaLop.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.ucSV.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Xrpt_BangDiemTongKet.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.Xrpt_DanhSachDongHocPhiCuaLop.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\obj\Debug\QLDSV_TC.frmMain.resources
+D:\CSDLPT\QLDSV_TC\QLDSV_TC\bin\Debug\Siticone.Desktop.UI.dll

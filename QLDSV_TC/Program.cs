@@ -37,12 +37,12 @@ namespace QLDSV_TC
         public static String mloginDN = "";
         public static String passwordDN = "";
         public static String mGroup = "";
-        public static String mHoTen = "";
+        public static String mHoten = "";
 
         public static int mKhoa;
         public static string makhoa;
         public static BindingSource bds_dspm = new BindingSource();
-        public static formMain formChinh;
+        public static frmMain frmMain;
         public static int mPhanManh = 0;
 
         public static int KetNoi()
@@ -156,8 +156,8 @@ namespace QLDSV_TC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            formChinh = new formMain();
-            Application.Run(formChinh);
+            frmMain = new frmMain();
+            Application.Run(frmMain);
         }
     }
 }

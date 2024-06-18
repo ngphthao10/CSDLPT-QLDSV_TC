@@ -74,7 +74,7 @@ namespace QLDSV_TC
                 return;
             }
             Program.mlogin = txtTenDN.Text; Program.password = txtMatKhau.Text;
-            if (Program.KetNoi() == false) return;
+            if (Program.KetNoi() == 0) return;
             Program.mPhanManh = cmbKhoa.SelectedIndex;
             Program.mloginDN = Program.mlogin;
             Program.passwordDN = Program.password;
@@ -95,37 +95,37 @@ namespace QLDSV_TC
             Program.myReader.Close();
             Program.conn.Close();
 
-            Program.frmChinh.lblMaGV.Text = "Mã NV: " + Program.username;
-            Program.frmChinh.lblHoTen.Text = "Họ tên: " + Program.mHoten;
-            Program.frmChinh.lblNhom.Text = "Nhóm: " + Program.mGroup;
-            Program.frmChinh.HienThiMenu();
+            Program.frmMain.lblMaGV.Text = "Mã NV: " + Program.username;
+            Program.frmMain.lblHoTen.Text = "Họ tên: " + Program.mHoten;
+            Program.frmMain.lblNhom.Text = "Nhóm: " + Program.mGroup;
+            Program.frmMain.HienThiMenu();
 
             if(Program.mGroup == "PGV")
             {
-                Program.frmChinh.rbQuanLyLTC.Visible = true;
-                Program.frmChinh.rbpQLSV.Visible = true;
-                Program.frmChinh.rbpQLD.Visible = true;
-                Program.frmChinh.rbpQLHP.Visible = false;
+                Program.frmMain.rbQuanLyLTC.Visible = true;
+                Program.frmMain.rbpQLSV.Visible = true;
+                Program.frmMain.rbpQLD.Visible = true;
+                Program.frmMain.rbpQLHP.Visible = false;
             }
             else if(Program.mGroup == "Khoa")
             {
-                Program.frmChinh.rbQuanLyLTC.Visible = true;
-                Program.frmChinh.rbpQLSV.Visible = true;
-                Program.frmChinh.rbpQLD.Visible = true;
-                Program.frmChinh.rbpQLHP.Visible = false;
+                Program.frmMain.rbQuanLyLTC.Visible = true;
+                Program.frmMain.rbpQLSV.Visible = true;
+                Program.frmMain.rbpQLD.Visible = true;
+                Program.frmMain.rbpQLHP.Visible = false;
             }
             else if(Program.mGroup == "PKT")
             {
-                Program.frmChinh.rbQuanLyLTC.Visible = false;
-                Program.frmChinh.rbpQLSV.Visible = false;
-                Program.frmChinh.rbpQLD.Visible = false;
-                Program.frmChinh.rbpQLHP.Visible = true;
+                Program.frmMain.rbQuanLyLTC.Visible = false;
+                Program.frmMain.rbpQLSV.Visible = false;
+                Program.frmMain.rbpQLD.Visible = false;
+                Program.frmMain.rbpQLHP.Visible = true;
             }
             else{ //nhom SV
-                Program.frmChinh.rbQuanLyLTC.Visible = true;
-                Program.frmChinh.rbpQLSV.Visible = false;
-                Program.frmChinh.rbpQLD.Visible = false;
-                Program.frmChinh.rbpQLHP.Visible = true;
+                Program.frmMain.rbQuanLyLTC.Visible = true;
+                Program.frmMain.rbpQLSV.Visible = false;
+                Program.frmMain.rbpQLD.Visible = false;
+                Program.frmMain.rbpQLHP.Visible = true;
             }
 
             this.Close();
