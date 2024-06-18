@@ -22,7 +22,6 @@ namespace QLDSV_TC
             if(conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
             SqlDataAdapter da = new SqlDataAdapter(cmd, conn_publisher);
             da.Fill(dt);
-            conn_publisher.Close();
             Program.bds_dspm.DataSource = dt;
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENPM";

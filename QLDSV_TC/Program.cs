@@ -150,6 +150,14 @@ namespace QLDSV_TC
             return result;
         }
 
+        public static void CloseFrmChinh()
+        {
+            frmChinh.Close();
+
+            frmChinh = new frmMain();
+
+            Application.Run(frmChinh);
+        }
 
         [STAThread]
         static void Main()
