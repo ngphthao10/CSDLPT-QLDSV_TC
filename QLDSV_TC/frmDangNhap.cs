@@ -23,7 +23,7 @@ namespace QLDSV_TC
             SqlDataAdapter da = new SqlDataAdapter(cmd, conn_publisher);
             da.Fill(dt);
             Program.bds_dspm.DataSource = dt;
-            cmbKhoa.DataSource = Program.bds_dspm_filter;
+            cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENPM";
             cmbKhoa.ValueMember = "TENSERVER";
         }

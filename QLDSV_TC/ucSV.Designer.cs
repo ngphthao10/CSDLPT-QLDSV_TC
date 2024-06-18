@@ -37,19 +37,10 @@
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label dANGHIHOCLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucSV));
+            System.Windows.Forms.Label pASSWORDLabel;
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.gcSV = new DevExpress.XtraGrid.GridControl();
             this.bdsSV = new System.Windows.Forms.BindingSource(this.components);
             this.QLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
-            this.gridViewSV = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelSV = new DevExpress.XtraEditors.PanelControl();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
@@ -71,6 +62,18 @@
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
             this.bdsDK = new System.Windows.Forms.BindingSource(this.components);
             this.DANGKYTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter();
+            this.pASSWORDTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.gcSV = new DevExpress.XtraGrid.GridControl();
+            this.gridViewSV = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPHAI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDIACHI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNGAYSINH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMALOP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDANGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
             mASVLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             pHAILabel = new System.Windows.Forms.Label();
@@ -78,12 +81,11 @@
             nGAYSINHLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             dANGHIHOCLabel = new System.Windows.Forms.Label();
+            pASSWORDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcSV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewSV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelSV)).BeginInit();
@@ -98,6 +100,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelBtn)).BeginInit();
             this.panelBtn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASSWORDTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewSV)).BeginInit();
             this.SuspendLayout();
             // 
             // mASVLabel
@@ -177,21 +182,8 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(2074, 585);
+            this.panelControl1.Size = new System.Drawing.Size(2635, 585);
             this.panelControl1.TabIndex = 1;
-            // 
-            // gcSV
-            // 
-            this.gcSV.DataSource = this.bdsSV;
-            this.gcSV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcSV.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gcSV.Location = new System.Drawing.Point(2, 2);
-            this.gcSV.MainView = this.gridViewSV;
-            this.gcSV.Name = "gcSV";
-            this.gcSV.Size = new System.Drawing.Size(1509, 581);
-            this.gcSV.TabIndex = 0;
-            this.gcSV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewSV});
             // 
             // bdsSV
             // 
@@ -203,164 +195,20 @@
             this.QLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
             this.QLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // gridViewSV
-            // 
-            this.gridViewSV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMASV,
-            this.colHO,
-            this.colTEN,
-            this.colPHAI,
-            this.colDIACHI,
-            this.colNGAYSINH,
-            this.colDANGHIHOC,
-            this.colPASSWORD});
-            this.gridViewSV.GridControl = this.gcSV;
-            this.gridViewSV.Name = "gridViewSV";
-            // 
-            // colMASV
-            // 
-            this.colMASV.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMASV.AppearanceCell.Options.UseFont = true;
-            this.colMASV.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMASV.AppearanceHeader.Options.UseFont = true;
-            this.colMASV.AppearanceHeader.Options.UseTextOptions = true;
-            this.colMASV.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMASV.Caption = "MÃ SINH VIÊN";
-            this.colMASV.FieldName = "MASV";
-            this.colMASV.MinWidth = 25;
-            this.colMASV.Name = "colMASV";
-            this.colMASV.OptionsColumn.ReadOnly = true;
-            this.colMASV.Visible = true;
-            this.colMASV.VisibleIndex = 0;
-            this.colMASV.Width = 114;
-            // 
-            // colHO
-            // 
-            this.colHO.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colHO.AppearanceCell.Options.UseFont = true;
-            this.colHO.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colHO.AppearanceHeader.Options.UseFont = true;
-            this.colHO.AppearanceHeader.Options.UseTextOptions = true;
-            this.colHO.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colHO.Caption = "HỌ";
-            this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 25;
-            this.colHO.Name = "colHO";
-            this.colHO.OptionsColumn.ReadOnly = true;
-            this.colHO.Visible = true;
-            this.colHO.VisibleIndex = 1;
-            this.colHO.Width = 127;
-            // 
-            // colTEN
-            // 
-            this.colTEN.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTEN.AppearanceCell.Options.UseFont = true;
-            this.colTEN.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colTEN.AppearanceHeader.Options.UseFont = true;
-            this.colTEN.AppearanceHeader.Options.UseTextOptions = true;
-            this.colTEN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colTEN.Caption = "TÊN";
-            this.colTEN.FieldName = "TEN";
-            this.colTEN.Name = "colTEN";
-            this.colTEN.OptionsColumn.ReadOnly = true;
-            this.colTEN.Visible = true;
-            this.colTEN.VisibleIndex = 2;
-            this.colTEN.Width = 93;
-            // 
-            // colPHAI
-            // 
-            this.colPHAI.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colPHAI.AppearanceCell.Options.UseFont = true;
-            this.colPHAI.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colPHAI.AppearanceHeader.Options.UseFont = true;
-            this.colPHAI.AppearanceHeader.Options.UseTextOptions = true;
-            this.colPHAI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colPHAI.Caption = "NỮ";
-            this.colPHAI.FieldName = "PHAI";
-            this.colPHAI.MinWidth = 25;
-            this.colPHAI.Name = "colPHAI";
-            this.colPHAI.OptionsColumn.ReadOnly = true;
-            this.colPHAI.Visible = true;
-            this.colPHAI.VisibleIndex = 3;
-            this.colPHAI.Width = 88;
-            // 
-            // colDIACHI
-            // 
-            this.colDIACHI.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDIACHI.AppearanceCell.Options.UseFont = true;
-            this.colDIACHI.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDIACHI.AppearanceHeader.Options.UseFont = true;
-            this.colDIACHI.AppearanceHeader.Options.UseTextOptions = true;
-            this.colDIACHI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colDIACHI.Caption = "ĐỊA CHỈ";
-            this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 25;
-            this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.OptionsColumn.ReadOnly = true;
-            this.colDIACHI.Visible = true;
-            this.colDIACHI.VisibleIndex = 4;
-            this.colDIACHI.Width = 120;
-            // 
-            // colNGAYSINH
-            // 
-            this.colNGAYSINH.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colNGAYSINH.AppearanceCell.Options.UseFont = true;
-            this.colNGAYSINH.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colNGAYSINH.AppearanceHeader.Options.UseFont = true;
-            this.colNGAYSINH.AppearanceHeader.Options.UseTextOptions = true;
-            this.colNGAYSINH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colNGAYSINH.Caption = "NGÀY SINH";
-            this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.MinWidth = 25;
-            this.colNGAYSINH.Name = "colNGAYSINH";
-            this.colNGAYSINH.OptionsColumn.ReadOnly = true;
-            this.colNGAYSINH.Visible = true;
-            this.colNGAYSINH.VisibleIndex = 5;
-            this.colNGAYSINH.Width = 120;
-            // 
-            // colDANGHIHOC
-            // 
-            this.colDANGHIHOC.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDANGHIHOC.AppearanceCell.Options.UseFont = true;
-            this.colDANGHIHOC.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colDANGHIHOC.AppearanceHeader.Options.UseFont = true;
-            this.colDANGHIHOC.AppearanceHeader.Options.UseTextOptions = true;
-            this.colDANGHIHOC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colDANGHIHOC.Caption = "ĐÃ NGHỈ HỌC";
-            this.colDANGHIHOC.FieldName = "DANGHIHOC";
-            this.colDANGHIHOC.MinWidth = 25;
-            this.colDANGHIHOC.Name = "colDANGHIHOC";
-            this.colDANGHIHOC.OptionsColumn.ReadOnly = true;
-            this.colDANGHIHOC.Visible = true;
-            this.colDANGHIHOC.VisibleIndex = 6;
-            this.colDANGHIHOC.Width = 120;
-            // 
-            // colPASSWORD
-            // 
-            this.colPASSWORD.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colPASSWORD.AppearanceCell.Options.UseFont = true;
-            this.colPASSWORD.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colPASSWORD.AppearanceHeader.Options.UseFont = true;
-            this.colPASSWORD.AppearanceHeader.Options.UseTextOptions = true;
-            this.colPASSWORD.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colPASSWORD.FieldName = "PASSWORD";
-            this.colPASSWORD.MinWidth = 25;
-            this.colPASSWORD.Name = "colPASSWORD";
-            this.colPASSWORD.OptionsColumn.ReadOnly = true;
-            this.colPASSWORD.Width = 126;
-            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.panelSV);
             this.panelControl2.Controls.Add(this.panelBtn);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelControl2.Location = new System.Drawing.Point(1511, 2);
+            this.panelControl2.Location = new System.Drawing.Point(2072, 2);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(561, 581);
             this.panelControl2.TabIndex = 1;
             // 
             // panelSV
             // 
+            this.panelSV.Controls.Add(pASSWORDLabel);
+            this.panelSV.Controls.Add(this.pASSWORDTextEdit);
             this.panelSV.Controls.Add(this.txtMaLop);
             this.panelSV.Controls.Add(dANGHIHOCLabel);
             this.panelSV.Controls.Add(this.ckbNghi);
@@ -505,7 +353,7 @@
             this.btnXoa.Location = new System.Drawing.Point(384, 40);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(93, 43);
+            this.btnXoa.Size = new System.Drawing.Size(97, 43);
             this.btnXoa.TabIndex = 53;
             this.btnXoa.TabStop = false;
             this.btnXoa.Text = "Xóa";
@@ -605,7 +453,7 @@
             this.btnSua.Location = new System.Drawing.Point(211, 40);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(143, 43);
+            this.btnSua.Size = new System.Drawing.Size(133, 43);
             this.btnSua.TabIndex = 49;
             this.btnSua.TabStop = false;
             this.btnSua.Text = "Hiệu chỉnh";
@@ -630,7 +478,7 @@
             this.btnThem.Location = new System.Drawing.Point(80, 40);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(106, 43);
+            this.btnThem.Size = new System.Drawing.Size(92, 43);
             this.btnThem.TabIndex = 48;
             this.btnThem.TabStop = false;
             this.btnThem.Text = "Thêm";
@@ -664,20 +512,216 @@
             // 
             this.DANGKYTableAdapter.ClearBeforeFill = true;
             // 
+            // pASSWORDLabel
+            // 
+            pASSWORDLabel.AutoSize = true;
+            pASSWORDLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            pASSWORDLabel.Location = new System.Drawing.Point(77, 360);
+            pASSWORDLabel.Name = "pASSWORDLabel";
+            pASSWORDLabel.Size = new System.Drawing.Size(90, 20);
+            pASSWORDLabel.TabIndex = 18;
+            pASSWORDLabel.Text = "PASSWORD:";
+            // 
+            // pASSWORDTextEdit
+            // 
+            this.pASSWORDTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "PASSWORD", true));
+            this.pASSWORDTextEdit.Location = new System.Drawing.Point(237, 357);
+            this.pASSWORDTextEdit.Name = "pASSWORDTextEdit";
+            this.pASSWORDTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pASSWORDTextEdit.Properties.Appearance.Options.UseFont = true;
+            this.pASSWORDTextEdit.Size = new System.Drawing.Size(244, 26);
+            this.pASSWORDTextEdit.TabIndex = 19;
+            // 
+            // gcSV
+            // 
+            this.gcSV.DataSource = this.bdsSV;
+            this.gcSV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcSV.Location = new System.Drawing.Point(2, 2);
+            this.gcSV.MainView = this.gridViewSV;
+            this.gcSV.Name = "gcSV";
+            this.gcSV.Size = new System.Drawing.Size(2070, 581);
+            this.gcSV.TabIndex = 1;
+            this.gcSV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewSV});
+            // 
+            // gridViewSV
+            // 
+            this.gridViewSV.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMASV,
+            this.colHO,
+            this.colTEN,
+            this.colPHAI,
+            this.colDIACHI,
+            this.colNGAYSINH,
+            this.colMALOP,
+            this.colDANGHIHOC,
+            this.colPASSWORD});
+            this.gridViewSV.GridControl = this.gcSV;
+            this.gridViewSV.Name = "gridViewSV";
+            // 
+            // colMASV
+            // 
+            this.colMASV.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMASV.AppearanceCell.Options.UseFont = true;
+            this.colMASV.AppearanceCell.Options.UseTextOptions = true;
+            this.colMASV.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMASV.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMASV.AppearanceHeader.Options.UseFont = true;
+            this.colMASV.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMASV.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMASV.Caption = "MÃ SINH VIÊN";
+            this.colMASV.FieldName = "MASV";
+            this.colMASV.MinWidth = 25;
+            this.colMASV.Name = "colMASV";
+            this.colMASV.Visible = true;
+            this.colMASV.VisibleIndex = 0;
+            this.colMASV.Width = 94;
+            // 
+            // colHO
+            // 
+            this.colHO.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHO.AppearanceCell.Options.UseFont = true;
+            this.colHO.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHO.AppearanceHeader.Options.UseFont = true;
+            this.colHO.AppearanceHeader.Options.UseTextOptions = true;
+            this.colHO.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colHO.Caption = "HỌ ";
+            this.colHO.FieldName = "HO";
+            this.colHO.MinWidth = 25;
+            this.colHO.Name = "colHO";
+            this.colHO.Visible = true;
+            this.colHO.VisibleIndex = 1;
+            this.colHO.Width = 94;
+            // 
+            // colTEN
+            // 
+            this.colTEN.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTEN.AppearanceCell.Options.UseFont = true;
+            this.colTEN.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTEN.AppearanceHeader.Options.UseFont = true;
+            this.colTEN.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTEN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTEN.Caption = "TÊN";
+            this.colTEN.FieldName = "TEN";
+            this.colTEN.MinWidth = 25;
+            this.colTEN.Name = "colTEN";
+            this.colTEN.Visible = true;
+            this.colTEN.VisibleIndex = 2;
+            this.colTEN.Width = 94;
+            // 
+            // colPHAI
+            // 
+            this.colPHAI.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPHAI.AppearanceCell.Options.UseFont = true;
+            this.colPHAI.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPHAI.AppearanceHeader.Options.UseFont = true;
+            this.colPHAI.AppearanceHeader.Options.UseTextOptions = true;
+            this.colPHAI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colPHAI.Caption = "NỮ";
+            this.colPHAI.FieldName = "PHAI";
+            this.colPHAI.MinWidth = 25;
+            this.colPHAI.Name = "colPHAI";
+            this.colPHAI.Visible = true;
+            this.colPHAI.VisibleIndex = 3;
+            this.colPHAI.Width = 94;
+            // 
+            // colDIACHI
+            // 
+            this.colDIACHI.AppearanceCell.Options.UseTextOptions = true;
+            this.colDIACHI.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDIACHI.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDIACHI.AppearanceHeader.Options.UseFont = true;
+            this.colDIACHI.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDIACHI.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDIACHI.Caption = "ĐỊA CHỈ";
+            this.colDIACHI.FieldName = "DIACHI";
+            this.colDIACHI.MinWidth = 25;
+            this.colDIACHI.Name = "colDIACHI";
+            this.colDIACHI.Visible = true;
+            this.colDIACHI.VisibleIndex = 4;
+            this.colDIACHI.Width = 94;
+            // 
+            // colNGAYSINH
+            // 
+            this.colNGAYSINH.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYSINH.AppearanceCell.Options.UseFont = true;
+            this.colNGAYSINH.AppearanceCell.Options.UseTextOptions = true;
+            this.colNGAYSINH.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.colNGAYSINH.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNGAYSINH.AppearanceHeader.Options.UseFont = true;
+            this.colNGAYSINH.AppearanceHeader.Options.UseTextOptions = true;
+            this.colNGAYSINH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colNGAYSINH.Caption = "NGÀY SINH";
+            this.colNGAYSINH.FieldName = "NGAYSINH";
+            this.colNGAYSINH.MinWidth = 25;
+            this.colNGAYSINH.Name = "colNGAYSINH";
+            this.colNGAYSINH.Visible = true;
+            this.colNGAYSINH.VisibleIndex = 5;
+            this.colNGAYSINH.Width = 94;
+            // 
+            // colMALOP
+            // 
+            this.colMALOP.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMALOP.AppearanceCell.Options.UseFont = true;
+            this.colMALOP.AppearanceCell.Options.UseTextOptions = true;
+            this.colMALOP.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMALOP.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMALOP.AppearanceHeader.Options.UseFont = true;
+            this.colMALOP.AppearanceHeader.Options.UseTextOptions = true;
+            this.colMALOP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colMALOP.Caption = "MÃ LỚP";
+            this.colMALOP.FieldName = "MALOP";
+            this.colMALOP.MinWidth = 25;
+            this.colMALOP.Name = "colMALOP";
+            this.colMALOP.Visible = true;
+            this.colMALOP.VisibleIndex = 6;
+            this.colMALOP.Width = 94;
+            // 
+            // colDANGHIHOC
+            // 
+            this.colDANGHIHOC.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDANGHIHOC.AppearanceCell.Options.UseFont = true;
+            this.colDANGHIHOC.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colDANGHIHOC.AppearanceHeader.Options.UseFont = true;
+            this.colDANGHIHOC.AppearanceHeader.Options.UseTextOptions = true;
+            this.colDANGHIHOC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDANGHIHOC.Caption = "ĐÃ NGHỈ HỌC";
+            this.colDANGHIHOC.FieldName = "DANGHIHOC";
+            this.colDANGHIHOC.MinWidth = 25;
+            this.colDANGHIHOC.Name = "colDANGHIHOC";
+            this.colDANGHIHOC.Visible = true;
+            this.colDANGHIHOC.VisibleIndex = 7;
+            this.colDANGHIHOC.Width = 94;
+            // 
+            // colPASSWORD
+            // 
+            this.colPASSWORD.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPASSWORD.AppearanceCell.Options.UseFont = true;
+            this.colPASSWORD.AppearanceCell.Options.UseTextOptions = true;
+            this.colPASSWORD.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.colPASSWORD.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colPASSWORD.AppearanceHeader.Options.UseFont = true;
+            this.colPASSWORD.AppearanceHeader.Options.UseTextOptions = true;
+            this.colPASSWORD.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colPASSWORD.FieldName = "PASSWORD";
+            this.colPASSWORD.MinWidth = 25;
+            this.colPASSWORD.Name = "colPASSWORD";
+            this.colPASSWORD.Visible = true;
+            this.colPASSWORD.VisibleIndex = 8;
+            this.colPASSWORD.Width = 94;
+            // 
             // ucSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
             this.Name = "ucSV";
-            this.Size = new System.Drawing.Size(2074, 585);
+            this.Size = new System.Drawing.Size(2635, 585);
             this.Load += new System.EventHandler(this.ucSV_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcSV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QLDSV_TCDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewSV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelSV)).EndInit();
@@ -693,6 +737,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelBtn)).EndInit();
             this.panelBtn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bdsDK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pASSWORDTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcSV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewSV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -703,17 +750,7 @@
         private QLDSV_TCDataSet QLDSV_TCDataSet;
         private QLDSV_TCDataSetTableAdapters.SINHVIENTableAdapter SINHVIENTableAdapter;
         private QLDSV_TCDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl gcSV;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewSV;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
-        private DevExpress.XtraGrid.Columns.GridColumn colHO;
-        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
-        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
-        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
-        private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
-        private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
         private DevExpress.XtraEditors.PanelControl panelSV;
         private System.Windows.Forms.CheckBox ckbNghi;
         private DevExpress.XtraEditors.DateEdit dateNS;
@@ -733,5 +770,17 @@
         private System.Windows.Forms.BindingSource bdsDK;
         private QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter DANGKYTableAdapter;
         private System.Windows.Forms.BindingSource bdsSV;
+        private DevExpress.XtraEditors.TextEdit pASSWORDTextEdit;
+        private DevExpress.XtraGrid.GridControl gcSV;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewSV;
+        private DevExpress.XtraGrid.Columns.GridColumn colMASV;
+        private DevExpress.XtraGrid.Columns.GridColumn colHO;
+        private DevExpress.XtraGrid.Columns.GridColumn colTEN;
+        private DevExpress.XtraGrid.Columns.GridColumn colPHAI;
+        private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYSINH;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALOP;
+        private DevExpress.XtraGrid.Columns.GridColumn colDANGHIHOC;
+        private DevExpress.XtraGrid.Columns.GridColumn colPASSWORD;
     }
 }
