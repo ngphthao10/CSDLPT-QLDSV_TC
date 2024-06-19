@@ -193,5 +193,11 @@ namespace QLDSV_TC
             this.DANGKYTableAdapter.Fill(this.QLDSV_TCDataSet.DANGKY);
         }
 
+        private void btnChuyenLop_Click(object sender, EventArgs e)
+        {
+            string masv = ((DataRowView)bdsSV[bdsSV.Position])["MASV"].ToString();
+            frmChuyenKhoa frm = new frmChuyenKhoa(masv);
+            frm.ShowDialog();
+        }
     }
 }

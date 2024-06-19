@@ -127,7 +127,7 @@
   <data name="btnThoat.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAZBJREFUaEPtmVtKxDAUhsddKW5ARVBE8UH3IoK78rIUBW8w6IuXNwX9P7BwCIW2
+        DQAACw0B7QfALAAAAZBJREFUaEPtmVtKxDAUhsddKW5ARVBE8UH3IoK78rIUBW8w6IuXNwX9P7BwCIW2
         yckpI/ngg5lCzqU0mUy6aDQao9mV1/JT/lTyQ5JjR7pyIfsS1vRcusCd70sQ4bYs5kb2BY/wShbzLm3Q
         dVmLDWlzvclibECsjXs+94AD3Mku1y0XSrHFY22YuA9/bnGhlOgG3GkNzE1rIJMj+Sqf5D4XcpmjgTX5
         IrucX/JYZmGLxyiW0ubNbsIGwSgOJEXb3FlN2AAYyaFMm/iWp3I0djBGU9yEHYhT4d+V3d94SVOjVqd0
@@ -146,7 +146,7 @@
   <data name="btnPhucHoi.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAdxJREFUSEvtlrdOxTAYRrMDI4guRH8YQKyIN6AOlPdgRMDCRBUslBlGmGAAxFNQ
+        DQAACw0B7QfALAAAAdxJREFUSEvtlrdOxTAYRrMDI4guRH8YQKyIN6AOlPdgRMDCRBUslBlGmGAAxFNQ
         FprgO1asXEVx7CRXwHCPdERsXGLH/v8bNfiP9Mp5eS7v5Wssz9TNyR5ZN7rkuvyU3x6/5J7sk5WYlC+S
         Qd/kjpySI7IplmfqdiVtaPssJ2QpFiUrYKAD2S99DMhDaVe/IAvBSunI9i5RUZBlSX8MXnm3tNtbZlLL
         irTb3kmFjy1pt7cqR5KxNkwpB64M28shcX3TNnktL00pn0HJWIzJTjrhnvKGnN4smPRW0uaKigC4XrSf
@@ -157,6 +157,9 @@
         cE+9V6bBLxNFP66qs/qVoQlOAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="QLDSV_TCDataSetSV3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="bdsHP.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>221, 17</value>
   </metadata>

@@ -113,6 +113,12 @@
     <Compile Include="formDKLTC_MSSV.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmChuyenKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChuyenKhoa.Designer.cs">
+      <DependentUpon>frmChuyenKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLH.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formDKLTC_MSSV.resx">
       <DependentUpon>formDKLTC_MSSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChuyenKhoa.resx">
+      <DependentUpon>frmChuyenKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>

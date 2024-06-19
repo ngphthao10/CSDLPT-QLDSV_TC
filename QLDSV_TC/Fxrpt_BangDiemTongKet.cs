@@ -69,8 +69,6 @@ namespace QLDSV_TC
 
         }
 
-        
-
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView")

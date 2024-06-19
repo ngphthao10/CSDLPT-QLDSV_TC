@@ -22,7 +22,7 @@ namespace QLDSV_TC
         /// </summary>
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
-        public static String connstr_publisher = "Data Source=LAPTOP-CC48TIIO;Initial Catalog=QLDSV_TC;Integrated Security=True";
+        public static String connstr_publisher = "Data Source=(local);Initial Catalog=QLDSV_TC;Integrated Security=True";
 
         public static SqlDataReader myReader;
         public static String servername = "";
@@ -32,7 +32,7 @@ namespace QLDSV_TC
 
         public static String database = "QLDSV_TC";
         public static String remotelogin = "HTKN";
-        public static String remotepassword = "123";
+        public static String remotepassword = "1234";
 
         public static String mloginDN = "";
         public static String passwordDN = "";
@@ -148,15 +148,6 @@ namespace QLDSV_TC
             int result = dataReader.GetInt32(0);
             dataReader.Close();
             return result;
-        }
-
-        public static void CloseFrmChinh()
-        {
-            frmChinh.Close();
-
-            frmChinh = new frmMain();
-
-            Application.Run(frmChinh);
         }
 
         [STAThread]
