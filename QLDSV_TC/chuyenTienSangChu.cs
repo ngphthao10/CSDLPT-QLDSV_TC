@@ -64,7 +64,7 @@ namespace QLDSV_TC
                 }
             }
 
-            return text + " đồng";
+            return text;
         }
     }
 
