@@ -33,15 +33,17 @@
             System.Windows.Forms.Label sOTIENDONGLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTTHP));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.txtHoTen = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.txtMaLop = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
-            this.txtMaSV = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnThoat = new Siticone.Desktop.UI.WinForms.SiticoneCircleButton();
             this.btnGhiHP = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnNopHP = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnTaiHP = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.txtMaLop = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.lblMaLop = new System.Windows.Forms.Label();
+            this.txtHoTen = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.lblHoTen = new System.Windows.Forms.Label();
+            this.txtMaSV = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gcCTHP = new DevExpress.XtraGrid.GridControl();
@@ -69,12 +71,13 @@
             this.colCanDong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SP_GETCTHOCPHITableAdapter = new QLDSV_TC.QLDSV_TCDataSetSV3TableAdapters.SP_GETCTHOCPHITableAdapter();
             this.bdsSV = new System.Windows.Forms.BindingSource(this.components);
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             nGAYDONGLabel = new System.Windows.Forms.Label();
             sOTIENDONGLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCTHP)).BeginInit();
@@ -92,9 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcHP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSV)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
             this.SuspendLayout();
             // 
             // nGAYDONGLabel
@@ -127,67 +127,19 @@
             this.panelControl1.Size = new System.Drawing.Size(1924, 90);
             this.panelControl1.TabIndex = 0;
             // 
-            // txtHoTen
+            // flowLayoutPanel1
             // 
-            this.txtHoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtHoTen.DefaultText = "";
-            this.txtHoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtHoTen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtHoTen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtHoTen.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtHoTen.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTen.Location = new System.Drawing.Point(403, 30);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.PasswordChar = '\0';
-            this.txtHoTen.PlaceholderText = "";
-            this.txtHoTen.ReadOnly = true;
-            this.txtHoTen.SelectedText = "";
-            this.txtHoTen.Size = new System.Drawing.Size(135, 26);
-            this.txtHoTen.TabIndex = 17;
-            // 
-            // txtMaLop
-            // 
-            this.txtMaLop.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMaLop.DefaultText = "";
-            this.txtMaLop.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMaLop.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMaLop.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaLop.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaLop.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtMaLop.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLop.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaLop.Location = new System.Drawing.Point(637, 30);
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.PasswordChar = '\0';
-            this.txtMaLop.PlaceholderText = "";
-            this.txtMaLop.ReadOnly = true;
-            this.txtMaLop.SelectedText = "";
-            this.txtMaLop.Size = new System.Drawing.Size(134, 26);
-            this.txtMaLop.TabIndex = 16;
-            // 
-            // txtMaSV
-            // 
-            this.txtMaSV.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMaSV.DefaultText = "";
-            this.txtMaSV.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtMaSV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtMaSV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaSV.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtMaSV.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtMaSV.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaSV.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaSV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaSV.Location = new System.Drawing.Point(157, 30);
-            this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.PasswordChar = '\0';
-            this.txtMaSV.PlaceholderText = "";
-            this.txtMaSV.SelectedText = "";
-            this.txtMaSV.Size = new System.Drawing.Size(136, 26);
-            this.txtMaSV.TabIndex = 15;
+            this.flowLayoutPanel1.Controls.Add(this.btnThoat);
+            this.flowLayoutPanel1.Controls.Add(this.btnGhiHP);
+            this.flowLayoutPanel1.Controls.Add(this.btnNopHP);
+            this.flowLayoutPanel1.Controls.Add(this.btnTaiHP);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(827, 2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1095, 86);
+            this.flowLayoutPanel1.TabIndex = 18;
             // 
             // btnThoat
             // 
@@ -255,6 +207,43 @@
             this.btnTaiHP.Text = "Thông tin đóng học phí";
             this.btnTaiHP.Click += new System.EventHandler(this.btnTaiHP_Click);
             // 
+            // panelControl4
+            // 
+            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.txtMaLop);
+            this.panelControl4.Controls.Add(this.lblMaLop);
+            this.panelControl4.Controls.Add(this.txtHoTen);
+            this.panelControl4.Controls.Add(this.lblHoTen);
+            this.panelControl4.Controls.Add(this.txtMaSV);
+            this.panelControl4.Controls.Add(this.label1);
+            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl4.Location = new System.Drawing.Point(2, 2);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 30);
+            this.panelControl4.Size = new System.Drawing.Size(825, 86);
+            this.panelControl4.TabIndex = 19;
+            // 
+            // txtMaLop
+            // 
+            this.txtMaLop.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMaLop.DefaultText = "";
+            this.txtMaLop.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMaLop.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMaLop.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaLop.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaLop.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtMaLop.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaLop.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaLop.Location = new System.Drawing.Point(637, 30);
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.PasswordChar = '\0';
+            this.txtMaLop.PlaceholderText = "";
+            this.txtMaLop.ReadOnly = true;
+            this.txtMaLop.SelectedText = "";
+            this.txtMaLop.Size = new System.Drawing.Size(134, 26);
+            this.txtMaLop.TabIndex = 16;
+            // 
             // lblMaLop
             // 
             this.lblMaLop.Dock = System.Windows.Forms.DockStyle.Left;
@@ -267,6 +256,27 @@
             this.lblMaLop.Text = "Mã lớp:";
             this.lblMaLop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtHoTen
+            // 
+            this.txtHoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtHoTen.DefaultText = "";
+            this.txtHoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtHoTen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtHoTen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtHoTen.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtHoTen.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtHoTen.Location = new System.Drawing.Point(403, 30);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.PasswordChar = '\0';
+            this.txtHoTen.PlaceholderText = "";
+            this.txtHoTen.ReadOnly = true;
+            this.txtHoTen.SelectedText = "";
+            this.txtHoTen.Size = new System.Drawing.Size(135, 26);
+            this.txtHoTen.TabIndex = 17;
+            // 
             // lblHoTen
             // 
             this.lblHoTen.Dock = System.Windows.Forms.DockStyle.Left;
@@ -278,6 +288,26 @@
             this.lblHoTen.TabIndex = 6;
             this.lblHoTen.Text = "Họ và tên:";
             this.lblHoTen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtMaSV
+            // 
+            this.txtMaSV.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMaSV.DefaultText = "";
+            this.txtMaSV.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMaSV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMaSV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaSV.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaSV.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtMaSV.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaSV.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaSV.Location = new System.Drawing.Point(157, 30);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.PasswordChar = '\0';
+            this.txtMaSV.PlaceholderText = "";
+            this.txtMaSV.SelectedText = "";
+            this.txtMaSV.Size = new System.Drawing.Size(136, 26);
+            this.txtMaSV.TabIndex = 15;
             // 
             // label1
             // 
@@ -434,6 +464,7 @@
             this.txtSoTien.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtSoTien.Properties.EditFormat.FormatString = "n0";
             this.txtSoTien.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtSoTien.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.txtSoTien.Size = new System.Drawing.Size(181, 30);
             this.txtSoTien.TabIndex = 3;
             // 
@@ -451,6 +482,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgay.Size = new System.Drawing.Size(181, 30);
             this.dateNgay.TabIndex = 1;
+            this.dateNgay.Tag = "";
             // 
             // bdsHP
             // 
@@ -583,7 +615,7 @@
             this.colCanDong.Caption = "SỐ TIỀN CẦN ĐÓNG";
             this.colCanDong.DisplayFormat.FormatString = "n0";
             this.colCanDong.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colCanDong.FieldName = "colCanDong";
+            this.colCanDong.FieldName = "SOTIENCANDONG";
             this.colCanDong.MinWidth = 25;
             this.colCanDong.Name = "colCanDong";
             this.colCanDong.OptionsColumn.ReadOnly = true;
@@ -602,36 +634,6 @@
             this.bdsSV.DataMember = "SINHVIEN";
             this.bdsSV.DataSource = this.QLDSV_TCDataSetSV3;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.btnThoat);
-            this.flowLayoutPanel1.Controls.Add(this.btnGhiHP);
-            this.flowLayoutPanel1.Controls.Add(this.btnNopHP);
-            this.flowLayoutPanel1.Controls.Add(this.btnTaiHP);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(827, 2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1095, 86);
-            this.flowLayoutPanel1.TabIndex = 18;
-            // 
-            // panelControl4
-            // 
-            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl4.Controls.Add(this.txtMaLop);
-            this.panelControl4.Controls.Add(this.lblMaLop);
-            this.panelControl4.Controls.Add(this.txtHoTen);
-            this.panelControl4.Controls.Add(this.lblHoTen);
-            this.panelControl4.Controls.Add(this.txtMaSV);
-            this.panelControl4.Controls.Add(this.label1);
-            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl4.Location = new System.Drawing.Point(2, 2);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Padding = new System.Windows.Forms.Padding(0, 30, 0, 30);
-            this.panelControl4.Size = new System.Drawing.Size(825, 86);
-            this.panelControl4.TabIndex = 19;
-            // 
             // frmTTHP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -647,6 +649,9 @@
             this.Load += new System.EventHandler(this.frmTTHP_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCTHP)).EndInit();
@@ -665,9 +670,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcHP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewHP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSV)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

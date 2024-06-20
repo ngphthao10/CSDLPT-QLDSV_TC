@@ -109,6 +109,7 @@ namespace QLDSV_TC
         private void gridViewHP_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             btnNopHP.Enabled = gcCTHP.Enabled = true;
+            panelCTHP.Enabled = false;
             if (Convert.ToInt32(gridViewHP.GetFocusedDataRow()["HOCPHI"]) == Convert.ToInt32(gridViewHP.GetFocusedDataRow()["DADONG"]))
                 btnNopHP.Enabled = btnGhiHP.Enabled = false;
             else
@@ -119,8 +120,11 @@ namespace QLDSV_TC
         private void btnNopHP_Click(object sender, EventArgs e)
         {
             dateNgay.Properties.MaxValue = DateTime.Now.AddYears(0);
-            btnPhucHoi.Visible = true;
+            btnPhucHoi.Visible = panelCTHP.Enabled = true;
             bdsCTHP.AddNew();
+            dateNgay.EditValue = DateTime.Now.ToString("dd/MM/yyyy");
+            int candong = int.Parse(gridViewHP.GetFocusedDataRow()["HOCPHI"].ToString()) - int.Parse(gridViewHP.GetFocusedDataRow()["DADONG"].ToString());
+            txtSoTien.Text = String.Format("{0:n0}", candong);
             vitriCTHP = bdsCTHP.Count - 1;  
             btnNopHP.Enabled = false;
             btnGhiHP.Enabled = true;
@@ -130,9 +134,8 @@ namespace QLDSV_TC
         {
             if (checkDataInput())
             {
-                int money = int.Parse(gridViewCTHP.GetFocusedDataRow()["SOTIENDONG"].ToString());
-
-
+                //int money = int.Parse(gridViewCTHP.GetFocusedDataRow()["SOTIENDONG"].ToString());
+                int money = int.Parse(txtSoTien.Text.ToString());
                 DialogResult dialog =
                     MessageBox.Show("Bạn cần kiểm tra trước khi thanh toán:" +
                     "\n\nMSSV: " + txtMaSV.Text +

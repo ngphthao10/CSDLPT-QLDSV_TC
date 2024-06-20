@@ -21,10 +21,18 @@ namespace QLDSV_TC
         }
         private void fillComboboxNienKhoa()
         {
-            int currentYear = DateTime.Now.Year;
+            //int currentYear = DateTime.Now.Year;
 
-            for (int i = 2020; i <= currentYear - 1; i++)
-                cmbNienKhoa.Items.Add((i.ToString() + "-" + (i + 1).ToString()));
+            //for (int i = 2020; i <= currentYear - 1; i++)
+            //    cmbNienKhoa.Items.Add((i.ToString() + "-" + (i + 1).ToString()));
+
+            string command = "SELECT DISTINCT NIENKHOA FROM HOCPHI";
+            DataTable data = Program.ExecSqlDataTable(command);
+            BindingSource bdsNK = new BindingSource();
+            bdsNK.DataSource = data;
+            cmbNienKhoa.DataSource = bdsNK;
+            cmbNienKhoa.DisplayMember = "NIENKHOA";
+            cmbNienKhoa.ValueMember = "NIENKHOA";
         }
         private bool checkData()
         {

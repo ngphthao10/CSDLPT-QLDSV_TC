@@ -32,6 +32,7 @@ namespace QLDSV_TC
             this.LOPTableAdapter.Fill(this.QLDSV_TCDataSet.LOP);
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
+
             Program.bds_dspm.Filter = "TENPM not LIKE '%Thông tin đóng học phí%'";
             //makhoa = ((DataRowView)bdsLop[3])["makhoa"].ToString(); //tìm ẩn lổi :)))
             cmbKhoa.DataSource = Program.bds_dspm;

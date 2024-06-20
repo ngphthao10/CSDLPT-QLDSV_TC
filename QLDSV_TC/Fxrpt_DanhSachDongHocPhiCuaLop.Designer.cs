@@ -174,6 +174,7 @@
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.PasswordChar = '\0';
             this.txtMaLop.PlaceholderText = "";
+            this.txtMaLop.ReadOnly = true;
             this.txtMaLop.SelectedText = "";
             this.txtMaLop.Size = new System.Drawing.Size(138, 36);
             this.txtMaLop.TabIndex = 12;
