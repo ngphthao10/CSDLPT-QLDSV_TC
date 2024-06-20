@@ -43,7 +43,7 @@ namespace QLDSV_TC
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedIndex = Program.mPhanManh;
 
-            if (Program.mGroup == "PGV")
+            if (Program.mGroup == "PGV"  || Program.mGroup == "KHOA")
                 cmbKhoa.Enabled = true;
 
             cmbTenLop.SelectedIndex = 0;
@@ -125,7 +125,7 @@ namespace QLDSV_TC
 
             if (Program.KetNoi() == 0)
             {
-                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+                MessageBox.Show("Đã xảy ra lỗi khi kết nối về khoa mới!", "", MessageBoxButtons.OK);
                 return;
             }
             else

@@ -3,6 +3,7 @@ using DevExpress.XtraCharts;
 using DevExpress.XtraGrid.Views.Grid;
 using Siticone.Desktop.UI.WinForms.Enums;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace QLDSV_TC
         private int vitriLop = 0;
         string malop = "";
         private String flag = "";
+        Stack ds_phuchoi = new Stack();
         public frmLH()
         {
             InitializeComponent();
@@ -33,8 +35,8 @@ namespace QLDSV_TC
             this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
 
+
             Program.bds_dspm.Filter = "TENPM not LIKE '%Thông tin đóng học phí%'";
-            //makhoa = ((DataRowView)bdsLop[3])["makhoa"].ToString(); //tìm ẩn lổi :)))
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.DisplayMember = "TENPM";
             cmbKhoa.ValueMember = "TENSERVER";
@@ -43,13 +45,13 @@ namespace QLDSV_TC
             {
                 cmbKhoa.Enabled = true;
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
-                btnGhi.Enabled = false;
+                panelLop.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
             }
             else
             {
                 cmbKhoa.Enabled = false;
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
-                btnGhi.Enabled = false;
+                panelLop.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
             }
 
         }
@@ -78,7 +80,7 @@ namespace QLDSV_TC
             }
             if (Program.KetNoi() == 0)
             {
-                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+                MessageBox.Show("Đã xảy ra lỗi khi kết nối về khoa mới!", "", MessageBoxButtons.OK);
                 return;
             }
             else
@@ -181,7 +183,7 @@ namespace QLDSV_TC
         private void btnSua_ItemClick(object sender, ItemClickEventArgs e)
         {
 
-            txtMaKhoa.Enabled = false; //không cho sửa mã khoa
+            txtMaLop.Enabled = txtMaKhoa.Enabled = false; //không cho sửa mã khoa
             vitriLop = bdsLop.Position;
             panelLop.Enabled = true;
             btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnSua.Enabled = btnThoat.Enabled = false;
@@ -199,6 +201,12 @@ namespace QLDSV_TC
                 MessageBox.Show("Không thể xóa lớp này vì đã có sinh viên trong lớp", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            string query_phuchoi = "INSERT INTO LOP(MALOP, TENLOP, KHOAHOC, MAKHOA) " +
+            " VALUES( '" + txtMaLop.Text.Trim() + "', N'" + txtTenLop.Text.Trim() + "','" +
+                        txtKhoaHoc.Text.Trim() + "', '" + txtMaKhoa.Text.Trim() + "' ) ";
+
+            ds_phuchoi.Push(query_phuchoi);
+
             if (MessageBox.Show("Bạn có thật sự muốn xóa lớp học này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 try
@@ -208,8 +216,9 @@ namespace QLDSV_TC
 
                     this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.LOPTableAdapter.Update(this.QLDSV_TCDataSet.LOP);
-                    btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnSua.Enabled = btnThoat.Enabled = true;
-                    btnGhi.Enabled = btnPhucHoi.Enabled = false;
+                    MessageBox.Show("Xóa lớp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnSua.Enabled = btnThoat.Enabled = btnPhucHoi.Enabled = true;
+                    btnGhi.Enabled  = false;
                 }
                 catch (Exception ex)
                 {
@@ -219,9 +228,13 @@ namespace QLDSV_TC
                     return;
                 }
 
-                //nếu không còn lớp nào thì ẩn nút xóa
-                if (bdsLop.Count == 0) btnXoa.Enabled = false;
             }
+            else
+            {
+                ds_phuchoi.Pop();
+            }
+            //nếu không còn lớp nào thì ẩn nút xóa
+            if (bdsLop.Count == 0) btnXoa.Enabled = false;
         }
 
         private void btnPhucHoi_ItemClick(object sender, ItemClickEventArgs e)
@@ -239,20 +252,41 @@ namespace QLDSV_TC
                     if (btnThem.Enabled == false) { bdsLop.Position = vitriLop; }
                     gcLop.Enabled = true;
                     panelLop.Enabled = false;
-                    btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = btnThoat.Enabled = true;
-                    btnGhi.Enabled = btnPhucHoi.Enabled = false;
+                    btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = btnThoat.Enabled = btnPhucHoi.Enabled = true;
+                    btnGhi.Enabled = false;
                     flag = "";
                     vitriLop = -1;
                 }
             }
+
+            if (ds_phuchoi.Count == 0)
+            {
+                MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
+                btnPhucHoi.Enabled = false;
+                return;
+            }
+
+            bdsLop.CancelEdit();
+            String query_phuchoi = ds_phuchoi.Pop().ToString();
+            Program.ExecSqlNonQuery(query_phuchoi);
+            bdsLop.Position = vitriLop;
+            this.LOPTableAdapter.Fill(this.QLDSV_TCDataSet.LOP);
         }
 
         private void btnReload_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.LOPTableAdapter.Fill(this.QLDSV_TCDataSet.LOP);
-            this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
+            try
+            {
+                this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.LOPTableAdapter.Fill(this.QLDSV_TCDataSet.LOP);
+                this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.SINHVIENTableAdapter.Fill(this.QLDSV_TCDataSet.SINHVIEN);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi Làm mới" + ex.Message, "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
         }
 
         private void btnThoat_ItemClick(object sender, ItemClickEventArgs e)
@@ -273,31 +307,57 @@ namespace QLDSV_TC
 
         private void btnGhi_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (Program.KetNoi() == 0) return;
+            //Lay du lieu truoc khi chon btnGHI
+            String malop = txtMaLop.Text.Trim();
+            DataRowView datarow = ((DataRowView)bdsLop[bdsLop.Position]);
+            String tenlop = datarow["TENLOP"].ToString();
+            String khoahoc = datarow["KHOAHOC"].ToString();
             if (checkDataLop())
             {
-                try
+                DialogResult dialog = MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào cơ sở dữ liệu ?", "Thông báo",
+                      MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if(dialog == DialogResult.OK)
                 {
-                    bdsLop.EndEdit();
-                    bdsLop.ResetCurrentItem();
+                    try
+                    {
+                        String query_phuchoc = "";
+                        /*trước khi ấn btnGHI là btnTHEM*/
+                        if (flag == "THEM")
+                        {
+                            query_phuchoc = "DELETE LOP WHERE MALOP = '" + txtMaLop.Text.Trim() + "'";
+                        }
+                        /*trước khi ấn btnGHI là sửa thông tin*/
+                        else
+                        {
+                            query_phuchoc = "UPDATE LOP SET TENLOP = N'" + tenlop + "'," +
+                                "KHOAHOC = '" + khoahoc + "'" +
+                                "WHERE MALOP = '" + malop + "'";
+                        }
 
-                    this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                    DataRow row = ((DataRowView)bdsLop[bdsLop.Position]).Row;
-                    this.LOPTableAdapter.Update(row);
+                        ds_phuchoi.Push(query_phuchoc);
+                        bdsLop.EndEdit();
+                        bdsLop.ResetCurrentItem();
 
-                    MessageBox.Show("Ghi lớp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                        DataRow row = ((DataRowView)bdsLop[bdsLop.Position]).Row;
+                        this.LOPTableAdapter.Update(row);
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi ghi lớp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                        MessageBox.Show("Ghi lớp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi ghi lớp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
                 flag = "";
                 vitriLop = -1;
                 panelLop.Enabled = gcLop.Enabled = true;
-                btnXoa.Enabled = btnSua.Enabled = btnThem.Enabled = btnReload.Enabled = cmbKhoa.Enabled = true;
-                btnGhi.Enabled = btnPhucHoi.Enabled = false;
+                btnXoa.Enabled = btnSua.Enabled = btnThem.Enabled = btnReload.Enabled = cmbKhoa.Enabled = btnPhucHoi.Enabled = true;
+                btnGhi.Enabled = false;
             }
         } 
 
