@@ -1,9 +1,4 @@
 ﻿using DevExpress.XtraEditors;
-using DevExpress.XtraExport.Helpers;
-using DevExpress.XtraGrid;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraRichEdit.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,23 +13,15 @@ using System.Windows.Forms;
 
 namespace QLDSV_TC
 {
-    public partial class formDKLTC : DevExpress.XtraEditors.XtraForm
+    public partial class formDangKyLTC : DevExpress.XtraEditors.XtraForm
     {
         private String makhoa = "";
         private String maSV = "";
-        private DataTable dtGridViewDK;
         private int chiphi = 500000;
-        public formDKLTC(String maSV)
+        public formDangKyLTC(String maSV)
         {
             InitializeComponent();
             this.maSV = maSV;
-        }
-
-        private void formDKLTC_Load(object sender, EventArgs e)
-        {
-            fillThongTin(maSV);
-            if (changeServer() == false) return;
-            fillComboboxNK();
         }
 
         public void fillThongTin(String maSV)
@@ -44,39 +31,18 @@ namespace QLDSV_TC
             {
                 this.lbHoTen.Text = reader["HO"].ToString().Trim() + " " + reader["TEN"].ToString().Trim();
                 this.lbMSSV.Text = reader["MASV"].ToString().Trim();
-                this.lbLop.Text = reader["MALOP"].ToString().Trim();
+                this.lbMaLop.Text = reader["MALOP"].ToString().Trim();
                 makhoa = reader["MAKHOA"].ToString().Trim();
                 Debug.WriteLine(makhoa);
             }
             reader.Close();
-        }
-
-        public bool changeServer()
-        {
-            if (makhoa == "CNTT")
-            {
-                Program.servername = "LAPTOP-CC48TIIO\\MSSQLSERVER01";
-                Program.mKhoa = 0;
-                Program.mlogin = Program.mloginDN;
-                Program.password = Program.passwordDN;
-            }
-            else if (makhoa == "VT")
-            {
-                Program.servername = "LAPTOP-CC48TIIO\\MSSQLSERVER02";
-                Program.mKhoa = 1;
-                Program.mlogin = Program.remotelogin;
-                Program.password = Program.remotepassword;
-            }
-            else return false;
-
-            if (Program.KetNoi() == 0)
-            {
-                MessageBox.Show("Lỗi kết nối về chi nhánh mới!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
             fillComboboxNK();
             lbKhoa.Text = getTenKhoa();
-            return true;
+        }
+
+        private void formDangKyLTC_Load(object sender, EventArgs e)
+        {
+            fillThongTin(maSV);
         }
 
         private String getMaKhoa()
@@ -116,14 +82,18 @@ namespace QLDSV_TC
 
             makhoa = getMaKhoa();
             loadCheckBox();
+
+            lbHP.Text = String.Format("{0:n0}", getHocPhi()) + " VNĐ";
+            lbSOTC.Text = getTongTC().ToString();
         }
+
         private void loadCheckBox()
         {
             foreach (DataRowView drv in bdsDSLTC)
             {
                 int maltc = Convert.ToInt32(drv["MALTC"]);
 
-                int foundIndex = bdsDSLTC_SVDK.Find("MALTC", maltc);
+                int foundIndex = bdsDSLTC_DK.Find("MALTC", maltc);
                 if (foundIndex != -1)
                     gridViewDSLTC.SelectRow(bdsDSLTC.IndexOf(drv));
             }
@@ -134,11 +104,12 @@ namespace QLDSV_TC
             string nk_hk = getNK_HK_HienTai();
             if ((cmbHK.Text + "_" + cmbNK.SelectedValue.ToString()).Equals(nk_hk) == false)
             {
+                loadCheckBox();
                 MessageBox.Show("Lớp tín chỉ đã quá hạn đăng ký/ hủy đăng ký", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            for (int rowIndex = gridViewDSLTC.RowCount - 1; rowIndex >= 0 ; rowIndex--)
+            for (int rowIndex = gridViewDSLTC.RowCount - 1; rowIndex >= 0; rowIndex--)
             {
                 string mamh = gridViewDSLTC.GetRowCellValue(rowIndex, colMAMH).ToString();
                 if (bdsDSLTC[rowIndex] != null && gridViewDSLTC.IsRowSelected(rowIndex))
@@ -160,7 +131,7 @@ namespace QLDSV_TC
                 {
 
                     // trường hợp vừa mới bấm chọn
-                    if (gridViewDSLTC.IsRowSelected(rowIndex) && bdsDSLTC_SVDK.Find("MALTC", maltc) == -1)
+                    if (gridViewDSLTC.IsRowSelected(rowIndex) && bdsDSLTC_DK.Find("MALTC", maltc) == -1)
                     {
                         int result = Program.ExecSqlNonQuery("EXEC SP_DANGKYLTC "
                             + maltc + ", '" + maSV + "', " + cmbHK.Text + ", '" + cmbNK.SelectedValue.ToString() + "', '"
@@ -169,11 +140,11 @@ namespace QLDSV_TC
                         // update data
                         this.SP_DSLTC_SVDKTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.SP_DSLTC_SVDKTableAdapter.Fill(this.DS.SP_DSLTC_SVDK, maSV, cmbNK.SelectedValue.ToString(), int.Parse(cmbHK.Text));
-                        if (result != 0) return;                
+                        if (result != 0) return;
                     }
 
                     // trường hợp vừa mới bỏ chọn
-                    else if (gridViewDSLTC.IsRowSelected(rowIndex) == false && bdsDSLTC_SVDK.Find("MALTC", maltc) != -1)
+                    else if (gridViewDSLTC.IsRowSelected(rowIndex) == false && bdsDSLTC_DK.Find("MALTC", maltc) != -1)
                     {
                         int result = Program.ExecSqlNonQuery("EXEC SP_HUYDANGKY_LTC "
                         + maltc + ", '" + maSV + "', " + cmbHK.Text + ", '" + cmbNK.SelectedValue.ToString() + "', '"
@@ -187,6 +158,8 @@ namespace QLDSV_TC
                 }
             }
             MessageBox.Show("Bạn đã đăng ký/ hủy đăng ký thành công", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            lbSOTC.Text = getTongTC().ToString();
+            lbHP.Text = String.Format("{0:n0}", getHocPhi()) + " VNĐ"; 
         }
 
         private string getNK_HK_HienTai()
@@ -199,6 +172,38 @@ namespace QLDSV_TC
             }
             reader.Close();
             return result;
+        }
+
+        private int getHocPhi()
+        {
+            int hocphi;
+            string query = "SELECT HOCPHI FROM LINK2.QLDSV_TC.DBO.HOCPHI " +
+                "WHERE MASV = '" + maSV + "' AND NIENKHOA = '" + cmbNK.SelectedValue.ToString() + "' " +
+                "AND HOCKY = " + cmbHK.Text;
+            System.Diagnostics.Debug.Print(query);
+            SqlDataReader reader = Program.ExecSqlDataReader(query);
+            if (reader != null && reader.Read())
+            {
+                hocphi = reader.GetInt32(0);
+                reader.Close();
+            }
+            else hocphi = 0;
+            return hocphi;
+        }
+
+        private int getTongTC()
+        {
+            int tongtc;
+            SqlDataReader reader = Program.ExecSqlDataReader("SELECT TONGTC = SUM(SOTIET_LT + SOTIET_TH)/15 FROM MONHOC WHERE MAMH IN " +
+                "(SELECT MAMH FROM LOPTINCHI WHERE MALTC IN " +
+                "(SELECT MALTC FROM DANGKY WHERE MASV = '" + maSV + "'))");
+            if (reader != null && reader.Read())
+            {
+                tongtc = reader.GetInt32(0);
+                reader.Close();
+            }
+            else tongtc = 0;
+            return tongtc;
         }
     }
 }

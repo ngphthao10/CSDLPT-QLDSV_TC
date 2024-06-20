@@ -94,25 +94,41 @@ namespace QLDSV_TC
         }
         private bool checkDataLop()
         {
-            if (txtMaLop.ToString().Trim() == "")
+            if (txtMaLop.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Mã lớp không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (txtTenLop.ToString().Trim() == "")
+            if (txtTenLop.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Tên lớp không được trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (txtKhoaHoc.ToString().Trim() == "")
+            if (txtKhoaHoc.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Khóa học không được thiếu!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtKhoaHoc.Text.ToString().Trim().Length != 9 && txtKhoaHoc.Text.ToString().Trim().Contains("-")) 
+            {
+                MessageBox.Show("Khóa học không hợp lệ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (int.Parse(txtKhoaHoc.Text.ToString().Trim().Substring(0,4)) < DateTime.Now.Year) 
+            {
+                MessageBox.Show("Không được mở lớp trong quá khứ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (int.Parse(txtKhoaHoc.Text.ToString().Trim().Substring(5,4)) > DateTime.Now.Year + 7)
+            {
+                MessageBox.Show("Khóa học chỉ kéo dài tối đa 7 năm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (flag == "THEM")
             {
                 string query = "DECLARE @return_value INT " +
-                               "EXEC @return_value = [dbo].[SP_CHECKMALOP]  N'" + txtMaLop.Text.Trim() + "' " +
+                               "EXEC @return_value = [dbo].[SP_CHECKLOP]  N'" + txtMaLop.Text.Trim() + "', N'" + txtTenLop.Text.Trim() + "' " +
                                "SELECT @return_value";
 
                 int resultMa = Program.CheckPrimaryKey(query);
@@ -123,42 +139,22 @@ namespace QLDSV_TC
                 }
                 if (resultMa == 1)
                 {
-                    MessageBox.Show("Mã lớp đã tồn tại.\n Mời bạn nhập mã khác !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Mã lớp đã tồn tại.\nVui lòng nhập lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
                 if (resultMa == 2)
                 {
-                    MessageBox.Show("Mã lớp đã tồn tại ở khoa khác.\n Mời bạn nhập lại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Mã lớp đã tồn tại ở khoa khác.\nVui lòng nhập lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-            }
-
-            if (flag == "THEM" || flag == "CHINHSUA")
-            {
-                string query = " DECLARE @return_value INT" +
-
-                               " EXEC @return_value = [dbo].[SP_CHECKTENLOP]" +
-
-                               " N'" + txtMaLop.Text.ToString() + "', " +
-
-                               " N'" + txtTenLop.Text.ToString() + "' " +
-
-                               " SELECT @return_value";
-
-                int resultMa = Program.CheckPrimaryKey(query);
-                if (resultMa == -1)
+                if (resultMa == 3)
                 {
-                    MessageBox.Show("Lỗi kết nối với database.\n Vui long thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tên lớp đã tồn tại.\nVui lòng nhập lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-                if (resultMa == 1)
+                if(resultMa == 4)
                 {
-                    MessageBox.Show("Tên lớp đã tồn tại.\n Mời bạn nhập mã khác !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                if (resultMa == 2)
-                {
-                    MessageBox.Show("Tên lớp đã tồn tại ở khoa khác.\n Mời bạn nhập lại !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Tên lớp đã tồn tại ở khoa khác.\nVui lòng nhập lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }

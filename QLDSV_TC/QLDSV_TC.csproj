@@ -91,9 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="chuyenTienSangChu.cs" />
-    <Compile Include="DS.cs">
-      <DependentUpon>DS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,14 +101,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="formDKLTC.cs">
+    <Compile Include="formDangKyLTC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formDKLTC.Designer.cs">
-      <DependentUpon>formDKLTC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formDKLTC_MSSV.cs">
-      <SubType>Form</SubType>
+    <Compile Include="formDangKyLTC.Designer.cs">
+      <DependentUpon>formDangKyLTC.cs</DependentUpon>
     </Compile>
     <Compile Include="frmChuyenKhoa.cs">
       <SubType>Form</SubType>
@@ -121,9 +115,6 @@
     </Compile>
     <Compile Include="frmLH.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formDKLTC_MSSV.Designer.cs">
-      <DependentUpon>formDKLTC_MSSV.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLH.Designer.cs">
       <DependentUpon>frmLH.cs</DependentUpon>
@@ -229,11 +220,8 @@
     <Compile Include="Xrpt_DanhSachDongHocPhiCuaLop.Designer.cs">
       <DependentUpon>Xrpt_DanhSachDongHocPhiCuaLop.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="formDKLTC.resx">
-      <DependentUpon>formDKLTC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formDKLTC_MSSV.resx">
-      <DependentUpon>formDKLTC_MSSV.cs</DependentUpon>
+    <EmbeddedResource Include="formDangKyLTC.resx">
+      <DependentUpon>formDangKyLTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChuyenKhoa.resx">
       <DependentUpon>frmChuyenKhoa.cs</DependentUpon>
