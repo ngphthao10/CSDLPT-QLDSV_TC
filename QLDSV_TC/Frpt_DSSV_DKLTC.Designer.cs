@@ -150,7 +150,7 @@
             this.cmbNK.FormattingEnabled = true;
             this.cmbNK.Location = new System.Drawing.Point(185, 92);
             this.cmbNK.Name = "cmbNK";
-            this.cmbNK.Size = new System.Drawing.Size(140, 31);
+            this.cmbNK.Size = new System.Drawing.Size(248, 31);
             this.cmbNK.TabIndex = 10;
             // 
             // lkMH

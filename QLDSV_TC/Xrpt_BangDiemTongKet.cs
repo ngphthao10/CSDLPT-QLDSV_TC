@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace QLDSV_TC
 {
@@ -59,6 +60,7 @@ namespace QLDSV_TC
             {
                 CrossTabDataField dataField = new CrossTabDataField { FieldName = columnName, SummaryType = SummaryType.Max };
                 crossTab.DataFields.Add(dataField);
+                Debug.WriteLine(columnName + " ");
             }
 
             crossTab.PrintOptions.PrintTotalsForSingleValues = false;
@@ -66,7 +68,7 @@ namespace QLDSV_TC
 
             foreach (var c in crossTab.ColumnDefinitions)
             {
-                c.AutoWidthMode = DevExpress.XtraReports.UI.AutoSizeMode.GrowOnly;
+                c.AutoWidthMode = DevExpress.XtraReports.UI.AutoSizeMode.ShrinkAndGrow;
             }
         }
 
@@ -94,7 +96,7 @@ namespace QLDSV_TC
 
             // Extract dynamic columns
             List<string> dynamicColumns = GetDynamicColumns(dataTable);
-
+            Debug.WriteLine(dynamicColumns.Count);
             // Configure the existing XRCrossTab control
             ConfigureCrossTab(dataTable, dynamicColumns);
         }

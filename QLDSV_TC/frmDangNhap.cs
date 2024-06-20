@@ -114,7 +114,7 @@ namespace QLDSV_TC
             Program.myReader.Close();
             Program.conn.Close();
 
-            Program.frmMain.lblMaGV.Text = "Mã NV: " + Program.username;
+            Program.frmMain.lblMaGV.Text = "Mã ND: " + Program.username;
             Program.frmMain.lblHoTen.Text = "Họ tên: " + Program.mHoten;
             Program.frmMain.lblNhom.Text = "Nhóm: " + Program.mGroup;
             Program.frmMain.HienThiMenu();
@@ -126,7 +126,7 @@ namespace QLDSV_TC
                 Program.frmMain.rbpQLD.Visible = true;
                 Program.frmMain.rbpQLHP.Visible = false;
             }
-            else if (Program.mGroup == "Khoa")
+            else if (Program.mGroup == "KHOA")
             {
                 Program.frmMain.rbQuanLyLTC.Visible = true;
                 Program.frmMain.rbpQLSV.Visible = true;

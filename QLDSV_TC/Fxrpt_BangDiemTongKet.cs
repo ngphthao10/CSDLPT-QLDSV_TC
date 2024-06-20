@@ -19,13 +19,6 @@ namespace QLDSV_TC
             InitializeComponent();
         }
 
-        private void lOPBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.bdsLop.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.QLDSV_TCDataSet);
-
-        }
         private bool CheckData()
         {
             if (txtMaLop.Text == null)
