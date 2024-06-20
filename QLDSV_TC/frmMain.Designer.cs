@@ -68,6 +68,7 @@
             this.lblMaGV = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblHoTen = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNhom = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btReportDSSV_DKLTC = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel2)).BeginInit();
@@ -96,10 +97,11 @@
             this.btnDongHP,
             this.btnTTDHP,
             this.btnBDTK2,
-            this.btnBDTK});
+            this.btnBDTK,
+            this.btReportDSSV_DKLTC});
             this.ribon.Location = new System.Drawing.Point(0, 0);
             this.ribon.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.ribon.MaxItemId = 23;
+            this.ribon.MaxItemId = 24;
             this.ribon.Name = "ribon";
             this.ribon.OptionsMenuMinWidth = 519;
             this.ribon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -193,8 +195,8 @@
             // 
             this.btnDongHP.Caption = "Đóng học phí";
             this.btnDongHP.Id = 19;
-            this.btnDongHP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.btnDongHP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.btnDongHP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDongHP.ImageOptions.Image")));
+            this.btnDongHP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDongHP.ImageOptions.LargeImage")));
             this.btnDongHP.Name = "btnDongHP";
             this.btnDongHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDongHP_ItemClick);
             // 
@@ -202,8 +204,8 @@
             // 
             this.btnTTDHP.Caption = "Thông tin đóng học phí của lớp";
             this.btnTTDHP.Id = 20;
-            this.btnTTDHP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.btnTTDHP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.btnTTDHP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTTDHP.ImageOptions.Image")));
+            this.btnTTDHP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTTDHP.ImageOptions.LargeImage")));
             this.btnTTDHP.Name = "btnTTDHP";
             this.btnTTDHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTTDHP_ItemClick);
             // 
@@ -211,8 +213,8 @@
             // 
             this.btnBDTK2.Caption = "Bảng điểm tổng kết";
             this.btnBDTK2.Id = 21;
-            this.btnBDTK2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.btnBDTK2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.btnBDTK2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBDTK2.ImageOptions.Image")));
+            this.btnBDTK2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBDTK2.ImageOptions.LargeImage")));
             this.btnBDTK2.Name = "btnBDTK2";
             this.btnBDTK2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBDTK2_ItemClick);
             // 
@@ -220,8 +222,8 @@
             // 
             this.btnBDTK.Caption = "Bảng điểm tổng kết";
             this.btnBDTK.Id = 22;
-            this.btnBDTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
-            this.btnBDTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
+            this.btnBDTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBDTK.ImageOptions.Image")));
+            this.btnBDTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBDTK.ImageOptions.LargeImage")));
             this.btnBDTK.Name = "btnBDTK";
             this.btnBDTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBDTK_ItemClick);
             // 
@@ -258,6 +260,7 @@
             // rbReportLTC
             // 
             this.rbReportLTC.ItemLinks.Add(this.btReportDSLTC);
+            this.rbReportLTC.ItemLinks.Add(this.btReportDSSV_DKLTC);
             this.rbReportLTC.Name = "rbReportLTC";
             this.rbReportLTC.Text = "Report";
             // 
@@ -388,6 +391,30 @@
             this.lblNhom.Size = new System.Drawing.Size(55, 20);
             this.lblNhom.Text = "NHOM";
             // 
+            // btReportDSSV_DKLTC
+            // 
+            this.btReportDSSV_DKLTC.Caption = "Report danh sách sinh viên đăng ký lớp tín chỉ";
+            this.btReportDSSV_DKLTC.Id = 23;
+            this.btReportDSSV_DKLTC.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.btReportDSSV_DKLTC.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemAppearance.Normal.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.Name = "btReportDSSV_DKLTC";
+            this.btReportDSSV_DKLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btReportDSSV_DKLTC_ItemClick);
+            // 
             // frmMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -459,5 +486,6 @@
         public DevExpress.XtraBars.Ribbon.RibbonPage rbpQLD;
         public DevExpress.XtraBars.Ribbon.RibbonPage rbpQLHP;
         private DevExpress.XtraBars.BarButtonItem btDKLTC;
+        private DevExpress.XtraBars.BarButtonItem btReportDSSV_DKLTC;
     }
 }

@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 using static DevExpress.XtraEditors.Mask.MaskSettings;
+using System.Diagnostics;
 
 namespace QLDSV_TC
 {
@@ -100,6 +101,7 @@ namespace QLDSV_TC
             if (Program.conn.State == ConnectionState.Closed)
                 Program.conn.Open();
 
+            Debug.WriteLine(Program.conn.State);
             SqlDataAdapter da = new SqlDataAdapter(cmd, Program.conn);
             try
             {

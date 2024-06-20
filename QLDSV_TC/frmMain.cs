@@ -49,6 +49,7 @@ namespace QLDSV_TC
                 this.btReportDSLTC.Visibility = BarItemVisibility.Never;
                 this.btnDongHP.Visibility = BarItemVisibility.Never;
                 this.btnTTDHP.Visibility = BarItemVisibility.Never;
+                this.btReportDSSV_DKLTC.Visibility = BarItemVisibility.Never;
             }
             
         }
@@ -82,35 +83,35 @@ namespace QLDSV_TC
 
         private void btMoLTC_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //Form form = this.CheckExists(typeof(formLopTinChi));
-            //if (form != null) form.Activate();
-            //else
-            //{
-            //    formLopTinChi f = new formLopTinChi();
-            //    f.Show();
-            //}
+            Form form = this.CheckExists(typeof(formLopTinChi));
+            if (form != null) form.Activate();
+            else
+            {
+                formLopTinChi f = new formLopTinChi();
+                f.Show();
+            }
         }
 
         private void btDKLTC_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //Form form = this.CheckExists(typeof(formDKLTC_MSSV));
-            //if (form != null) form.Activate();
-            //else
-            //{
-            //    formDKLTC_MSSV f = new formDKLTC_MSSV();
-            //    f.Show();
-            //}
+            Form form = this.CheckExists(typeof(formDangKyLTC));
+            if (form != null) form.Activate();
+            else
+            {
+                formDangKyLTC f = new formDangKyLTC(Program.username);
+                f.Show();
+            }
         }
 
         private void btReportDSLTC_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //Form form = this.CheckExists(typeof(Frpt_DSLTCTheoKhoa));
-            //if (form != null) form.Activate();
-            //else
-            //{
-            //    Frpt_DSLTCTheoKhoa f = new Frpt_DSLTCTheoKhoa();
-            //    f.Show();
-            //}
+            Form form = this.CheckExists(typeof(Frpt_DSLTCTheoKhoa));
+            if (form != null) form.Activate();
+            else
+            {
+                Frpt_DSLTCTheoKhoa f = new Frpt_DSLTCTheoKhoa();
+                f.Show();
+            }
         }
 
         private void btnQLLH_ItemClick(object sender, ItemClickEventArgs e)
@@ -177,6 +178,18 @@ namespace QLDSV_TC
             else
             {
                 Fxrpt_DanhSachDongHocPhiCuaLop f = new Fxrpt_DanhSachDongHocPhiCuaLop();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btReportDSSV_DKLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(Frpt_DSSV_DKLTC));
+            if (form != null) form.Activate();
+            else
+            {
+                Frpt_DSSV_DKLTC f = new Frpt_DSSV_DKLTC();
                 f.MdiParent = this;
                 f.Show();
             }

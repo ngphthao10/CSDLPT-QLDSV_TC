@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,10 +17,12 @@ namespace QLDSV_TC
     {
         private SqlConnection conn_publisher = new SqlConnection();
 
+        private String maSV;
+        private String hotenSV;
         private void LayDSPM(String cmd)
         {
             DataTable dt = new DataTable();
-            if(conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
+            if (conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
             SqlDataAdapter da = new SqlDataAdapter(cmd, conn_publisher);
             da.Fill(dt);
             conn_publisher.Close();
@@ -35,8 +38,8 @@ namespace QLDSV_TC
 
         private int KetNoi_CSDLGoc()
         {
-            if(conn_publisher != null && conn_publisher.State == ConnectionState.Open) 
-                conn_publisher.Close() ;
+            if (conn_publisher != null && conn_publisher.State == ConnectionState.Open)
+                conn_publisher.Close();
             try
             {
                 conn_publisher.ConnectionString = Program.connstr_publisher;
@@ -68,12 +71,22 @@ namespace QLDSV_TC
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if(txtTenDN.Text.Trim() == "" || txtMatKhau.Text.Trim() == "")
+            if (txtTenDN.Text.Trim() == "" || txtMatKhau.Text.Trim() == "")
             {
                 MessageBox.Show("Tên đăng nhập và mật khẩu không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Program.mlogin = txtTenDN.Text; Program.password = txtMatKhau.Text;
+
+            if (checkTKSV())
+            {
+                Program.mlogin = "sinhvien";
+                Program.password = "123";
+            }
+            else
+            {
+                Program.mlogin = txtTenDN.Text;
+                Program.password = txtMatKhau.Text;
+            }
             if (Program.KetNoi() == 0) return;
             Program.mPhanManh = cmbKhoa.SelectedIndex;
             Program.mloginDN = Program.mlogin;
@@ -90,7 +103,14 @@ namespace QLDSV_TC
                 MessageBox.Show("Login không có quyền truy cập dữ liệu!\nKiểm tra lại Tên đăng nhập và Password", "", MessageBoxButtons.OK);
                 return;
             }
-            Program.mHoten = Program.myReader.GetString(1);
+            try
+            {
+                Program.mHoten = Program.myReader.GetString(1);
+            } catch (Exception ex)
+            {
+                Program.username = maSV;
+                Program.mHoten = hotenSV;
+            }
             Program.mGroup = Program.myReader.GetString(2);
             Program.myReader.Close();
             Program.conn.Close();
@@ -100,28 +120,28 @@ namespace QLDSV_TC
             Program.frmMain.lblNhom.Text = "Nhóm: " + Program.mGroup;
             Program.frmMain.HienThiMenu();
 
-            if(Program.mGroup == "PGV")
+            if (Program.mGroup == "PGV")
             {
                 Program.frmMain.rbQuanLyLTC.Visible = true;
                 Program.frmMain.rbpQLSV.Visible = true;
                 Program.frmMain.rbpQLD.Visible = true;
                 Program.frmMain.rbpQLHP.Visible = false;
             }
-            else if(Program.mGroup == "Khoa")
+            else if (Program.mGroup == "Khoa")
             {
                 Program.frmMain.rbQuanLyLTC.Visible = true;
                 Program.frmMain.rbpQLSV.Visible = true;
                 Program.frmMain.rbpQLD.Visible = true;
                 Program.frmMain.rbpQLHP.Visible = false;
             }
-            else if(Program.mGroup == "PKT")
+            else if (Program.mGroup == "PKT")
             {
                 Program.frmMain.rbQuanLyLTC.Visible = false;
                 Program.frmMain.rbpQLSV.Visible = false;
                 Program.frmMain.rbpQLD.Visible = false;
                 Program.frmMain.rbpQLHP.Visible = true;
             }
-            else{ //nhom SV
+            else { //nhom SV
                 Program.frmMain.rbQuanLyLTC.Visible = true;
                 Program.frmMain.rbpQLSV.Visible = false;
                 Program.frmMain.rbpQLD.Visible = false;
@@ -144,5 +164,24 @@ namespace QLDSV_TC
             txtMatKhau.Text = null;
             txtTenDN.Focus();
         }
-    }   
+
+        public bool checkTKSV()
+        {
+            if (conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
+            string query = "SELECT MASV, HOTEN = HO + ' ' + TEN FROM SINHVIEN " +
+                "WHERE MASV = '" + txtTenDN.Text + "' AND PASSWORD = '" + txtMatKhau.Text+ "'";
+            Debug.WriteLine(query);
+            using (SqlCommand cmd = new SqlCommand(query, conn_publisher))
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader == null || !reader.Read()) return false;
+                    maSV = reader["MASV"].ToString();
+                    hotenSV = reader["HOTEN"].ToString();
+                }
+            }
+            conn_publisher.Close();
+            return true;
+        }
+    }
 }

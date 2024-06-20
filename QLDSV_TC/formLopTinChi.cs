@@ -20,6 +20,7 @@ namespace QLDSV_TC
         string maKhoa;
         int vitri = -1;
         int maLTC = -1;
+        string flag;
         public formLopTinChi()
         {
             InitializeComponent();
@@ -55,6 +56,12 @@ namespace QLDSV_TC
                 cmbKhoa.Enabled = true;
             else cmbKhoa.Enabled = false;
             Debug.WriteLine(maKhoa);
+
+            // unable nếu bdsLTC không có bản ghi nào
+            if (bdsLTC.Count == 0)
+            {
+                btChinhSua.Enabled = btXoa.Enabled = false;
+            }
         }
 
         private void btThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -68,6 +75,8 @@ namespace QLDSV_TC
             pnThongTin.Enabled = true;   gridControlLTC.Enabled = false;
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = btThoat.Enabled = true;
             btGhi.Enabled = btPhucHoi.Enabled = false;
+
+            flag = "THEM";
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -264,6 +273,8 @@ namespace QLDSV_TC
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = btThoat.Enabled = false;
             btGhi.Enabled = btPhucHoi.Enabled = true;
             pnThongTin.Enabled = true; gridControlLTC.Enabled = false;
+
+            flag = "SUA";
         }
 
         private void btXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -292,6 +303,55 @@ namespace QLDSV_TC
                     return;
                 }
             }
+            if (bdsLTC.Count == 0) btXoa.Enabled = false;
+        }
+
+        private void btPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (flag == "THEM" || flag == "SUA")
+            {
+                DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn làm mới không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialog == DialogResult.No) return;
+                else
+                {
+                    bdsLTC.CancelEdit();
+                    if (btThem.Enabled == false) 
+                        bdsLTC.Position = vitri;
+
+                    btThem.Enabled = btXoa.Enabled = btChinhSua.Enabled = btReload.Enabled = btThoat.Enabled = true;
+                    btGhi.Enabled = btPhucHoi.Enabled = false;
+
+                    gridControlLTC.Enabled = true;
+                    pnThongTin.Enabled = false;
+
+                    flag = "";
+                }
+            }
+        }
+
+        private void btThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (flag != "CHINHSUA" && flag != "THEM")   this.Close();
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn thoát không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialog == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+                else return;
+            }
+        }
+
+        private void btReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.LOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
+            this.LOPTINCHITableAdapter.Fill(this.DS.LOPTINCHI);
+            this.DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.DANGKYTableAdapter.Fill(this.DS.DANGKY);
+
+            if (bdsLTC.Count == 0)
+                btChinhSua.Enabled = btXoa.Enabled = false;
         }
     }
 }

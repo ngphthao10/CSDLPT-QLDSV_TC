@@ -36,6 +36,7 @@
             System.Windows.Forms.Label mAMHLabel;
             System.Windows.Forms.Label hOCKYLabel;
             System.Windows.Forms.Label nIENKHOALabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLopTinChi));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btThem = new DevExpress.XtraBars.BarButtonItem();
@@ -212,45 +213,48 @@
             this.bar2.DockRow = 1;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btThem, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btChinhSua),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btXoa),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btGhi),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btPhucHoi),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btReload),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btThoat)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btThem, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btChinhSua, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btGhi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btPhucHoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.Text = "Tools";
             // 
             // btThem
             // 
-            this.btThem.Caption = "THÊM";
+            this.btThem.Caption = "Thêm";
             this.btThem.Id = 0;
-            this.btThem.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.icons8_add_48;
-            this.btThem.ItemAppearance.Disabled.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btThem.ImageOptions.Image")));
+            this.btThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btThem.ImageOptions.LargeImage")));
+            this.btThem.ImageToTextAlignment = DevExpress.XtraBars.BarItemImageToTextAlignment.AfterText;
+            this.btThem.ItemAppearance.Disabled.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btThem.ItemAppearance.Hovered.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ItemAppearance.Hovered.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ItemAppearance.Hovered.Options.UseFont = true;
-            this.btThem.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ItemAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ItemAppearance.Normal.Options.UseFont = true;
-            this.btThem.ItemAppearance.Pressed.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ItemAppearance.Pressed.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ItemAppearance.Pressed.Options.UseFont = true;
-            this.btThem.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.btThem.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.btThem.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.btThem.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btThem.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btThem.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.btThem.Name = "btThem";
-            this.btThem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.Caption;
+            this.btThem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btThem_ItemClick);
             // 
             // btChinhSua
             // 
             this.btChinhSua.Caption = "Sửa";
             this.btChinhSua.Id = 1;
-            this.btChinhSua.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.icons8_edit_48;
+            this.btChinhSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btChinhSua.ImageOptions.Image")));
+            this.btChinhSua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btChinhSua.ImageOptions.LargeImage")));
             this.btChinhSua.Name = "btChinhSua";
             this.btChinhSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btChinhSua_ItemClick);
             // 
@@ -258,7 +262,7 @@
             // 
             this.btXoa.Caption = "Xóa";
             this.btXoa.Id = 2;
-            this.btXoa.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.icons8_delete_48;
+            this.btXoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btXoa.ImageOptions.SvgImage")));
             this.btXoa.Name = "btXoa";
             this.btXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btXoa_ItemClick);
             // 
@@ -266,7 +270,7 @@
             // 
             this.btGhi.Caption = "Ghi";
             this.btGhi.Id = 3;
-            this.btGhi.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.icons8_save_48;
+            this.btGhi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btGhi.ImageOptions.SvgImage")));
             this.btGhi.Name = "btGhi";
             this.btGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btGhi_ItemClick);
             // 
@@ -274,22 +278,26 @@
             // 
             this.btPhucHoi.Caption = "Phục Hồi";
             this.btPhucHoi.Id = 4;
-            this.btPhucHoi.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.icons8_undo_48;
+            this.btPhucHoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btPhucHoi.ImageOptions.SvgImage")));
             this.btPhucHoi.Name = "btPhucHoi";
+            this.btPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btPhucHoi_ItemClick);
             // 
             // btReload
             // 
             this.btReload.Caption = "Reload";
             this.btReload.Id = 5;
-            this.btReload.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.icons8_reload_48;
+            this.btReload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btReload.ImageOptions.SvgImage")));
             this.btReload.Name = "btReload";
+            this.btReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btReload_ItemClick);
             // 
             // btThoat
             // 
             this.btThoat.Caption = "Thoát";
             this.btThoat.Id = 6;
-            this.btThoat.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.icons8_exit_481;
+            this.btThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btThoat.ImageOptions.Image")));
+            this.btThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btThoat.ImageOptions.LargeImage")));
             this.btThoat.Name = "btThoat";
+            this.btThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btThoat_ItemClick);
             // 
             // bar3
             // 
@@ -315,11 +323,13 @@
             // 
             // barDockControlTop
             // 
+            this.barDockControlTop.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.barDockControlTop.Appearance.Options.UseFont = true;
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1940, 91);
+            this.barDockControlTop.Size = new System.Drawing.Size(1940, 51);
             // 
             // barDockControlBottom
             // 
@@ -333,17 +343,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 91);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 739);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 779);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1940, 91);
+            this.barDockControlRight.Location = new System.Drawing.Point(1940, 51);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 739);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 779);
             // 
             // bdsLTC
             // 
@@ -405,14 +415,14 @@
             this.gridControlLTC.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridControlLTC.EmbeddedNavigator.Appearance.Options.UseFont = true;
             this.gridControlLTC.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridControlLTC.Location = new System.Drawing.Point(0, 211);
+            this.gridControlLTC.Location = new System.Drawing.Point(0, 171);
             this.gridControlLTC.MainView = this.gridViewLTC;
             this.gridControlLTC.MenuManager = this.barManager1;
             this.gridControlLTC.Name = "gridControlLTC";
             this.gridControlLTC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lkMH,
             this.lkGV});
-            this.gridControlLTC.Size = new System.Drawing.Size(1341, 619);
+            this.gridControlLTC.Size = new System.Drawing.Size(1341, 659);
             this.gridControlLTC.TabIndex = 9;
             this.gridControlLTC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLTC});
@@ -437,11 +447,11 @@
             // 
             // colMALTC
             // 
-            this.colMALTC.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMALTC.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colMALTC.AppearanceCell.Options.UseFont = true;
             this.colMALTC.AppearanceCell.Options.UseTextOptions = true;
             this.colMALTC.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMALTC.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMALTC.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colMALTC.AppearanceHeader.Options.UseFont = true;
             this.colMALTC.AppearanceHeader.Options.UseTextOptions = true;
             this.colMALTC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -457,11 +467,11 @@
             // 
             // colNIENKHOA
             // 
-            this.colNIENKHOA.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNIENKHOA.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colNIENKHOA.AppearanceCell.Options.UseFont = true;
             this.colNIENKHOA.AppearanceCell.Options.UseTextOptions = true;
             this.colNIENKHOA.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colNIENKHOA.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNIENKHOA.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colNIENKHOA.AppearanceHeader.Options.UseFont = true;
             this.colNIENKHOA.AppearanceHeader.Options.UseTextOptions = true;
             this.colNIENKHOA.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -477,11 +487,11 @@
             // 
             // colHOCKY
             // 
-            this.colHOCKY.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHOCKY.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colHOCKY.AppearanceCell.Options.UseFont = true;
             this.colHOCKY.AppearanceCell.Options.UseTextOptions = true;
             this.colHOCKY.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colHOCKY.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHOCKY.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colHOCKY.AppearanceHeader.Options.UseFont = true;
             this.colHOCKY.AppearanceHeader.Options.UseTextOptions = true;
             this.colHOCKY.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -497,11 +507,11 @@
             // 
             // colMAMH
             // 
-            this.colMAMH.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAMH.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colMAMH.AppearanceCell.Options.UseFont = true;
             this.colMAMH.AppearanceCell.Options.UseTextOptions = true;
             this.colMAMH.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMAMH.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAMH.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colMAMH.AppearanceHeader.Options.UseFont = true;
             this.colMAMH.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAMH.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -527,11 +537,11 @@
             // 
             // colNHOM
             // 
-            this.colNHOM.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNHOM.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colNHOM.AppearanceCell.Options.UseFont = true;
             this.colNHOM.AppearanceCell.Options.UseTextOptions = true;
             this.colNHOM.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colNHOM.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colNHOM.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colNHOM.AppearanceHeader.Options.UseFont = true;
             this.colNHOM.AppearanceHeader.Options.UseTextOptions = true;
             this.colNHOM.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -547,11 +557,11 @@
             // 
             // colMAGV
             // 
-            this.colMAGV.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAGV.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colMAGV.AppearanceCell.Options.UseFont = true;
             this.colMAGV.AppearanceCell.Options.UseTextOptions = true;
             this.colMAGV.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMAGV.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAGV.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colMAGV.AppearanceHeader.Options.UseFont = true;
             this.colMAGV.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAGV.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -578,11 +588,11 @@
             // 
             // colMAKHOA
             // 
-            this.colMAKHOA.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAKHOA.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colMAKHOA.AppearanceCell.Options.UseFont = true;
             this.colMAKHOA.AppearanceCell.Options.UseTextOptions = true;
             this.colMAKHOA.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colMAKHOA.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMAKHOA.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colMAKHOA.AppearanceHeader.Options.UseFont = true;
             this.colMAKHOA.AppearanceHeader.Options.UseTextOptions = true;
             this.colMAKHOA.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -598,11 +608,11 @@
             // 
             // colSOSVTOITHIEU
             // 
-            this.colSOSVTOITHIEU.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSOSVTOITHIEU.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colSOSVTOITHIEU.AppearanceCell.Options.UseFont = true;
             this.colSOSVTOITHIEU.AppearanceCell.Options.UseTextOptions = true;
             this.colSOSVTOITHIEU.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colSOSVTOITHIEU.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colSOSVTOITHIEU.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colSOSVTOITHIEU.AppearanceHeader.Options.UseFont = true;
             this.colSOSVTOITHIEU.AppearanceHeader.Options.UseTextOptions = true;
             this.colSOSVTOITHIEU.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -618,11 +628,11 @@
             // 
             // colHUYLOP
             // 
-            this.colHUYLOP.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHUYLOP.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colHUYLOP.AppearanceCell.Options.UseFont = true;
             this.colHUYLOP.AppearanceCell.Options.UseTextOptions = true;
             this.colHUYLOP.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colHUYLOP.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colHUYLOP.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.colHUYLOP.AppearanceHeader.Options.UseFont = true;
             this.colHUYLOP.AppearanceHeader.Options.UseTextOptions = true;
             this.colHUYLOP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -654,9 +664,9 @@
             this.pnThongTin.Controls.Add(this.cmbNK);
             this.pnThongTin.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnThongTin.Enabled = false;
-            this.pnThongTin.Location = new System.Drawing.Point(1341, 91);
+            this.pnThongTin.Location = new System.Drawing.Point(1341, 51);
             this.pnThongTin.Name = "pnThongTin";
-            this.pnThongTin.Size = new System.Drawing.Size(599, 739);
+            this.pnThongTin.Size = new System.Drawing.Size(599, 779);
             this.pnThongTin.TabIndex = 29;
             // 
             // cmbMH
@@ -747,7 +757,7 @@
             this.panelControl1.Controls.Add(this.cmbKhoa);
             this.panelControl1.Controls.Add(this.label);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 91);
+            this.panelControl1.Location = new System.Drawing.Point(0, 51);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1341, 120);
             this.panelControl1.TabIndex = 31;
