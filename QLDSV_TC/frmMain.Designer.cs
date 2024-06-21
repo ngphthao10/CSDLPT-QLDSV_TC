@@ -43,11 +43,12 @@
             this.btnTTDHP = new DevExpress.XtraBars.BarButtonItem();
             this.btnBDTK2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnBDTK = new DevExpress.XtraBars.BarButtonItem();
+            this.btReportDSSV_DKLTC = new DevExpress.XtraBars.BarButtonItem();
             this.rbHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbQuanLyLTC = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rbReportLTC = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbSub_formLTC = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbSub_ReportLTC = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpQLSV = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -68,7 +69,6 @@
             this.lblMaGV = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblHoTen = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNhom = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btReportDSSV_DKLTC = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHypertextLabel2)).BeginInit();
@@ -81,7 +81,7 @@
             // 
             // ribon
             // 
-            this.ribon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(47, 41, 47, 41);
+            this.ribon.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(59, 51, 59, 51);
             this.ribon.ExpandCollapseItem.Id = 0;
             this.ribon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribon.ExpandCollapseItem,
@@ -100,10 +100,10 @@
             this.btnBDTK,
             this.btReportDSSV_DKLTC});
             this.ribon.Location = new System.Drawing.Point(0, 0);
-            this.ribon.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.ribon.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.ribon.MaxItemId = 24;
             this.ribon.Name = "ribon";
-            this.ribon.OptionsMenuMinWidth = 519;
+            this.ribon.OptionsMenuMinWidth = 649;
             this.ribon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbHeThong,
             this.rbQuanLyLTC,
@@ -144,6 +144,7 @@
             this.btDangXuat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btDangXuat.ImageOptions.Image")));
             this.btDangXuat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btDangXuat.ImageOptions.LargeImage")));
             this.btDangXuat.Name = "btDangXuat";
+            this.btDangXuat.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btDangXuat_ItemClick);
             // 
             // btMoLTC
@@ -227,6 +228,30 @@
             this.btnBDTK.Name = "btnBDTK";
             this.btnBDTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBDTK_ItemClick);
             // 
+            // btReportDSSV_DKLTC
+            // 
+            this.btReportDSSV_DKLTC.Caption = "Report danh sách sinh viên đăng ký lớp tín chỉ";
+            this.btReportDSSV_DKLTC.Id = 23;
+            this.btReportDSSV_DKLTC.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btReportDSSV_DKLTC.ImageOptions.SvgImage")));
+            this.btReportDSSV_DKLTC.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemAppearance.Disabled.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemAppearance.Hovered.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemAppearance.Normal.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemAppearance.Pressed.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Disabled.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Hovered.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Normal.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Pressed.Options.UseFont = true;
+            this.btReportDSSV_DKLTC.Name = "btReportDSSV_DKLTC";
+            this.btReportDSSV_DKLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btReportDSSV_DKLTC_ItemClick);
+            // 
             // rbHeThong
             // 
             this.rbHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -244,25 +269,25 @@
             // rbQuanLyLTC
             // 
             this.rbQuanLyLTC.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2,
-            this.rbReportLTC});
+            this.rbSub_formLTC,
+            this.rbSub_ReportLTC});
             this.rbQuanLyLTC.Name = "rbQuanLyLTC";
             this.rbQuanLyLTC.Text = "Quản lý lớp tín chỉ";
             this.rbQuanLyLTC.Visible = false;
             // 
-            // ribbonPageGroup2
+            // rbSub_formLTC
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btMoLTC);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btDKLTC);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Form";
+            this.rbSub_formLTC.ItemLinks.Add(this.btMoLTC);
+            this.rbSub_formLTC.ItemLinks.Add(this.btDKLTC);
+            this.rbSub_formLTC.Name = "rbSub_formLTC";
+            this.rbSub_formLTC.Text = "Form";
             // 
-            // rbReportLTC
+            // rbSub_ReportLTC
             // 
-            this.rbReportLTC.ItemLinks.Add(this.btReportDSLTC);
-            this.rbReportLTC.ItemLinks.Add(this.btReportDSSV_DKLTC);
-            this.rbReportLTC.Name = "rbReportLTC";
-            this.rbReportLTC.Text = "Report";
+            this.rbSub_ReportLTC.ItemLinks.Add(this.btReportDSLTC);
+            this.rbSub_ReportLTC.ItemLinks.Add(this.btReportDSSV_DKLTC);
+            this.rbSub_ReportLTC.Name = "rbSub_ReportLTC";
+            this.rbSub_ReportLTC.Text = "Report";
             // 
             // rbpQLSV
             // 
@@ -350,7 +375,7 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 976);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1886, 30);
@@ -391,30 +416,6 @@
             this.lblNhom.Size = new System.Drawing.Size(55, 20);
             this.lblNhom.Text = "NHOM";
             // 
-            // btReportDSSV_DKLTC
-            // 
-            this.btReportDSSV_DKLTC.Caption = "Report danh sách sinh viên đăng ký lớp tín chỉ";
-            this.btReportDSSV_DKLTC.Id = 23;
-            this.btReportDSSV_DKLTC.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.btReportDSSV_DKLTC.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btReportDSSV_DKLTC.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btReportDSSV_DKLTC.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btReportDSSV_DKLTC.ItemAppearance.Hovered.Options.UseFont = true;
-            this.btReportDSSV_DKLTC.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btReportDSSV_DKLTC.ItemAppearance.Normal.Options.UseFont = true;
-            this.btReportDSSV_DKLTC.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btReportDSSV_DKLTC.ItemAppearance.Pressed.Options.UseFont = true;
-            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Disabled.Options.UseFont = true;
-            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Hovered.Options.UseFont = true;
-            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Normal.Options.UseFont = true;
-            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btReportDSSV_DKLTC.ItemInMenuAppearance.Pressed.Options.UseFont = true;
-            this.btReportDSSV_DKLTC.Name = "btReportDSSV_DKLTC";
-            this.btReportDSSV_DKLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btReportDSSV_DKLTC_ItemClick);
-            // 
             // frmMain
             // 
             this.Appearance.Options.UseFont = true;
@@ -451,9 +452,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonControl ribon;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarButtonItem btDangNhap;
         private DevExpress.XtraBars.BarButtonItem btTaoTK;
-        private DevExpress.XtraBars.BarButtonItem btDangXuat;
         private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel1;
         private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel2;
         private DevExpress.XtraEditors.Repository.RepositoryItemHypertextLabel repositoryItemHypertextLabel3;
@@ -465,11 +464,11 @@
         public System.Windows.Forms.ToolStripStatusLabel lblHoTen;
         public System.Windows.Forms.ToolStripStatusLabel lblNhom;
         private DevExpress.XtraBars.BarButtonItem btMoLTC;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbSub_formLTC;
         public DevExpress.XtraBars.Ribbon.RibbonPage rbHeThong;
         public DevExpress.XtraBars.Ribbon.RibbonPage rbQuanLyLTC;
         private DevExpress.XtraBars.BarButtonItem btReportDSLTC;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbReportLTC;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rbSub_ReportLTC;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
@@ -487,5 +486,7 @@
         public DevExpress.XtraBars.Ribbon.RibbonPage rbpQLHP;
         private DevExpress.XtraBars.BarButtonItem btDKLTC;
         private DevExpress.XtraBars.BarButtonItem btReportDSSV_DKLTC;
+        public DevExpress.XtraBars.BarButtonItem btDangXuat;
+        public DevExpress.XtraBars.BarButtonItem btDangNhap;
     }
 }

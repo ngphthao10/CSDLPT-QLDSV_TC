@@ -140,12 +140,17 @@ namespace QLDSV_TC
                 Program.frmMain.rbpQLD.Visible = false;
                 Program.frmMain.rbpQLHP.Visible = true;
             }
-            else { //nhom SV
+            else
+            { //nhom SV
                 Program.frmMain.rbQuanLyLTC.Visible = true;
                 Program.frmMain.rbpQLSV.Visible = false;
                 Program.frmMain.rbpQLD.Visible = false;
-                Program.frmMain.rbpQLHP.Visible = true;
+                Program.frmMain.rbpQLHP.Visible = false;
             }
+
+            // ẩn nút đăng nhập, show nút đăng xuất
+            Program.frmMain.btDangNhap.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            Program.frmMain.btDangXuat.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
 
             this.Close();
         }

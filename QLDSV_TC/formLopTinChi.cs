@@ -44,18 +44,22 @@ namespace QLDSV_TC
             this.DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
             this.DANGKYTableAdapter.Fill(this.DS.DANGKY);
 
+            Program.bds_dspm.Filter = "TENPM not LIKE '%Thông tin đóng học phí%'";
             cmbKhoa.DataSource = Program.bds_dspm;
             cmbKhoa.ValueMember = "TENSERVER";
-            cmbKhoa.DisplayMember = "TENCN";
+            cmbKhoa.DisplayMember = "TENPM";
             cmbKhoa.SelectedIndex = Program.mKhoa;
             maKhoa = getMaKhoa();
             setTenMH();
             setTenGV();
 
+            fillComboboxMH();
+            fillComboboxGV();
+            fillComboboxNK();
+
             if (Program.mGroup == "PGV")
                 cmbKhoa.Enabled = true;
             else cmbKhoa.Enabled = false;
-            Debug.WriteLine(maKhoa);
 
             // unable nếu bdsLTC không có bản ghi nào
             if (bdsLTC.Count == 0)
@@ -73,8 +77,8 @@ namespace QLDSV_TC
             bdsLTC.AddNew();
 
             pnThongTin.Enabled = true;   gridControlLTC.Enabled = false;
-            btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = btThoat.Enabled = true;
-            btGhi.Enabled = btPhucHoi.Enabled = false;
+            btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = false;
+            btGhi.Enabled = btPhucHoi.Enabled = btThoat.Enabled = true;
 
             flag = "THEM";
         }
@@ -107,24 +111,28 @@ namespace QLDSV_TC
                 this.DANGKYTableAdapter.Fill(this.DS.DANGKY);
 
                 maKhoa = getMaKhoa();
-
-                fillComboboxMH();
-                fillComboboxGV();
-                cmbHK.SelectedItem = "2021-2022";
             }
         }
 
-        private List<String> getNienKhoa_HKLast()
+        private void fillComboboxNK()
         {
-            List<String> list = new List<string>();
-            SqlDataReader reader = Program.ExecSqlDataReader("SELECT NIENKHOA, HOCKY FROM LOPTINCHI WHERE MALTC = (SELECT MAX(MALTC) FROM LOPTINCHI)");
+            SqlDataReader reader = Program.ExecSqlDataReader("SELECT TOP 1  HOCKY, NIENKHOA FROM LOPTINCHI ORDER BY MALTC DESC");
             if (reader != null && reader.Read())
             {
-                list.Add(reader.GetString(0));
-                list.Add((String)reader.GetString(1));
+                string nk_hk = reader.GetString(1);
+                cmbNK.Items.Add(nk_hk);
+                cmbNK.Items.Add(nk_hk.Substring(5, 4) + "-" + (int.Parse(nk_hk.Substring(5, 4)) + 1));
+                filterComboboxHK(reader.GetInt32(0));
+                reader.Close();
             }
-            reader.Close();
-            return list;
+        }
+
+        private void filterComboboxHK(int hockymoi)
+        {
+            for (int i = 0; i < cmbHK.Items.Count; i++)
+            {
+                if (int.Parse(cmbHK.Items[i].ToString()) < hockymoi) { cmbHK.Items.RemoveAt(i);}
+            }
         }
 
         private String getMaKhoa()
@@ -270,9 +278,9 @@ namespace QLDSV_TC
         private void btChinhSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             vitri = bdsLTC.Position;
-            btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = btThoat.Enabled = false;
-            btGhi.Enabled = btPhucHoi.Enabled = true;
             pnThongTin.Enabled = true; gridControlLTC.Enabled = false;
+            btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = false;
+            btGhi.Enabled = btPhucHoi.Enabled = btThoat.Enabled = true;
 
             flag = "SUA";
         }

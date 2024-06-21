@@ -13,9 +13,12 @@ namespace QLDSV_TC
 {
     public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        frmDangNhap frmDN;
         public frmMain()
         {
             InitializeComponent();
+
+           
         }
 
         private Form CheckExists(Type ftype)
@@ -28,30 +31,31 @@ namespace QLDSV_TC
         }
         private void btDangNhap_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmDangNhap f = new frmDangNhap();
-            f.Show();
+            frmDN = new frmDangNhap();
+            frmDN.Show();
+            frmDN.txtTenDN.Focus();
         }
 
         public void HienThiMenu()
         {
-            lblMaGV.Text = "Mã GV: " + Program.username;
-            lblHoTen.Text = "Họ tên: " + Program.mHoten;
-            lblNhom.Text = "Nhóm: " + Program.mGroup;
             // Phân quyền
-            if (Program.mGroup == "PGV" || Program.mGroup == "Khoa")
+            if (Program.mGroup == "PGV" || Program.mGroup == "KHOA")
             {
                 this.btDKLTC.Visibility = BarItemVisibility.Never;
+                this.btMoLTC.Visibility = BarItemVisibility.Always;
+                this.btReportDSLTC.Visibility = BarItemVisibility.Always;
+                this.btReportDSSV_DKLTC.Visibility = BarItemVisibility.Always;
             }
 
-            if(Program.mGroup == "SV")
+            if (Program.mGroup == "SV")
             {
                 this.btMoLTC.Visibility = BarItemVisibility.Never;
                 this.btReportDSLTC.Visibility = BarItemVisibility.Never;
-                this.btnDongHP.Visibility = BarItemVisibility.Never;
                 this.btnTTDHP.Visibility = BarItemVisibility.Never;
                 this.btReportDSSV_DKLTC.Visibility = BarItemVisibility.Never;
+                this.btDKLTC.Visibility = BarItemVisibility.Always;
+                /*this.btnDongHP.Visibility = BarItemVisibility.Always;*/
             }
-            
         }
         private void btTaoTK_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -74,10 +78,15 @@ namespace QLDSV_TC
                     frm.Close();
                 }
 
-                Program.frmMain.Close();
                 Program.bds_dspm.RemoveFilter();
-                frmMain fr = new frmMain();
-                fr.ShowDialog();
+                frmDN.loadData();
+
+                // ẩn nút đăng xuất, show nút đăng nhập
+                btDangNhap.Visibility = BarItemVisibility.Always;
+                btDangXuat.Visibility = BarItemVisibility.Never;
+
+                // ẩn các rb
+                rbpQLSV.Visible = rbpQLHP.Visible = rbpQLD.Visible = rbQuanLyLTC.Visible = false;
             }
         }
 

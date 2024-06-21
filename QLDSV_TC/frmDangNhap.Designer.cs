@@ -280,6 +280,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnDangNhap;
         private Siticone.Desktop.UI.WinForms.SiticoneContainerControl siticoneContainerControl8;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMatKhau;
-        private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtTenDN;
+        public Siticone.Desktop.UI.WinForms.SiticoneTextBox txtTenDN;
     }
 }

@@ -185,9 +185,9 @@ namespace QLDSV_TC
             if (reader != null && reader.Read())
             {
                 hocphi = reader.GetInt32(0);
-                reader.Close();
             }
             else hocphi = 0;
+            reader.Close();
             return hocphi;
         }
 
@@ -195,14 +195,18 @@ namespace QLDSV_TC
         {
             int tongtc;
             SqlDataReader reader = Program.ExecSqlDataReader("SELECT TONGTC = SUM(SOTIET_LT + SOTIET_TH)/15 FROM MONHOC WHERE MAMH IN " +
-                "(SELECT MAMH FROM LOPTINCHI WHERE MALTC IN " +
+                "(SELECT MAMH FROM LOPTINCHI WHERE NIENKHOA = '" + cmbNK.SelectedValue.ToString() + "' AND HOCKY = " + cmbHK.Text + " AND MALTC IN " +
                 "(SELECT MALTC FROM DANGKY WHERE MASV = '" + maSV + "'))");
+            
             if (reader != null && reader.Read())
             {
-                tongtc = reader.GetInt32(0);
-                reader.Close();
+                try
+                {
+                    tongtc = reader.GetInt32(0);
+                } catch(Exception ex) { reader.Close(); return 0; }
             }
             else tongtc = 0;
+            reader.Close();
             return tongtc;
         }
     }
