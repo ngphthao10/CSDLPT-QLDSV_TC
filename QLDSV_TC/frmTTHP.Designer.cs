@@ -467,6 +467,7 @@
             this.txtSoTien.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.txtSoTien.Size = new System.Drawing.Size(181, 30);
             this.txtSoTien.TabIndex = 3;
+            this.txtSoTien.EditValueChanged += new System.EventHandler(this.txtSoTien_EditValueChanged);
             // 
             // dateNgay
             // 
@@ -480,6 +481,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgay.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dateNgay.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateNgay.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateNgay.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateNgay.Properties.MaxValue = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dateNgay.Size = new System.Drawing.Size(181, 30);
             this.dateNgay.TabIndex = 1;
             this.dateNgay.Tag = "";

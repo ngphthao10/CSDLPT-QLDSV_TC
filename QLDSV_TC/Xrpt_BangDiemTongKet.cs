@@ -43,7 +43,7 @@ namespace QLDSV_TC
             List<string> columns = new List<string>();
             foreach (DataColumn column in dataTable.Columns)
             {
-                if (column.ColumnName != "MASV" && column.ColumnName != "HOTEN")
+                if (column.ColumnName != "Mã sinh viên" && column.ColumnName != "Ho và tên")
                 {
                     columns.Add(column.ColumnName);
 
@@ -90,7 +90,7 @@ namespace QLDSV_TC
 
         public void CreateReport(string connectionString, string storedProcedure, string malop)
         {
-            
+
             // Fetch data
             DataTable dataTable = GetData(connectionString, storedProcedure, malop);
 

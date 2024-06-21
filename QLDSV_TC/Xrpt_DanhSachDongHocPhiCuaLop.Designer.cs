@@ -222,7 +222,8 @@
             // 
             this.tableCell1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tableCell1.BorderColor = System.Drawing.Color.DimGray;
-            this.tableCell1.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            this.tableCell1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tableCell1.BorderWidth = 1F;
             this.tableCell1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -533,7 +534,7 @@
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrLabel6.Summary = xrSummary1;
             this.xrLabel6.Text = "xrLabel3";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrLabel6.TextFormatString = "{0:}";
             // 
             // xrLabel4
@@ -565,7 +566,7 @@
             this.xrlblSotien.Summary = xrSummary2;
             this.xrlblSotien.Text = "xrlblSotien";
             this.xrlblSotien.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrlblSotien.TextFormatString = "{0:0,0đ}";
+            this.xrlblSotien.TextFormatString = "{0:#,#đ}";
             // 
             // Xrpt_DanhSachDongHocPhiCuaLop
             // 

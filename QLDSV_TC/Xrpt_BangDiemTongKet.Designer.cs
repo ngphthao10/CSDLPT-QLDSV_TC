@@ -32,6 +32,8 @@
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(245.3419F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition2 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(166.2457F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition3 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(557.4123F);
+            DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition crossTabRowDefinition1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(26.33335F);
+            DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition crossTabRowDefinition2 = new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(26.33335F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabRowField crossTabRowField1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabRowField();
             DevExpress.XtraReports.UI.CrossTab.CrossTabRowField crossTabRowField2 = new DevExpress.XtraReports.UI.CrossTab.CrossTabRowField();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
@@ -193,13 +195,15 @@
             this.crossTab.HeaderAreaStyleName = "crossTabHeaderStyle";
             this.crossTab.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.crossTab.Name = "crossTab";
+            crossTabRowDefinition1.Visible = false;
+            crossTabRowDefinition2.Visible = false;
             this.crossTab.RowDefinitions.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition[] {
             new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(26.33335F),
             new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(26.33335F),
-            new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(26.33335F),
-            new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(26.33335F)});
-            crossTabRowField1.FieldName = "MASV";
-            crossTabRowField2.FieldName = "HOTEN";
+            crossTabRowDefinition1,
+            crossTabRowDefinition2});
+            crossTabRowField1.FieldName = "Mã sinh viên";
+            crossTabRowField2.FieldName = "Ho và tên";
             crossTabRowField2.SortOrder = DevExpress.XtraReports.UI.XRColumnSortOrder.None;
             this.crossTab.RowFields.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabRowField[] {
             crossTabRowField1,
@@ -234,6 +238,7 @@
             this.xrCrossTabCell9.ColumnIndex = 2;
             this.xrCrossTabCell9.Name = "xrCrossTabCell9";
             this.xrCrossTabCell9.RowIndex = 0;
+            this.xrCrossTabCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrCrossTabCell10
             // 

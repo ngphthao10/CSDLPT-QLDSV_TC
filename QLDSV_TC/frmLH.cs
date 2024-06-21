@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +20,7 @@ namespace QLDSV_TC
     {
         private int vitriLop = 0;
         string malop = "";
+        string tenlop = "";
         private String flag = "";
         Stack ds_phuchoi = new Stack();
         public frmLH()
@@ -92,6 +94,19 @@ namespace QLDSV_TC
                 btnPhucHoi.Enabled = false;
             }
         }
+        public static bool checkNienKhoa(string nk)
+        {
+            string pattern = @"^\d{4}-\d{4}$";
+            if (Regex.IsMatch(nk, pattern))
+            {
+                string[] years = nk.Split('-');
+                int startYear = int.Parse(years[0]);
+                int endYear = int.Parse(years[1]);
+                return startYear < endYear;
+            }
+
+            return false;
+        }
         private bool checkDataLop()
         {
             if (txtMaLop.Text.ToString().Trim() == "")
@@ -109,7 +124,7 @@ namespace QLDSV_TC
                 MessageBox.Show("Khóa học không được thiếu!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (txtKhoaHoc.Text.ToString().Trim().Length != 9 && txtKhoaHoc.Text.ToString().Trim().Contains("-")) 
+            if (!checkNienKhoa(txtKhoaHoc.Text.ToString())) 
             {
                 MessageBox.Show("Khóa học không hợp lệ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -125,11 +140,11 @@ namespace QLDSV_TC
                 MessageBox.Show("Khóa học chỉ kéo dài tối đa 7 năm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            string query = "DECLARE @return_value INT " +
+                            "EXEC @return_value = [dbo].[SP_CHECKLOP]  N'" + txtMaLop.Text.Trim() + "', N'" + txtTenLop.Text.Trim() + "' " +
+                            "SELECT @return_value";
             if (flag == "THEM")
             {
-                string query = "DECLARE @return_value INT " +
-                               "EXEC @return_value = [dbo].[SP_CHECKLOP]  N'" + txtMaLop.Text.Trim() + "', N'" + txtTenLop.Text.Trim() + "' " +
-                               "SELECT @return_value";
 
                 int resultMa = Program.CheckPrimaryKey(query);
                 if (resultMa == -1)
@@ -159,6 +174,26 @@ namespace QLDSV_TC
                 }
             }
 
+            else if(flag =="CHINHSUA" && tenlop != txtTenLop.Text)
+            {
+                int resultMa = Program.CheckPrimaryKey(query);
+                Console.WriteLine(resultMa);
+                if (resultMa == -1)
+                {
+                    MessageBox.Show("Lỗi kết nối với database.\n Vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (resultMa == 3)
+                {
+                    MessageBox.Show("Tên lớp đã tồn tại.\nVui lòng nhập lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                if (resultMa == 4)
+                {
+                    MessageBox.Show("Tên lớp đã tồn tại ở khoa khác.\nVui lòng nhập lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
             return true;
         }
 
@@ -167,6 +202,7 @@ namespace QLDSV_TC
             vitriLop = bdsLop.Position;
             bdsLop.AddNew();
             txtMaKhoa.Text = GetMaKhoa();
+            txtMaLop.Enabled = true;
 
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
@@ -180,6 +216,7 @@ namespace QLDSV_TC
         {
 
             txtMaLop.Enabled = txtMaKhoa.Enabled = false; //không cho sửa mã khoa
+            tenlop = txtTenLop.Text.Trim();
             vitriLop = bdsLop.Position;
             panelLop.Enabled = true;
             btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnSua.Enabled = btnThoat.Enabled = false;
@@ -254,6 +291,14 @@ namespace QLDSV_TC
                     vitriLop = -1;
                 }
             }
+            else
+            {
+                bdsLop.CancelEdit();
+                String query_phuchoi = ds_phuchoi.Pop().ToString();
+                Program.ExecSqlNonQuery(query_phuchoi);
+                bdsLop.Position = vitriLop;
+                this.LOPTableAdapter.Fill(this.QLDSV_TCDataSet.LOP);
+            }
 
             if (ds_phuchoi.Count == 0)
             {
@@ -261,12 +306,7 @@ namespace QLDSV_TC
                 btnPhucHoi.Enabled = false;
                 return;
             }
-
-            bdsLop.CancelEdit();
-            String query_phuchoi = ds_phuchoi.Pop().ToString();
-            Program.ExecSqlNonQuery(query_phuchoi);
-            bdsLop.Position = vitriLop;
-            this.LOPTableAdapter.Fill(this.QLDSV_TCDataSet.LOP);
+           
         }
 
         private void btnReload_ItemClick(object sender, ItemClickEventArgs e)
@@ -309,6 +349,7 @@ namespace QLDSV_TC
             DataRowView datarow = ((DataRowView)bdsLop[bdsLop.Position]);
             String tenlop = datarow["TENLOP"].ToString();
             String khoahoc = datarow["KHOAHOC"].ToString();
+
             if (checkDataLop())
             {
                 DialogResult dialog = MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào cơ sở dữ liệu ?", "Thông báo",
@@ -351,9 +392,14 @@ namespace QLDSV_TC
 
                 flag = "";
                 vitriLop = -1;
-                panelLop.Enabled = gcLop.Enabled = true;
-                btnXoa.Enabled = btnSua.Enabled = btnThem.Enabled = btnReload.Enabled = cmbKhoa.Enabled = btnPhucHoi.Enabled = true;
-                btnGhi.Enabled = false;
+                gcLop.Enabled = true;
+                btnXoa.Enabled = btnSua.Enabled = btnThem.Enabled = btnReload.Enabled = cmbKhoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
+                btnGhi.Enabled = panelLop.Enabled = false;
+            }
+            else
+            {
+                txtTenLop.Text = tenlop;
+                txtKhoaHoc.Text = khoahoc;
             }
         } 
 
@@ -374,5 +420,7 @@ namespace QLDSV_TC
             ucsv.BringToFront();
             ucsv.Dock = DockStyle.Fill;
         }
+
+       
     }
 }

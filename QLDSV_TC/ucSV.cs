@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Pdf.Native;
+using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Data;
@@ -79,6 +80,8 @@ namespace QLDSV_TC
             bdsSV.AddNew();
             txtMaSV.Enabled = true;
             txtMaLop.Text = this.malop;
+            txtPass.Text = "123";
+            ckbPhai.Checked = ckbNghi.Checked = false;
             
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
@@ -111,11 +114,13 @@ namespace QLDSV_TC
                 MessageBox.Show("Không thể xóa sinh viên này vì đã đăng ký lớp tín chỉ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            int phai = ckbPhai.Checked ? 1 : 0;
+            int nghihoc = ckbNghi.Checked ? 1 : 0;
             string query_phuchoi = "INSERT INTO SINHVIEN(MASV, HO, TEN, PHAI, NGAYSINH, DIACHI, MALOP, DANGHIHOC, PASSWORD) " +
             " VALUES( '" + txtMaSV.Text.Trim() + "', N'" + txtHo.Text.Trim() + "','" +
-                        txtTen.Text.Trim() + "', '" + ckbPhai.Checked + "', '" +
-                        dateNS.Text.ToString() + "', '" + txtDiaChi.Text.Trim() + "', '" + txtMaLop.Text.Trim() + "', '" +
-                        ckbNghi.Checked + "', '" + txtPass.Text.Trim() + "' ) ";
+                        txtTen.Text.Trim() + "', " + phai + ", '" +
+                        dateNS.Text.ToString() + "', '" + txtDiaChi.Text.Trim() + "', '" + txtMaLop.Text.Trim() + "', " +
+                        nghihoc + ", '" + txtPass.Text.Trim() + "' ) ";
             Console.WriteLine(query_phuchoi);
             ds_phuchoi.Push(query_phuchoi);
             if (MessageBox.Show("Bạn có thật sự muốn xóa sinh viên này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
@@ -127,6 +132,7 @@ namespace QLDSV_TC
 
                     this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.SINHVIENTableAdapter.Update(this.QLDSV_TCDataSet.SINHVIEN);
+                    MessageBox.Show("Ghi sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnPhucHoi.Enabled = btnSua.Enabled = true;
                     btnGhi.Enabled = false;
                 }
@@ -154,11 +160,13 @@ namespace QLDSV_TC
             DataRowView datarow = ((DataRowView)bdsSV[bdsSV.Position]);
             String ho = datarow["HO"].ToString();
             String ten = datarow["TEN"].ToString();
-            bool phai = Convert.ToBoolean(datarow["PHAI"].ToString());
+            bool phai_input = Convert.ToBoolean(datarow["PHAI"].ToString());
+            int phai = phai_input ? 1 : 0;
             String ngaysinh = datarow["NGAYSINH"].ToString();
             String diachi = datarow["DIACHI"].ToString();
             String malop = datarow["MALOP"].ToString();
-            bool danghihoc = Convert.ToBoolean(datarow["DANGHIHOC"].ToString());
+            bool danghihoc_input = Convert.ToBoolean(datarow["DANGHIHOC"].ToString());
+            int danghihoc = danghihoc_input ? 1 : 0;
             Console.WriteLine(ngaysinh + " " + phai + " " + danghihoc);
             String password = datarow["PASSWORD"].ToString();
             if (checkDataSinhVien())
@@ -190,7 +198,7 @@ namespace QLDSV_TC
                         this.SINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                         DataRow row = ((DataRowView)bdsSV[bdsSV.Position]).Row;
                         this.SINHVIENTableAdapter.Update(row);
-
+                        
                         MessageBox.Show("Ghi sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
@@ -200,12 +208,28 @@ namespace QLDSV_TC
                         return;
                     }
                 }
+                else
+                {
+                    return;
+                }
 
                 flag = "";
                 vitriSV = -1;
-                panelSV.Enabled = gcSV.Enabled = true;
+                gcSV.Enabled = true;
                 btnXoa.Enabled = btnSua.Enabled = btnThem.Enabled = btnPhucHoi.Enabled = btnReload.Enabled = true;
-                btnGhi.Enabled  = false;
+                btnGhi.Enabled = panelSV.Enabled = false;
+            }
+            else
+            {
+                txtHo.Text = ho;
+                txtTen.Text = ten;
+                if(phai == 0) ckbPhai.Checked = false;
+                else ckbPhai.Checked = true;
+                txtDiaChi.Text = diachi;
+                dateNS.Text = ngaysinh;
+                if (danghihoc == 0) ckbNghi.Checked = false;
+                else ckbNghi.Checked = true;
+                txtPass.Text = password;
             }
         }
 
@@ -229,6 +253,14 @@ namespace QLDSV_TC
                     vitriSV = -1;
                 }
             }
+            else
+            {
+                bdsSV.CancelEdit();
+                String query_phuchoi = ds_phuchoi.Pop().ToString();
+                Program.ExecSqlNonQuery(query_phuchoi);
+                bdsSV.Position = vitriSV;
+                this.SINHVIENTableAdapter.FillBy(this.QLDSV_TCDataSet.SINHVIEN, malop);
+            }
             if (ds_phuchoi.Count == 0)
             {
                 MessageBox.Show("Không còn thao tác nào để khôi phục", "Thông báo", MessageBoxButtons.OK);
@@ -236,11 +268,7 @@ namespace QLDSV_TC
                 return;
             }
 
-            bdsSV.CancelEdit();
-            String query_phuchoi = ds_phuchoi.Pop().ToString();
-            Program.ExecSqlNonQuery(query_phuchoi);
-            bdsSV.Position = vitriSV;
-            this.SINHVIENTableAdapter.FillBy(this.QLDSV_TCDataSet.SINHVIEN, malop);
+           
         }
 
         private void btnReload_Click(object sender, EventArgs e)
@@ -261,7 +289,7 @@ namespace QLDSV_TC
 
         private void btnChuyenLop_Click(object sender, EventArgs e)
         {
-            string masv = ((DataRowView)bdsSV[bdsSV.Position])["MASV"].ToString();
+            string masv = ((DataRowView)bdsSV[bdsSV.Position])["MASV"].ToString().Trim();
             frmChuyenKhoa frm = new frmChuyenKhoa(masv);
             frm.ShowDialog();
         }

@@ -367,6 +367,7 @@
             this.colDANGHIHOC.AppearanceHeader.Options.UseTextOptions = true;
             this.colDANGHIHOC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colDANGHIHOC.Caption = "ĐÃ NGHỈ HỌC";
+            this.colDANGHIHOC.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.colDANGHIHOC.FieldName = "DANGHIHOC";
             this.colDANGHIHOC.MinWidth = 25;
             this.colDANGHIHOC.Name = "colDANGHIHOC";
@@ -474,6 +475,12 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateNS.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNS.Properties.CalendarTimeProperties.TouchUIMaxValue = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateNS.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dateNS.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateNS.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateNS.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateNS.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
             this.dateNS.Size = new System.Drawing.Size(244, 26);
             this.dateNS.TabIndex = 11;
             // 

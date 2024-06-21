@@ -15,6 +15,7 @@ namespace QLDSV_TC
     public partial class frmTTHP : Form
     {
         private int vitriCTHP = 0;
+        private int vitriHP = 0;
         public frmTTHP()
         {
             InitializeComponent();
@@ -48,6 +49,30 @@ namespace QLDSV_TC
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void loadFrmCTHP(int vitri)
+        {
+            try
+            {
+                if (vitri >= 0 && vitri < gridViewHP.RowCount)
+                {
+                    String nienKhoa = gridViewHP.GetRowCellValue(vitri, "NIENKHOA").ToString();
+                    int hocKy = Convert.ToInt32(gridViewHP.GetRowCellValue(vitri, "HOCKY"));
+
+                    this.SP_GETCTHOCPHITableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.SP_GETCTHOCPHITableAdapter.Fill(this.QLDSV_TCDataSetSV3.SP_GETCTHOCPHI, txtMaSV.Text, nienKhoa, hocKy);
+                }
+                else
+                {
+                    MessageBox.Show("Hàng không hợp lệ.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public bool checkDataInput()
         {
             if (dateNgay.Text.ToString().Trim() == "")
@@ -62,7 +87,8 @@ namespace QLDSV_TC
                 return false;
             }
             int needToPay = int.Parse(gridViewHP.GetFocusedDataRow()["HOCPHI"].ToString()) - int.Parse(gridViewHP.GetFocusedDataRow()["DADONG"].ToString());
-            if (Convert.ToInt32(txtSoTien.Text.Replace(".", "")) > needToPay)
+            Console.WriteLine(txtSoTien);
+            if (Convert.ToInt32(txtSoTien.Text.Replace(",", "")) > needToPay)
             {
                 MessageBox.Show("Số tiền không được lớn hơn số tiền cần đóng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -83,6 +109,8 @@ namespace QLDSV_TC
                 MessageBox.Show("Bạn không có quyền truy cập màn hình này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            panelCTHP.Enabled = true;
         }
 
         private void btnTaiHP_Click(object sender, EventArgs e)
@@ -108,13 +136,16 @@ namespace QLDSV_TC
 
         private void gridViewHP_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
+            vitriHP = gridViewHP.FocusedRowHandle;
+
+            System.Diagnostics.Debug.WriteLine(vitriHP.ToString());
             btnNopHP.Enabled = gcCTHP.Enabled = true;
             panelCTHP.Enabled = false;
             if (Convert.ToInt32(gridViewHP.GetFocusedDataRow()["HOCPHI"]) == Convert.ToInt32(gridViewHP.GetFocusedDataRow()["DADONG"]))
                 btnNopHP.Enabled = btnGhiHP.Enabled = false;
             else
                 btnNopHP.Enabled = btnGhiHP.Enabled = true;
-            loadFrmCTHP();
+            loadFrmCTHP(vitriHP);
         }
 
         private void btnNopHP_Click(object sender, EventArgs e)
@@ -134,13 +165,12 @@ namespace QLDSV_TC
         {
             if (checkDataInput())
             {
-                //int money = int.Parse(gridViewCTHP.GetFocusedDataRow()["SOTIENDONG"].ToString());
-                int money = int.Parse(txtSoTien.Text.ToString());
+                int money = int.Parse(txtSoTien.Text.Replace(",", ""));
                 DialogResult dialog =
                     MessageBox.Show("Bạn cần kiểm tra trước khi thanh toán:" +
-                    "\n\nMSSV: " + txtMaSV.Text +
-                    "\n\nHọ và tên: " + txtHoTen.Text +
-                    "\n\nSố tiền thanh toán: " + String.Format("{0:n0}", money) + " VND"
+                    "\n\n- MSSV: " + txtMaSV.Text +
+                    "\n\n- Họ và tên: " + txtHoTen.Text +
+                    "\n\n- Số tiền thanh toán: " + String.Format("{0:n0}", money) + " VND"
                     , "Thông báo!", MessageBoxButtons.YesNo);
 
                 if (dialog == DialogResult.Yes)
@@ -149,11 +179,15 @@ namespace QLDSV_TC
 
                     String nienKhoa = gridViewHP.GetFocusedDataRow()["NIENKHOA"].ToString();
                     int hocKy = int.Parse(gridViewHP.GetFocusedDataRow()["HOCKY"].ToString());
-                    DateTime dateTime = Convert.ToDateTime(gridViewCTHP.GetFocusedDataRow()["NGAYDONG"]);
-
-                    // Chuyển đổi DateTime thành chuỗi với định dạng chỉ có ngày tháng
-                    String dateString = dateTime.ToString("dd/MM/yyyy");
-
+                    
+                    String dateString = dateNgay.Text.ToString();
+                    if (dateNgay.Text.ToString() == "")
+                    {
+                        DateTime dateTime = Convert.ToDateTime(gridViewCTHP.GetFocusedDataRow()["NGAYDONG"]);
+                        dateString = dateTime.ToString("dd/MM/yyyy");
+                    }
+                    
+                    System.Diagnostics.Debug.WriteLine(dateString);
                     String strLenh = "EXEC dbo.SP_DongHocPhi '" + txtMaSV.Text + "', '"
                                     + nienKhoa + "', '" + hocKy + "', '" + dateString + "', '" + money + "'" ;
                     System.Diagnostics.Debug.Print(strLenh);
@@ -166,13 +200,15 @@ namespace QLDSV_TC
                         return;
                     }
                     Program.conn.Close();
-
                     loadFrmHP();
-                    loadFrmCTHP();
+                    loadFrmCTHP(vitriHP);
                     MessageBox.Show("Thanh toán học phí thành công!", "Thông báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bdsHP.Position = vitriHP;
+                    bdsCTHP.Position = vitriCTHP;
                 }
                 else
                 {
+                    btnGhiHP.Enabled =btnNopHP.Enabled = true;
                     bdsCTHP.RemoveCurrent();
                     bdsCTHP.CancelEdit();
                     MessageBox.Show("Thao tác thanh toán đã hủy!", "Thông báo!", MessageBoxButtons.OK);
@@ -181,6 +217,7 @@ namespace QLDSV_TC
                 vitriCTHP = -1;
                 btnPhucHoi.Visible = false;
                 btnGhiHP.Enabled = false;
+                panelCTHP.Visible = true;
                 if (Convert.ToInt32(gridViewHP.GetFocusedDataRow()["HOCPHI"]) == Convert.ToInt32(gridViewHP.GetFocusedDataRow()["DADONG"]))
                     btnNopHP.Enabled = btnGhiHP.Enabled = false;
                 else
@@ -216,7 +253,7 @@ namespace QLDSV_TC
                 else
                 {
                     bdsCTHP.CancelEdit();
-                    loadFrmCTHP();
+                    loadFrmCTHP(vitriHP);
                     if (btnNopHP.Enabled == false) { bdsCTHP.Position = vitriCTHP; }
                     btnGhiHP.Enabled = false;
                     btnNopHP.Enabled = true;
@@ -224,6 +261,14 @@ namespace QLDSV_TC
                     vitriCTHP = -1;
                 }
             }
+        }
+
+        private void txtSoTien_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txtSoTien.Text == "") return;
+            long sotien = Convert.ToInt64(txtSoTien.Text.Replace(",", ""));
+            txtSoTien.Text = sotien.ToString("N0");
+            txtSoTien.SelectionStart = txtSoTien.Text.Length;
         }
     }
 }

@@ -65,6 +65,8 @@ namespace QLDSV_TC
             cmbTenLop.SelectedIndex = 0;
             txtMaLop.Text = ("" + cmbTenLop.SelectedValue).Replace(" ", "");
             maLop = txtMaLop.Text;
+            cmbNienKhoa.SelectedIndex = 0;
+            cmbHocKy.SelectedIndex = 0;
         }
 
         private void cmbTenLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,7 +89,7 @@ namespace QLDSV_TC
                 SqlDataReader dr = Program.ExecSqlDataReader("Select MAKHOA FROM LOP where malop = '" + maLop + "'");
                 if (dr.Read())
                 {
-                    String makhoa = dr["MALOP"].ToString();
+                    String makhoa = dr["MAKHOA"].ToString();
                     rpt.lblKhoa.Text = makhoa;
                 }
                 dr.Close();
@@ -105,7 +107,7 @@ namespace QLDSV_TC
                 SqlDataReader dr = Program.ExecSqlDataReader("Select MAKHOA FROM LOP where malop = '" + maLop + "'");
                 if (dr.Read())
                 {
-                    String makhoa = dr["MALOP"].ToString();
+                    String makhoa = dr["MAKHOA"].ToString();
                     rpt.lblKhoa.Text = makhoa;
                 }
                 dr.Close();
