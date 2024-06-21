@@ -63,6 +63,10 @@ namespace QLDSV_TC
             if (form != null) form.Activate();
             else
             {
+                foreach (Form frm in this.MdiChildren)
+                {
+                    frm.Close();
+                }
                 frmTaoTK f = new frmTaoTK();
                 f.Show();
             }
@@ -140,6 +144,7 @@ namespace QLDSV_TC
         {
 
             frmLH f = new frmLH();
+            f.bar1.Visible = false;
             f.Show();
         }
 

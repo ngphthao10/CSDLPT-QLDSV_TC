@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -97,17 +99,65 @@ namespace QLDSV_TC
             {
                 Xrpt_BangDiemTongKet rpt = new Xrpt_BangDiemTongKet(maLop);
                 rpt.lblLop.Text = maLop;
-                DataTable dt = Program.ExecSqlDataTable("Select * FROM LOP where malop = '" + maLop + "'");
+                SqlDataReader dr = Program.ExecSqlDataReader("Select * FROM LOP where malop = '" + maLop + "'");
 
-                DataRow row = dt.Rows[0];
-                String makhoa = row["makhoa"].ToString();
-                String khoahoc = row["khoahoc"].ToString();
+                if (dr.Read())
+                {
+                    String makhoa = dr["MALOP"].ToString();
+                    String khoahoc = dr["KHOAHOC"].ToString();
 
-                rpt.lblKhoaHoc.Text = khoahoc;
-                rpt.lblKhoa.Text = makhoa;
+                    rpt.lblKhoaHoc.Text = khoahoc;
+                    rpt.lblKhoa.Text = makhoa;
+                    rpt.lblKhoaHoc.Text = khoahoc;
+                    rpt.lblKhoa.Text = makhoa;
+                }
+                dr.Close();
 
                 ReportPrintTool print = new ReportPrintTool(rpt);
                 print.ShowPreviewDialog();
+            }
+        }
+
+        private void btnXuatFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Xrpt_BangDiemTongKet rpt = new Xrpt_BangDiemTongKet(maLop);
+                rpt.lblLop.Text = maLop;
+                SqlDataReader dr = Program.ExecSqlDataReader("Select * FROM LOP where malop = '" + maLop + "'");
+                if (dr.Read())
+                {
+                    String makhoa = dr["MALOP"].ToString();
+                    String khoahoc = dr["KHOAHOC"].ToString();
+
+                    rpt.lblKhoaHoc.Text = khoahoc;
+                    rpt.lblKhoa.Text = makhoa;
+                    rpt.lblKhoaHoc.Text = khoahoc;
+                    rpt.lblKhoa.Text = makhoa;
+                }
+                dr.Close();
+
+                if (File.Exists(@"D:\ReportBangDiemTongKet.pdf"))
+                {
+                    DialogResult dialog = MessageBox.Show("File ReportBangDiemTongKet.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
+                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        rpt.ExportToPdf(@"D:\ReportBangDiem.pdf");
+                        MessageBox.Show("File ReportBangDiem.pdf đã được ghi thành công tại ổ D", "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                else
+                {
+                    rpt.ExportToPdf(@"D:\ReportBangDiemTongKet.pdf");
+                    MessageBox.Show("File ReportBangDiemTongKet.pdf đã được ghi thành công tại ổ D", "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Vui lòng đóng file ReportBangDiemTongKet.pdf", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                return;
             }
         }
     }

@@ -41,6 +41,7 @@
             this.cmbHocKy = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.txtMaLop = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.btnPreview = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.btnXuatFile = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             tENLOPLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -188,18 +189,38 @@
             this.btnPreview.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPreview.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPreview.ForeColor = System.Drawing.Color.White;
-            this.btnPreview.Location = new System.Drawing.Point(630, 80);
+            this.btnPreview.Image = global::QLDSV_TC.Properties.Resources.icons8_preview_24;
+            this.btnPreview.Location = new System.Drawing.Point(655, 75);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(128, 57);
+            this.btnPreview.Size = new System.Drawing.Size(128, 53);
             this.btnPreview.TabIndex = 13;
             this.btnPreview.Text = "Preview";
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
+            // 
+            // btnXuatFile
+            // 
+            this.btnXuatFile.BorderRadius = 10;
+            this.btnXuatFile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXuatFile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXuatFile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXuatFile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXuatFile.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnXuatFile.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatFile.ForeColor = System.Drawing.Color.White;
+            this.btnXuatFile.Image = global::QLDSV_TC.Properties.Resources.icons8_export_pdf_24;
+            this.btnXuatFile.Location = new System.Drawing.Point(801, 75);
+            this.btnXuatFile.Name = "btnXuatFile";
+            this.btnXuatFile.Size = new System.Drawing.Size(128, 53);
+            this.btnXuatFile.TabIndex = 15;
+            this.btnXuatFile.Text = "Xuất File";
+            this.btnXuatFile.Click += new System.EventHandler(this.btnXuatFile_Click);
             // 
             // Fxrpt_DanhSachDongHocPhiCuaLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 214);
+            this.ClientSize = new System.Drawing.Size(1076, 214);
+            this.Controls.Add(this.btnXuatFile);
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.txtMaLop);
             this.Controls.Add(this.cmbHocKy);
@@ -231,5 +252,6 @@
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbHocKy;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox txtMaLop;
         private Siticone.Desktop.UI.WinForms.SiticoneButton btnPreview;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton btnXuatFile;
     }
 }

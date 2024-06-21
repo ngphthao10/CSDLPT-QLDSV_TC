@@ -101,7 +101,7 @@
             // 
             mALOPLabel.AutoSize = true;
             mALOPLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mALOPLabel.Location = new System.Drawing.Point(65, 35);
+            mALOPLabel.Location = new System.Drawing.Point(67, 70);
             mALOPLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             mALOPLabel.Name = "mALOPLabel";
             mALOPLabel.Size = new System.Drawing.Size(59, 20);
@@ -112,7 +112,7 @@
             // 
             tENLOPLabel.AutoSize = true;
             tENLOPLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENLOPLabel.Location = new System.Drawing.Point(65, 95);
+            tENLOPLabel.Location = new System.Drawing.Point(67, 130);
             tENLOPLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             tENLOPLabel.Name = "tENLOPLabel";
             tENLOPLabel.Size = new System.Drawing.Size(61, 20);
@@ -123,7 +123,7 @@
             // 
             kHOAHOCLabel.AutoSize = true;
             kHOAHOCLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            kHOAHOCLabel.Location = new System.Drawing.Point(65, 156);
+            kHOAHOCLabel.Location = new System.Drawing.Point(67, 191);
             kHOAHOCLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             kHOAHOCLabel.Name = "kHOAHOCLabel";
             kHOAHOCLabel.Size = new System.Drawing.Size(71, 20);
@@ -134,7 +134,7 @@
             // 
             mAKHOALabel.AutoSize = true;
             mAKHOALabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAKHOALabel.Location = new System.Drawing.Point(65, 213);
+            mAKHOALabel.Location = new System.Drawing.Point(67, 248);
             mAKHOALabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             mAKHOALabel.Name = "mAKHOALabel";
             mAKHOALabel.Size = new System.Drawing.Size(69, 20);
@@ -329,10 +329,10 @@
             // panelucSV
             // 
             this.panelucSV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelucSV.Location = new System.Drawing.Point(2, 374);
+            this.panelucSV.Location = new System.Drawing.Point(2, 434);
             this.panelucSV.Margin = new System.Windows.Forms.Padding(4);
             this.panelucSV.Name = "panelucSV";
-            this.panelucSV.Size = new System.Drawing.Size(1416, 313);
+            this.panelucSV.Size = new System.Drawing.Size(1416, 253);
             this.panelucSV.TabIndex = 7;
             // 
             // panelControl2
@@ -343,7 +343,7 @@
             this.panelControl2.Location = new System.Drawing.Point(2, 87);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1416, 287);
+            this.panelControl2.Size = new System.Drawing.Size(1416, 347);
             this.panelControl2.TabIndex = 6;
             // 
             // gcLop
@@ -357,7 +357,7 @@
             this.gcLop.Margin = new System.Windows.Forms.Padding(4);
             this.gcLop.MenuManager = this.barManager1;
             this.gcLop.Name = "gcLop";
-            this.gcLop.Size = new System.Drawing.Size(920, 283);
+            this.gcLop.Size = new System.Drawing.Size(920, 343);
             this.gcLop.TabIndex = 0;
             this.gcLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLop});
@@ -465,14 +465,14 @@
             this.panelLop.Location = new System.Drawing.Point(922, 2);
             this.panelLop.Margin = new System.Windows.Forms.Padding(4);
             this.panelLop.Name = "panelLop";
-            this.panelLop.Size = new System.Drawing.Size(492, 283);
+            this.panelLop.Size = new System.Drawing.Size(492, 343);
             this.panelLop.TabIndex = 1;
             // 
             // txtMaKhoa
             // 
             this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "MAKHOA", true));
             this.txtMaKhoa.Enabled = false;
-            this.txtMaKhoa.Location = new System.Drawing.Point(168, 209);
+            this.txtMaKhoa.Location = new System.Drawing.Point(170, 244);
             this.txtMaKhoa.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaKhoa.MenuManager = this.barManager1;
             this.txtMaKhoa.Name = "txtMaKhoa";
@@ -484,7 +484,7 @@
             // txtKhoaHoc
             // 
             this.txtKhoaHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "KHOAHOC", true));
-            this.txtKhoaHoc.Location = new System.Drawing.Point(168, 152);
+            this.txtKhoaHoc.Location = new System.Drawing.Point(170, 187);
             this.txtKhoaHoc.Margin = new System.Windows.Forms.Padding(4);
             this.txtKhoaHoc.MenuManager = this.barManager1;
             this.txtKhoaHoc.Name = "txtKhoaHoc";
@@ -496,7 +496,7 @@
             // txtTenLop
             // 
             this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "TENLOP", true));
-            this.txtTenLop.Location = new System.Drawing.Point(168, 91);
+            this.txtTenLop.Location = new System.Drawing.Point(170, 126);
             this.txtTenLop.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenLop.MenuManager = this.barManager1;
             this.txtTenLop.Name = "txtTenLop";
@@ -508,7 +508,7 @@
             // txtMaLop
             // 
             this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "MALOP", true));
-            this.txtMaLop.Location = new System.Drawing.Point(168, 31);
+            this.txtMaLop.Location = new System.Drawing.Point(170, 66);
             this.txtMaLop.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaLop.MenuManager = this.barManager1;
             this.txtMaLop.Name = "txtMaLop";
@@ -632,7 +632,6 @@
         #endregion
 
         private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
@@ -670,5 +669,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         public DevExpress.XtraEditors.SimpleButton btnTaiSV;
+        public DevExpress.XtraBars.Bar bar1;
     }
 }

@@ -54,7 +54,7 @@
             this.colPASSWORD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelSV = new DevExpress.XtraEditors.PanelControl();
-            this.pASSWORDTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.txtPass = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.ckbNghi = new System.Windows.Forms.CheckBox();
             this.dateNS = new DevExpress.XtraEditors.DateEdit();
@@ -64,6 +64,7 @@
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
             this.txtMaSV = new DevExpress.XtraEditors.TextEdit();
             this.panelBtn = new DevExpress.XtraEditors.PanelControl();
+            this.btnChuyenLop = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnXoa = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnReload = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.btnGhi = new Siticone.Desktop.UI.WinForms.SiticoneButton();
@@ -74,7 +75,6 @@
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
             this.bdsDK = new System.Windows.Forms.BindingSource(this.components);
             this.DANGKYTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter();
-            this.btnChuyenLop = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             mASVLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
             pHAILabel = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelSV)).BeginInit();
             this.panelSV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pASSWORDTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNS.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNS.Properties)).BeginInit();
@@ -406,7 +406,7 @@
             // panelSV
             // 
             this.panelSV.Controls.Add(pASSWORDLabel);
-            this.panelSV.Controls.Add(this.pASSWORDTextEdit);
+            this.panelSV.Controls.Add(this.txtPass);
             this.panelSV.Controls.Add(this.txtMaLop);
             this.panelSV.Controls.Add(dANGHIHOCLabel);
             this.panelSV.Controls.Add(this.ckbNghi);
@@ -428,15 +428,15 @@
             this.panelSV.Size = new System.Drawing.Size(557, 385);
             this.panelSV.TabIndex = 0;
             // 
-            // pASSWORDTextEdit
+            // txtPass
             // 
-            this.pASSWORDTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "PASSWORD", true));
-            this.pASSWORDTextEdit.Location = new System.Drawing.Point(237, 324);
-            this.pASSWORDTextEdit.Name = "pASSWORDTextEdit";
-            this.pASSWORDTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pASSWORDTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.pASSWORDTextEdit.Size = new System.Drawing.Size(244, 26);
-            this.pASSWORDTextEdit.TabIndex = 19;
+            this.txtPass.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSV, "PASSWORD", true));
+            this.txtPass.Location = new System.Drawing.Point(237, 324);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Properties.Appearance.Options.UseFont = true;
+            this.txtPass.Size = new System.Drawing.Size(244, 26);
+            this.txtPass.TabIndex = 19;
             // 
             // txtMaLop
             // 
@@ -545,6 +545,30 @@
             this.panelBtn.Size = new System.Drawing.Size(557, 192);
             this.panelBtn.TabIndex = 1;
             // 
+            // btnChuyenLop
+            // 
+            this.btnChuyenLop.BackColor = System.Drawing.Color.Transparent;
+            this.btnChuyenLop.BorderRadius = 5;
+            this.btnChuyenLop.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+            this.btnChuyenLop.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChuyenLop.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChuyenLop.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChuyenLop.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChuyenLop.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnChuyenLop.FillColor = System.Drawing.Color.DarkGray;
+            this.btnChuyenLop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChuyenLop.ForeColor = System.Drawing.Color.Black;
+            this.btnChuyenLop.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnChuyenLop.ImageOffset = new System.Drawing.Point(3, 0);
+            this.btnChuyenLop.Location = new System.Drawing.Point(62, 132);
+            this.btnChuyenLop.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.Size = new System.Drawing.Size(433, 43);
+            this.btnChuyenLop.TabIndex = 54;
+            this.btnChuyenLop.TabStop = false;
+            this.btnChuyenLop.Text = "CHUYỂN LỚP (không thể phục hồi)";
+            this.btnChuyenLop.Click += new System.EventHandler(this.btnChuyenLop_Click);
+            // 
             // btnXoa
             // 
             this.btnXoa.BackColor = System.Drawing.Color.Transparent;
@@ -567,7 +591,6 @@
             this.btnXoa.TabIndex = 53;
             this.btnXoa.TabStop = false;
             this.btnXoa.Text = "Xóa";
-            this.btnXoa.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnReload
@@ -616,8 +639,7 @@
             this.btnGhi.Size = new System.Drawing.Size(104, 43);
             this.btnGhi.TabIndex = 51;
             this.btnGhi.TabStop = false;
-            this.btnGhi.Text = "Ghi";
-            this.btnGhi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnGhi.Text = "    Ghi";
             this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
             // 
             // btnPhucHoi
@@ -722,30 +744,6 @@
             // 
             this.DANGKYTableAdapter.ClearBeforeFill = true;
             // 
-            // btnChuyenLop
-            // 
-            this.btnChuyenLop.BackColor = System.Drawing.Color.Transparent;
-            this.btnChuyenLop.BorderRadius = 5;
-            this.btnChuyenLop.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
-            this.btnChuyenLop.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnChuyenLop.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnChuyenLop.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnChuyenLop.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnChuyenLop.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnChuyenLop.FillColor = System.Drawing.Color.DarkGray;
-            this.btnChuyenLop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChuyenLop.ForeColor = System.Drawing.Color.Black;
-            this.btnChuyenLop.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnChuyenLop.ImageOffset = new System.Drawing.Point(3, 0);
-            this.btnChuyenLop.Location = new System.Drawing.Point(62, 132);
-            this.btnChuyenLop.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.btnChuyenLop.Name = "btnChuyenLop";
-            this.btnChuyenLop.Size = new System.Drawing.Size(433, 43);
-            this.btnChuyenLop.TabIndex = 54;
-            this.btnChuyenLop.TabStop = false;
-            this.btnChuyenLop.Text = "Chuyển lớp";
-            this.btnChuyenLop.Click += new System.EventHandler(this.btnChuyenLop_Click);
-            // 
             // ucSV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -765,7 +763,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelSV)).EndInit();
             this.panelSV.ResumeLayout(false);
             this.panelSV.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pASSWORDTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNS.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNS.Properties)).EndInit();
@@ -806,7 +804,7 @@
         private System.Windows.Forms.BindingSource bdsDK;
         private QLDSV_TCDataSetTableAdapters.DANGKYTableAdapter DANGKYTableAdapter;
         private System.Windows.Forms.BindingSource bdsSV;
-        private DevExpress.XtraEditors.TextEdit pASSWORDTextEdit;
+        private DevExpress.XtraEditors.TextEdit txtPass;
         private DevExpress.XtraGrid.GridControl gcSV;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewSV;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;

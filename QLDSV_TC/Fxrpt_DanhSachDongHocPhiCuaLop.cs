@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,12 +83,54 @@ namespace QLDSV_TC
             {
                 Xrpt_DanhSachDongHocPhiCuaLop rpt = new Xrpt_DanhSachDongHocPhiCuaLop(maLop, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
                 rpt.lblMaLop.Text = maLop;
-                DataTable dt = Program.ExecSqlDataTable("Select MAKHOA FROM LOP where malop = '" + maLop + "'");
-                String makhoa = dt.Rows[0][0].ToString();
-                rpt.lblKhoa.Text = makhoa;
 
+                SqlDataReader dr = Program.ExecSqlDataReader("Select MAKHOA FROM LOP where malop = '" + maLop + "'");
+                if (dr.Read())
+                {
+                    String makhoa = dr["MALOP"].ToString();
+                    rpt.lblKhoa.Text = makhoa;
+                }
+                dr.Close();
                 ReportPrintTool print = new ReportPrintTool(rpt);
                 print.ShowPreviewDialog();
+            }
+        }
+
+        private void btnXuatFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Xrpt_DanhSachDongHocPhiCuaLop rpt = new Xrpt_DanhSachDongHocPhiCuaLop(maLop, cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
+                rpt.lblMaLop.Text = maLop;
+                SqlDataReader dr = Program.ExecSqlDataReader("Select MAKHOA FROM LOP where malop = '" + maLop + "'");
+                if (dr.Read())
+                {
+                    String makhoa = dr["MALOP"].ToString();
+                    rpt.lblKhoa.Text = makhoa;
+                }
+                dr.Close();
+
+                if (File.Exists(@"D:\ReportDanhSachDongHocPhi.pdf"))
+                {
+                    DialogResult dialog = MessageBox.Show("File ReportDanhSachDongHocPhi.pdf tại ổ D đã có!\nBạn có muốn tạo lại?",
+                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dialog == DialogResult.Yes)
+                    {
+                        rpt.ExportToPdf(@"D:\ReportDSDongHocPhi.pdf");
+                        MessageBox.Show("File ReportDSDongHocPhi.pdf đã được ghi thành công tại ổ D", "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                else
+                {
+                    rpt.ExportToPdf(@"D:\ReportDanhSachDongHocPhi.pdf");
+                    MessageBox.Show("File ReportDanhSachDongHocPhi.pdf đã được ghi thành công tại ổ D", "Xác nhận", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Vui lòng đóng file ReportDanhSachDongHocPhi.pdf", "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                return;
             }
         }
     }
