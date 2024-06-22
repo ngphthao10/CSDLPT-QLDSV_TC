@@ -76,18 +76,18 @@ namespace QLDSV_TC
                 return;
             }
 
-            int result = checkTKSV();
-            if (result == 1)
-            {
-                Program.mlogin = "sinhvien";
-                Program.password = "123";
-            }
-            else if (result == -1) return;
-            else
-            {
+            //int result = checkTKSV();
+            //if (result == 1)
+            //{
+            //    Program.mlogin = "sinhvien";
+            //    Program.password = "123";
+            //}
+            //else if (result == -1) return;
+            //else
+            //{
                 Program.mlogin = txtTenDN.Text;
                 Program.password = txtMatKhau.Text;
-            }
+            //}
 
             // kết nối bằng login
             if (Program.KetNoi() == 0) return;
