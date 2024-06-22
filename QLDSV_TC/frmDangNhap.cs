@@ -76,16 +76,20 @@ namespace QLDSV_TC
                 return;
             }
 
-            if (checkTKSV())
+            int result = checkTKSV();
+            if (result == 1)
             {
                 Program.mlogin = "sinhvien";
                 Program.password = "123";
             }
+            else if (result == -1) return;
             else
             {
                 Program.mlogin = txtTenDN.Text;
                 Program.password = txtMatKhau.Text;
             }
+
+            // kết nối bằng login
             if (Program.KetNoi() == 0) return;
             Program.mPhanManh = cmbKhoa.SelectedIndex;
             Program.mloginDN = Program.mlogin;
@@ -169,23 +173,35 @@ namespace QLDSV_TC
             txtTenDN.Focus();
         }
 
-        public bool checkTKSV()
+        public int checkTKSV()
         {
             if (conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
-            string query = "SELECT MASV, HOTEN = HO + ' ' + TEN FROM SINHVIEN " +
-                "WHERE MASV = '" + txtTenDN.Text + "' AND PASSWORD = '" + txtMatKhau.Text+ "'";
+            string query = "EXEC SP_CHECKSV_LOGIN '" + txtTenDN.Text + "', '" + txtMatKhau.Text + "'";
             Debug.WriteLine(query);
             using (SqlCommand cmd = new SqlCommand(query, conn_publisher))
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    if (reader == null || !reader.Read()) return false;
-                    maSV = reader["MASV"].ToString();
-                    hotenSV = reader["HOTEN"].ToString();
+                    if (reader == null || !reader.Read()) return 0;
+                    try
+                    {
+                        maSV = reader["MASV"].ToString();
+                        hotenSV = reader["HOTEN"].ToString();
+                    } catch (Exception ex)
+                    {
+                        int result = reader.GetInt32(0);
+                        conn_publisher.Close();
+                        if (result == 1)
+                        {
+                            MessageBox.Show("Sinh viên hiện đã nghỉ học!", "", MessageBoxButtons.OK);
+                            return -1;
+                        }
+                        else return 0;
+                    }
                 }
             }
             conn_publisher.Close();
-            return true;
+            return 1;
         }
     }
 }

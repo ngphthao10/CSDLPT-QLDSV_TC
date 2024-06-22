@@ -57,6 +57,8 @@
             this.colGIANGVIEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOSVDK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lbHP = new System.Windows.Forms.Label();
+            this.lbSOTC = new System.Windows.Forms.Label();
             this.btLuu = new System.Windows.Forms.Button();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -70,8 +72,6 @@
             this.colNHOM1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGIANGVIEN1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOSVDK1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lbSOTC = new System.Windows.Forms.Label();
-            this.lbHP = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
@@ -162,6 +162,7 @@
             this.cmbNK.Name = "cmbNK";
             this.cmbNK.Size = new System.Drawing.Size(150, 31);
             this.cmbNK.TabIndex = 17;
+            this.cmbNK.SelectedIndexChanged += new System.EventHandler(this.cmbNK_SelectedIndexChanged);
             // 
             // labelControl2
             // 
@@ -423,6 +424,26 @@
             this.panelControl2.Size = new System.Drawing.Size(1074, 100);
             this.panelControl2.TabIndex = 11;
             // 
+            // lbHP
+            // 
+            this.lbHP.AutoSize = true;
+            this.lbHP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbHP.Location = new System.Drawing.Point(517, 39);
+            this.lbHP.Name = "lbHP";
+            this.lbHP.Size = new System.Drawing.Size(55, 23);
+            this.lbHP.TabIndex = 24;
+            this.lbHP.Text = "label2";
+            // 
+            // lbSOTC
+            // 
+            this.lbSOTC.AutoSize = true;
+            this.lbSOTC.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbSOTC.Location = new System.Drawing.Point(188, 39);
+            this.lbSOTC.Name = "lbSOTC";
+            this.lbSOTC.Size = new System.Drawing.Size(55, 23);
+            this.lbSOTC.TabIndex = 23;
+            this.lbSOTC.Text = "label1";
+            // 
             // btLuu
             // 
             this.btLuu.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -595,26 +616,6 @@
             this.colSOSVDK1.Visible = true;
             this.colSOSVDK1.VisibleIndex = 5;
             this.colSOSVDK1.Width = 94;
-            // 
-            // lbSOTC
-            // 
-            this.lbSOTC.AutoSize = true;
-            this.lbSOTC.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbSOTC.Location = new System.Drawing.Point(188, 39);
-            this.lbSOTC.Name = "lbSOTC";
-            this.lbSOTC.Size = new System.Drawing.Size(55, 23);
-            this.lbSOTC.TabIndex = 23;
-            this.lbSOTC.Text = "label1";
-            // 
-            // lbHP
-            // 
-            this.lbHP.AutoSize = true;
-            this.lbHP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbHP.Location = new System.Drawing.Point(517, 39);
-            this.lbHP.Name = "lbHP";
-            this.lbHP.Size = new System.Drawing.Size(55, 23);
-            this.lbHP.TabIndex = 24;
-            this.lbHP.Text = "label2";
             // 
             // formDangKyLTC
             // 
