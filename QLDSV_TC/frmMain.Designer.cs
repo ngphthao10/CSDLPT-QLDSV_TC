@@ -44,6 +44,10 @@
             this.btnBDTK2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnBDTK = new DevExpress.XtraBars.BarButtonItem();
             this.btReportDSSV_DKLTC = new DevExpress.XtraBars.BarButtonItem();
+            this.btnMonHoc = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNhapDiem = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhieuDiem = new DevExpress.XtraBars.BarButtonItem();
             this.rbHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbQuanLyLTC = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -98,10 +102,14 @@
             this.btnTTDHP,
             this.btnBDTK2,
             this.btnBDTK,
-            this.btReportDSSV_DKLTC});
+            this.btReportDSSV_DKLTC,
+            this.btnMonHoc,
+            this.btnNhapDiem,
+            this.barButtonItem1,
+            this.btnPhieuDiem});
             this.ribon.Location = new System.Drawing.Point(0, 0);
             this.ribon.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.ribon.MaxItemId = 24;
+            this.ribon.MaxItemId = 29;
             this.ribon.Name = "ribon";
             this.ribon.OptionsMenuMinWidth = 649;
             this.ribon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -252,6 +260,34 @@
             this.btReportDSSV_DKLTC.Name = "btReportDSSV_DKLTC";
             this.btReportDSSV_DKLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btReportDSSV_DKLTC_ItemClick);
             // 
+            // btnMonHoc
+            // 
+            this.btnMonHoc.Caption = "Môn học";
+            this.btnMonHoc.Id = 24;
+            this.btnMonHoc.Name = "btnMonHoc";
+            this.btnMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonHoc_ItemClick);
+            // 
+            // btnNhapDiem
+            // 
+            this.btnNhapDiem.Caption = "Nhập điểm";
+            this.btnNhapDiem.Id = 25;
+            this.btnNhapDiem.Name = "btnNhapDiem";
+            this.btnNhapDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapDiem_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Bảng điểm môn học,lớp tín chỉ";
+            this.barButtonItem1.Id = 26;
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
+            // 
+            // btnPhieuDiem
+            // 
+            this.btnPhieuDiem.Caption = "Phiếu điểm";
+            this.btnPhieuDiem.Id = 28;
+            this.btnPhieuDiem.Name = "btnPhieuDiem";
+            this.btnPhieuDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuDiem_ItemClick);
+            // 
             // rbHeThong
             // 
             this.rbHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -279,6 +315,7 @@
             // 
             this.rbSub_formLTC.ItemLinks.Add(this.btMoLTC);
             this.rbSub_formLTC.ItemLinks.Add(this.btDKLTC);
+            this.rbSub_formLTC.ItemLinks.Add(this.btnMonHoc);
             this.rbSub_formLTC.Name = "rbSub_formLTC";
             this.rbSub_formLTC.Text = "Form";
             // 
@@ -322,12 +359,15 @@
             // 
             // ribbonPageGroup4
             // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnNhapDiem);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
             // ribbonPageGroup7
             // 
             this.ribbonPageGroup7.ItemLinks.Add(this.btnBDTK2);
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem1);
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnPhieuDiem);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "Report";
             // 
@@ -488,5 +528,9 @@
         private DevExpress.XtraBars.BarButtonItem btReportDSSV_DKLTC;
         public DevExpress.XtraBars.BarButtonItem btDangXuat;
         public DevExpress.XtraBars.BarButtonItem btDangNhap;
+        private DevExpress.XtraBars.BarButtonItem btnMonHoc;
+        private DevExpress.XtraBars.BarButtonItem btnNhapDiem;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem btnPhieuDiem;
     }
 }
