@@ -70,11 +70,6 @@ namespace QLDSV_TC
             }
         }
 
-        //private bool checkMaSV(string masv)
-        //{
-        //    return this.SINHVIENTableAdapter.GetData().Any(sv => sv.MASV.Trim() == masv.Trim());
-        //}
-
         private string checkMaSV(string masv)
         {
             var sinhVien = this.SINHVIENTableAdapter.GetData().FirstOrDefault(sv => sv.MASV.Trim().Equals(masv.Trim(), StringComparison.OrdinalIgnoreCase));
@@ -85,19 +80,9 @@ namespace QLDSV_TC
         {
             masv = cmbMASV.Text.Trim();
             hotensv = txtHOTENSV.Text;
-            //if (checkMaSV(masv) == false)
-            //{
-            //    MessageBox.Show("Không tìm thấy mã sinh viên trong khoa này!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    txtHOTENSV.Focus();
-            //    return;
-            //}
-            //else
-            //{
-
-            //}
-
             if (checkMaSV(masv) == null)
             {
+                txtHOTENSV.Text = "";
                 MessageBox.Show("Không tìm thấy mã sinh viên trong khoa này!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtHOTENSV.Focus();
                 return;
@@ -105,12 +90,8 @@ namespace QLDSV_TC
             else
             {
                 hotensv = checkMaSV(masv);
+                txtHOTENSV.Text = hotensv.ToString();
             }
-
-
-
-
-            hotensv = cmbMASV.SelectedValue.ToString();
             Xrpt_PhieuDiemSV rpt = new Xrpt_PhieuDiemSV(masv);
             rpt.lbMASV.Text = masv;
             rpt.lbHOTENSV.Text = hotensv;
@@ -122,13 +103,9 @@ namespace QLDSV_TC
 
         private void cmbMASV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    txtHOTENSV.Text = cmbMASV.SelectedValue.ToString();
-            //}
-            //catch (Exception) { }
+            masv = cmbMASV.Text.Trim();
+            hotensv = checkMaSV(masv);
             txtHOTENSV.Text = hotensv;
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
