@@ -246,5 +246,17 @@ namespace QLDSV_TC
                 f.Show();
             }
         }
+
+        private void btnPhieuDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(Frpt_PhieuDiemSV));
+            if (form != null) form.Activate();
+            else
+            {
+                Frpt_PhieuDiemSV f = new Frpt_PhieuDiemSV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

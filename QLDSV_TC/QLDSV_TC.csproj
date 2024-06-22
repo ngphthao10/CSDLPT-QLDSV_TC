@@ -170,6 +170,12 @@
     <Compile Include="Frpt_DSSV_DKLTC.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Frpt_PhieuDiemSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frpt_PhieuDiemSV.designer.cs">
+      <DependentUpon>Frpt_PhieuDiemSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fxrpt_BangDiemTongKet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,12 @@
     <Compile Include="Xrpt_BangDiemTongKetVer2.Designer.cs">
       <DependentUpon>Xrpt_BangDiemTongKetVer2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xrpt_PhieuDiemSV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_PhieuDiemSV.designer.cs">
+      <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="formDangKyLTC.resx">
       <DependentUpon>formDangKyLTC.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTTHP.resx">
       <DependentUpon>frmTTHP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frpt_PhieuDiemSV.resx">
+      <DependentUpon>Frpt_PhieuDiemSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fxrpt_BangDiemTongKet.resx">
       <DependentUpon>Fxrpt_BangDiemTongKet.cs</DependentUpon>
@@ -326,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_BangDiemTongKetVer2.resx">
       <DependentUpon>Xrpt_BangDiemTongKetVer2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_PhieuDiemSV.resx">
+      <DependentUpon>Xrpt_PhieuDiemSV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DS.xsc">
