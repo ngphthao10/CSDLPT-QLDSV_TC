@@ -220,6 +220,12 @@
     <Compile Include="Xrpt_DanhSachDongHocPhiCuaLop.Designer.cs">
       <DependentUpon>Xrpt_DanhSachDongHocPhiCuaLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Xrpt_BangDiemTongKetVer2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_BangDiemTongKetVer2.Designer.cs">
+      <DependentUpon>Xrpt_BangDiemTongKetVer2.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="formDangKyLTC.resx">
       <DependentUpon>formDangKyLTC.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_DSSV_DKLTC.resx">
       <DependentUpon>Xrpt_DSSV_DKLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_BangDiemTongKetVer2.resx">
+      <DependentUpon>Xrpt_BangDiemTongKetVer2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DS.xsc">

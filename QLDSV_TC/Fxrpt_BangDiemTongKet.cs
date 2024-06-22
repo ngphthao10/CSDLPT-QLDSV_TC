@@ -97,13 +97,13 @@ namespace QLDSV_TC
         {
             if (CheckData())
             {
-                Xrpt_BangDiemTongKet rpt = new Xrpt_BangDiemTongKet(maLop);
+                Xrpt_BangDiemTongKetVer2 rpt = new Xrpt_BangDiemTongKetVer2(maLop);
                 rpt.lblLop.Text = maLop;
                 SqlDataReader dr = Program.ExecSqlDataReader("Select * FROM LOP where malop = '" + maLop + "'");
 
                 if (dr.Read())
                 {
-                    String makhoa = dr["MALOP"].ToString();
+                    String makhoa = dr["MAKHOA"].ToString();
                     String khoahoc = dr["KHOAHOC"].ToString();
 
                     rpt.lblKhoaHoc.Text = khoahoc;
@@ -122,12 +122,12 @@ namespace QLDSV_TC
         {
             try
             {
-                Xrpt_BangDiemTongKet rpt = new Xrpt_BangDiemTongKet(maLop);
+                Xrpt_BangDiemTongKetVer2 rpt = new Xrpt_BangDiemTongKetVer2(maLop);
                 rpt.lblLop.Text = maLop;
                 SqlDataReader dr = Program.ExecSqlDataReader("Select * FROM LOP where malop = '" + maLop + "'");
                 if (dr.Read())
                 {
-                    String makhoa = dr["MALOP"].ToString();
+                    String makhoa = dr["MAKHOA"].ToString();
                     String khoahoc = dr["KHOAHOC"].ToString();
 
                     rpt.lblKhoaHoc.Text = khoahoc;
