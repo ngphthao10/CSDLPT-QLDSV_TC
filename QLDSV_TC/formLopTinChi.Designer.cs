@@ -37,6 +37,7 @@
             System.Windows.Forms.Label hOCKYLabel;
             System.Windows.Forms.Label nIENKHOALabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLopTinChi));
+            System.Windows.Forms.Label mALTCLabel;
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btThem = new DevExpress.XtraBars.BarButtonItem();
@@ -83,9 +84,10 @@
             this.tfNhom = new DevExpress.XtraEditors.TextEdit();
             this.cmbHK = new System.Windows.Forms.ComboBox();
             this.cmbNK = new System.Windows.Forms.ComboBox();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pnKhoa = new DevExpress.XtraEditors.PanelControl();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.label = new System.Windows.Forms.Label();
+            this.lbMALTC = new System.Windows.Forms.Label();
             hUYLOPLabel = new System.Windows.Forms.Label();
             sOSVTOITHIEULabel = new System.Windows.Forms.Label();
             mAGVLabel = new System.Windows.Forms.Label();
@@ -93,6 +95,7 @@
             mAMHLabel = new System.Windows.Forms.Label();
             hOCKYLabel = new System.Windows.Forms.Label();
             nIENKHOALabel = new System.Windows.Forms.Label();
+            mALTCLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLTC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
@@ -109,8 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbGV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSVMIN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNhom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnKhoa)).BeginInit();
+            this.pnKhoa.SuspendLayout();
             this.SuspendLayout();
             // 
             // hUYLOPLabel
@@ -137,7 +140,7 @@
             // 
             mAGVLabel.AutoSize = true;
             mAGVLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAGVLabel.Location = new System.Drawing.Point(39, 433);
+            mAGVLabel.Location = new System.Drawing.Point(43, 433);
             mAGVLabel.Name = "mAGVLabel";
             mAGVLabel.Size = new System.Drawing.Size(106, 23);
             mAGVLabel.TabIndex = 8;
@@ -147,7 +150,7 @@
             // 
             nHOMLabel.AutoSize = true;
             nHOMLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nHOMLabel.Location = new System.Drawing.Point(39, 371);
+            nHOMLabel.Location = new System.Drawing.Point(43, 371);
             nHOMLabel.Name = "nHOMLabel";
             nHOMLabel.Size = new System.Drawing.Size(63, 23);
             nHOMLabel.TabIndex = 6;
@@ -157,7 +160,7 @@
             // 
             mAMHLabel.AutoSize = true;
             mAMHLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAMHLabel.Location = new System.Drawing.Point(39, 309);
+            mAMHLabel.Location = new System.Drawing.Point(43, 309);
             mAMHLabel.Name = "mAMHLabel";
             mAMHLabel.Size = new System.Drawing.Size(92, 23);
             mAMHLabel.TabIndex = 4;
@@ -167,7 +170,7 @@
             // 
             hOCKYLabel.AutoSize = true;
             hOCKYLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            hOCKYLabel.Location = new System.Drawing.Point(39, 247);
+            hOCKYLabel.Location = new System.Drawing.Point(43, 247);
             hOCKYLabel.Name = "hOCKYLabel";
             hOCKYLabel.Size = new System.Drawing.Size(70, 23);
             hOCKYLabel.TabIndex = 2;
@@ -177,7 +180,7 @@
             // 
             nIENKHOALabel.AutoSize = true;
             nIENKHOALabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nIENKHOALabel.Location = new System.Drawing.Point(39, 185);
+            nIENKHOALabel.Location = new System.Drawing.Point(43, 185);
             nIENKHOALabel.Name = "nIENKHOALabel";
             nIENKHOALabel.Size = new System.Drawing.Size(101, 23);
             nIENKHOALabel.TabIndex = 0;
@@ -335,7 +338,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 830);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 851);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1940, 20);
             // 
@@ -345,7 +348,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 51);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 779);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 800);
             // 
             // barDockControlRight
             // 
@@ -353,7 +356,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1940, 51);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 779);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 800);
             // 
             // bdsLTC
             // 
@@ -422,7 +425,7 @@
             this.gridControlLTC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lkMH,
             this.lkGV});
-            this.gridControlLTC.Size = new System.Drawing.Size(1341, 659);
+            this.gridControlLTC.Size = new System.Drawing.Size(1341, 680);
             this.gridControlLTC.TabIndex = 9;
             this.gridControlLTC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLTC});
@@ -648,6 +651,8 @@
             // 
             // pnThongTin
             // 
+            this.pnThongTin.Controls.Add(mALTCLabel);
+            this.pnThongTin.Controls.Add(this.lbMALTC);
             this.pnThongTin.Controls.Add(this.cmbMH);
             this.pnThongTin.Controls.Add(this.cmbGV);
             this.pnThongTin.Controls.Add(hUYLOPLabel);
@@ -666,7 +671,7 @@
             this.pnThongTin.Enabled = false;
             this.pnThongTin.Location = new System.Drawing.Point(1341, 51);
             this.pnThongTin.Name = "pnThongTin";
-            this.pnThongTin.Size = new System.Drawing.Size(599, 779);
+            this.pnThongTin.Size = new System.Drawing.Size(599, 800);
             this.pnThongTin.TabIndex = 29;
             // 
             // cmbMH
@@ -748,15 +753,15 @@
             this.cmbNK.TabIndex = 1;
             this.cmbNK.SelectedIndexChanged += new System.EventHandler(this.cmbNK_SelectedIndexChanged);
             // 
-            // panelControl1
+            // pnKhoa
             // 
-            this.panelControl1.Controls.Add(this.cmbKhoa);
-            this.panelControl1.Controls.Add(this.label);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 51);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1341, 120);
-            this.panelControl1.TabIndex = 31;
+            this.pnKhoa.Controls.Add(this.cmbKhoa);
+            this.pnKhoa.Controls.Add(this.label);
+            this.pnKhoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnKhoa.Location = new System.Drawing.Point(0, 51);
+            this.pnKhoa.Name = "pnKhoa";
+            this.pnKhoa.Size = new System.Drawing.Size(1341, 120);
+            this.pnKhoa.TabIndex = 31;
             // 
             // cmbKhoa
             // 
@@ -778,14 +783,33 @@
             this.label.TabIndex = 29;
             this.label.Text = "Khoa";
             // 
+            // mALTCLabel
+            // 
+            mALTCLabel.AutoSize = true;
+            mALTCLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            mALTCLabel.Location = new System.Drawing.Point(43, 120);
+            mALTCLabel.Name = "mALTCLabel";
+            mALTCLabel.Size = new System.Drawing.Size(67, 23);
+            mALTCLabel.TabIndex = 18;
+            mALTCLabel.Text = "MÃ LTC";
+            // 
+            // lbMALTC
+            // 
+            this.lbMALTC.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLTC, "MALTC", true));
+            this.lbMALTC.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lbMALTC.Location = new System.Drawing.Point(187, 120);
+            this.lbMALTC.Name = "lbMALTC";
+            this.lbMALTC.Size = new System.Drawing.Size(100, 23);
+            this.lbMALTC.TabIndex = 19;
+            // 
             // formLopTinChi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1940, 850);
+            this.ClientSize = new System.Drawing.Size(1940, 871);
             this.Controls.Add(this.gridControlLTC);
-            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.pnKhoa);
             this.Controls.Add(this.pnThongTin);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -812,9 +836,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.cmbGV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSVMIN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNhom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnKhoa)).EndInit();
+            this.pnKhoa.ResumeLayout(false);
+            this.pnKhoa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -866,10 +890,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colSOSVTOITHIEU;
         private DevExpress.XtraGrid.Columns.GridColumn colHUYLOP;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl pnKhoa;
         private System.Windows.Forms.ComboBox cmbKhoa;
         private System.Windows.Forms.Label label;
         private DevExpress.XtraEditors.LookUpEdit cmbGV;
         private DevExpress.XtraEditors.LookUpEdit cmbMH;
+        private System.Windows.Forms.Label lbMALTC;
     }
 }

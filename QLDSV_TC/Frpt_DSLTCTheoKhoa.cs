@@ -26,7 +26,7 @@ namespace QLDSV_TC
             cmbKhoa.DisplayMember = "TENPM";
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedIndex = Program.mKhoa;
-
+            fillComboboxNK();
             if (Program.KetNoi() == 0)
             {
                 return;
@@ -35,6 +35,7 @@ namespace QLDSV_TC
             if (Program.mGroup == "PGV")
                 cmbKhoa.Enabled = true;
             else cmbKhoa.Enabled = false;
+            
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)

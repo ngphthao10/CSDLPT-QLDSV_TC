@@ -534,7 +534,7 @@
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrLabel6.Summary = xrSummary1;
             this.xrLabel6.Text = "xrLabel3";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrLabel6.TextFormatString = "{0:}";
             // 
             // xrLabel4

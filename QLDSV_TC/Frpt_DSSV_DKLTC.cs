@@ -51,15 +51,15 @@ namespace QLDSV_TC
         {
             if (checkLTC())
             {
-                if (makhoa == "VT")
+                if (makhoa != getMaKhoa() && Program.mGroup == "KHOA")
+                {
+                    MessageBox.Show("Lớp tín chỉ này thuộc khoa khác, bạn không có quyền xem!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else 
                 {
                     Program.mlogin = Program.remotelogin;
                     Program.password = Program.remotepassword;
-                }
-                else
-                {
-                    Program.mlogin = Program.mloginDN;
-                    Program.password = Program.passwordDN;
                 }
 
                 if (Program.KetNoi() == 0)
@@ -96,6 +96,7 @@ namespace QLDSV_TC
                 if (reader.GetInt32(0) == -1)
                 {
                     MessageBox.Show("Không tìm thấy lớp tín chỉ!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    reader.Close();
                     return false;
                 }
                 else
@@ -118,6 +119,18 @@ namespace QLDSV_TC
             }
             reader.Close();
             return tenkhoa;
+        }
+
+        private string getMaKhoa()
+        {
+            string makhoa = "";
+            SqlDataReader reader = Program.ExecSqlDataReader("SELECT MAKHOA FROM KHOA");
+            if (reader != null && reader.Read())
+            {
+                makhoa = reader.GetString(0);
+            }
+            reader.Close();
+            return makhoa;
         }
 
     }

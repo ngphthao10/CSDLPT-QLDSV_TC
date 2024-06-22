@@ -38,14 +38,20 @@ namespace QLDSV_TC
 
         private bool checkDataSinhVien()
         {
+
             if (txtMaSV.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Mã sinh viên không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (txtHo.Text.ToString().Trim() == "" && txtTen.ToString().Trim() == "")
+            if (txtHo.Text.ToString().Trim() == "")
             {
-                MessageBox.Show("Họ và tên không được trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Họ không được trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (txtTen.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Tên không được trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (flag == "THEM")
