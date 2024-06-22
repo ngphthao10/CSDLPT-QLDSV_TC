@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using QLDSV_TC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -205,6 +206,54 @@ namespace QLDSV_TC
             else
             {
                 Frpt_DSSV_DKLTC f = new Frpt_DSSV_DKLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnMonHoc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmMonHoc));
+            if (form != null) form.Activate();
+            else
+            {
+                frmMonHoc f = new frmMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnNhapDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmNhapDiem));
+            if (form != null) form.Activate();
+            else
+            {
+                frmNhapDiem f = new frmNhapDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(Frpt_BangDiemMHLTC));
+            if (form != null) form.Activate();
+            else
+            {
+                Frpt_BangDiemMHLTC f = new Frpt_BangDiemMHLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnPhieuDiem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(Frpt_PhieuDiemSV));
+            if (form != null) form.Activate();
+            else
+            {
+                Frpt_PhieuDiemSV f = new Frpt_PhieuDiemSV();
                 f.MdiParent = this;
                 f.Show();
             }

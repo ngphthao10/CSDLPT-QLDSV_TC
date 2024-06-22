@@ -33,11 +33,11 @@ namespace QLDSV_TC
                 this.lbMSSV.Text = reader["MASV"].ToString().Trim();
                 this.lbMaLop.Text = reader["MALOP"].ToString().Trim();
                 makhoa = reader["MAKHOA"].ToString().Trim();
-                Debug.WriteLine(makhoa);
+
+                reader.Close();
+                lbKhoa.Text = getTenKhoa();
+                fillComboboxNK();
             }
-            reader.Close();
-            fillComboboxNK();
-            lbKhoa.Text = getTenKhoa();
         }
 
         private void formDangKyLTC_Load(object sender, EventArgs e)
@@ -50,8 +50,10 @@ namespace QLDSV_TC
             String maKhoa = "";
             SqlDataReader reader = Program.ExecSqlDataReader("SELECT MAKHOA FROM KHOA");
             if (reader != null && reader.Read())
+            {
                 maKhoa = reader.GetString(0);
-            reader.Close();
+                reader.Close();
+            }
             return maKhoa;
         }
 
@@ -60,7 +62,9 @@ namespace QLDSV_TC
             String tenkhoa = "";
             SqlDataReader reader = Program.ExecSqlDataReader("SELECT TENKHOA FROM KHOA");
             if (reader != null && reader.Read())
+            {
                 tenkhoa = reader.GetString(0);
+            }
             reader.Close();
             return tenkhoa;
         }
@@ -152,7 +156,7 @@ namespace QLDSV_TC
                     {
                         int result = Program.ExecSqlNonQuery("EXEC SP_DANGKYLTC "
                             + maltc + ", '" + maSV + "', " + cmbHK.Text + ", '" + cmbNK.SelectedValue.ToString() + "', '"
-                            + gridViewDSLTC.GetRowCellValue(rowIndex, "MAMH").ToString() + "', " + chiphi);
+                            + gridViewDSLTC.GetRowCellValue(rowIndex, "MAMH").ToString().Trim() + "', " + chiphi);
 
                         // update data
                         this.SP_DSLTC_SVDKTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -220,7 +224,7 @@ namespace QLDSV_TC
                 try
                 {
                     tongtc = reader.GetInt32(0);
-                } catch(Exception ex) { reader.Close(); return 0; }
+                } catch { reader.Close(); return 0; }
             }
             else tongtc = 0;
             reader.Close();
@@ -235,8 +239,8 @@ namespace QLDSV_TC
             if (reader != null && reader.Read())
             {
                 result = true;
-                reader.Close();
             }
+            reader.Close();
             return result;
         }
 

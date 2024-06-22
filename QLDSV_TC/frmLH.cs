@@ -51,7 +51,7 @@ namespace QLDSV_TC
             }
             else
             {
-                cmbKhoa.Enabled = false;
+                panelKhoa.Enabled = false;
                 btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = true;
                 panelLop.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = false;
             }
@@ -206,7 +206,7 @@ namespace QLDSV_TC
 
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnReload.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
-            gcLop.Enabled = false;
+            gcLop.Enabled = cmbKhoa.Enabled = false;
             panelLop.Enabled = true;
 
             flag = "THEM"; //gán cờ là THEM 
@@ -221,7 +221,7 @@ namespace QLDSV_TC
             panelLop.Enabled = true;
             btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnSua.Enabled = btnThoat.Enabled = false;
             btnGhi.Enabled = btnPhucHoi.Enabled = true;
-            gcLop.Enabled = false;
+            gcLop.Enabled = cmbKhoa.Enabled = false;
 
             flag = "CHINHSUA"; //gán cờ là SUA
         }
@@ -392,7 +392,7 @@ namespace QLDSV_TC
 
                 flag = "";
                 vitriLop = -1;
-                gcLop.Enabled = true;
+                gcLop.Enabled = cmbKhoa.Enabled = true;
                 btnXoa.Enabled = btnSua.Enabled = btnThem.Enabled = btnReload.Enabled = cmbKhoa.Enabled = btnPhucHoi.Enabled = btnThoat.Enabled = true;
                 btnGhi.Enabled = panelLop.Enabled = false;
             }

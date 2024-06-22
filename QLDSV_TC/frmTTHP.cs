@@ -208,10 +208,10 @@ namespace QLDSV_TC
                 }
                 else
                 {
-                    btnGhiHP.Enabled =btnNopHP.Enabled = true;
                     bdsCTHP.RemoveCurrent();
                     bdsCTHP.CancelEdit();
                     MessageBox.Show("Thao tác thanh toán đã hủy!", "Thông báo!", MessageBoxButtons.OK);
+                    btnGhiHP.Enabled = btnNopHP.Enabled = false;
                 }
 
                 vitriCTHP = -1;

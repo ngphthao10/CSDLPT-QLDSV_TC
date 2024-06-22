@@ -66,7 +66,7 @@
             this.txtKhoaHoc = new DevExpress.XtraEditors.TextEdit();
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
-            this.siticonePanel1 = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.panelKhoa = new Siticone.Desktop.UI.WinForms.SiticonePanel();
             this.btnTaiSV = new DevExpress.XtraEditors.SimpleButton();
             this.cmbKhoa = new Siticone.Desktop.UI.WinForms.SiticoneComboBox();
             this.LOPTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter();
@@ -93,7 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtKhoaHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
-            this.siticonePanel1.SuspendLayout();
+            this.panelKhoa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -318,7 +318,7 @@
             // 
             this.panelControl1.Controls.Add(this.panelucSV);
             this.panelControl1.Controls.Add(this.panelControl2);
-            this.panelControl1.Controls.Add(this.siticonePanel1);
+            this.panelControl1.Controls.Add(this.panelKhoa);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 69);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -517,17 +517,17 @@
             this.txtMaLop.Size = new System.Drawing.Size(265, 26);
             this.txtMaLop.TabIndex = 1;
             // 
-            // siticonePanel1
+            // panelKhoa
             // 
-            this.siticonePanel1.Controls.Add(this.btnTaiSV);
-            this.siticonePanel1.Controls.Add(this.cmbKhoa);
-            this.siticonePanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.siticonePanel1.Location = new System.Drawing.Point(2, 2);
-            this.siticonePanel1.Margin = new System.Windows.Forms.Padding(5);
-            this.siticonePanel1.Name = "siticonePanel1";
-            this.siticonePanel1.Padding = new System.Windows.Forms.Padding(12);
-            this.siticonePanel1.Size = new System.Drawing.Size(1416, 85);
-            this.siticonePanel1.TabIndex = 5;
+            this.panelKhoa.Controls.Add(this.btnTaiSV);
+            this.panelKhoa.Controls.Add(this.cmbKhoa);
+            this.panelKhoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelKhoa.Location = new System.Drawing.Point(2, 2);
+            this.panelKhoa.Margin = new System.Windows.Forms.Padding(5);
+            this.panelKhoa.Name = "panelKhoa";
+            this.panelKhoa.Padding = new System.Windows.Forms.Padding(12);
+            this.panelKhoa.Size = new System.Drawing.Size(1416, 85);
+            this.panelKhoa.TabIndex = 5;
             // 
             // btnTaiSV
             // 
@@ -622,7 +622,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtKhoaHoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
-            this.siticonePanel1.ResumeLayout(false);
+            this.panelKhoa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bdsSV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -645,7 +645,7 @@
         private DevExpress.XtraBars.BarLargeButtonItem btnReload;
         private DevExpress.XtraBars.BarLargeButtonItem btnThoat;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private Siticone.Desktop.UI.WinForms.SiticonePanel siticonePanel1;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel panelKhoa;
         private Siticone.Desktop.UI.WinForms.SiticoneComboBox cmbKhoa;
         private System.Windows.Forms.BindingSource bdsLop;
         private QLDSV_TCDataSet QLDSV_TCDataSet;

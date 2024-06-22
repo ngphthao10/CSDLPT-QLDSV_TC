@@ -19,6 +19,7 @@ namespace QLDSV_TC
 
         private String maSV;
         private String hotenSV;
+        private String makhoa;
         private void LayDSPM(String cmd)
         {
             DataTable dt = new DataTable();
@@ -76,18 +77,18 @@ namespace QLDSV_TC
                 return;
             }
 
-            int result = checkTKSV();
-            if (result == 1)
-            {
-                Program.mlogin = "sinhvien";
-                Program.password = "123";
-            }
-            else if (result == -1) return;
-            else
-            {
+            //int result = checkTKSV();
+            //if (result == 1)
+            //{
+            //    Program.mlogin = "sinhvien";
+            //    Program.password = "123";
+            //}
+            //else if (result == -1) return;
+            //else
+            //{
                 Program.mlogin = txtTenDN.Text;
                 Program.password = txtMatKhau.Text;
-            }
+            //}
 
             // kết nối bằng login
             if (Program.KetNoi() == 0) return;
@@ -176,7 +177,12 @@ namespace QLDSV_TC
         public int checkTKSV()
         {
             if (conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
-            string query = "EXEC SP_CHECKSV_LOGIN '" + txtTenDN.Text + "', '" + txtMatKhau.Text + "'";
+
+            if (cmbKhoa.Text == "Khoa Công nghệ thông tin") makhoa = "CNTT";
+            else if (cmbKhoa.Text == "Khoa Viễn thông") makhoa = "VT";
+            else return 0;
+           
+            string query = "EXEC SP_CHECKSV_LOGIN '" + txtTenDN.Text + "', '" + txtMatKhau.Text + "', '" + makhoa + "'";
             Debug.WriteLine(query);
             using (SqlCommand cmd = new SqlCommand(query, conn_publisher))
             {

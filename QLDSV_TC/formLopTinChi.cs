@@ -58,9 +58,8 @@ namespace QLDSV_TC
             fillComboboxGV();
             fillComboboxNK();
 
-            if (Program.mGroup == "PGV")
-                cmbKhoa.Enabled = true;
-            else cmbKhoa.Enabled = false;
+            if (Program.mGroup == "PGV") pnKhoa.Enabled = true;
+            else pnKhoa.Enabled = false;
 
             // unable nếu bdsLTC không có bản ghi nào
             if (bdsLTC.Count == 0)
@@ -71,13 +70,13 @@ namespace QLDSV_TC
 
         private void btThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int maLTC = int.Parse(((DataRowView)bdsLTC.Current)["MALTC"].ToString()) + 1;
             DS.LOPTINCHI.MAKHOAColumn.DefaultValue = maKhoa;
 
             vitri = bdsLTC.Position;
             bdsLTC.AddNew();
+            cbHuyLop.Checked = false;
 
-            pnThongTin.Enabled = true;   gridControlLTC.Enabled = false;
+            pnThongTin.Enabled = true;   cmbKhoa.Enabled = gridControlLTC.Enabled = false;
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = false;
             btGhi.Enabled = btPhucHoi.Enabled = btThoat.Enabled = true;
 
@@ -86,30 +85,7 @@ namespace QLDSV_TC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (flag == "THEM" || flag == "SUA")
-            {
-                DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn chuyển khoa mà không lưu thông tin không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (dialog == DialogResult.No)
-                {
-                    cmbKhoa.SelectedIndex = Program.mKhoa;
-                    return;
-                }
-                else
-                {
-                    bdsLTC.CancelEdit();
-                    if (btThem.Enabled == false)
-                        bdsLTC.Position = vitri;
-
-                    btThem.Enabled = btXoa.Enabled = btChinhSua.Enabled = btReload.Enabled = btThoat.Enabled = true;
-                    btGhi.Enabled = btPhucHoi.Enabled = false;
-
-                    gridControlLTC.Enabled = true;
-                    pnThongTin.Enabled = false;
-
-                    flag = "";
-                }
-            }
-
+            
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
             Program.servername = cmbKhoa.SelectedValue.ToString();
 
@@ -229,13 +205,13 @@ namespace QLDSV_TC
                 return false;
             }
 
-            if (tfNhom.ToString().Trim() == "")
+            if (tfNhom.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Nhóm không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
 
-            if (tfSVMIN.ToString().Trim() == "")
+            if (tfSVMIN.Text.ToString().Trim() == "")
             {
                 MessageBox.Show("Số sinh viên tối thiểu không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
@@ -271,7 +247,7 @@ namespace QLDSV_TC
                     return false;
                 }
             }
-            else if (flag == "SUA" && maLTC != int.Parse(((DataRowView)bdsLTC.Current)["MALTC"].ToString()))
+            else if (flag == "SUA") // chỉnh lại check MAMH, NIENKHOA, HOCKY, NHOM trường hợp ghi bản ghi hiện tại
             {
                 if (result == -1)
                 {
@@ -308,6 +284,7 @@ namespace QLDSV_TC
                 }
             }
             else return;
+            fillComboboxNK();
 
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = btThoat.Enabled = true;
             btGhi.Enabled = btPhucHoi.Enabled = false;
@@ -327,7 +304,7 @@ namespace QLDSV_TC
             }
 
 
-            pnThongTin.Enabled = true; gridControlLTC.Enabled = false;
+            pnThongTin.Enabled = true; cmbKhoa.Enabled = gridControlLTC.Enabled = false;
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = false;
             btGhi.Enabled = btPhucHoi.Enabled = btThoat.Enabled = true;
 
@@ -337,6 +314,7 @@ namespace QLDSV_TC
 
         private void btXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            flag = "";
             vitri = bdsLTC.Position;
             if (bdsDK.Count > 0)
             {
@@ -361,6 +339,7 @@ namespace QLDSV_TC
                     return;
                 }
             }
+            fillComboboxNK();
             if (bdsLTC.Count == 0) btXoa.Enabled = false;
         }
 
@@ -408,20 +387,19 @@ namespace QLDSV_TC
             this.DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
             this.DANGKYTableAdapter.Fill(this.DS.DANGKY);
 
+            flag = "";
             if (bdsLTC.Count == 0)
                 btChinhSua.Enabled = btXoa.Enabled = false;
+            fillComboboxNK();
         }
 
         private void cmbNK_SelectedIndexChanged(object sender, EventArgs e)
         {
             fillComboboxHK();
 
-            foreach (Object item in cmbHK.Items)
-                Debug.WriteLine(item.ToString());
-            for (int i = 0; i < cmbHK.Items.Count; i++)
+            while (cmbHK.Items.Count > 0 && (cmbNK.Text + "_" + cmbHK.Items[0].ToString()).CompareTo(nienkhoa_hocky) < 0)
             {
-                if (( cmbNK.Text + "_" + cmbHK.Items[i].ToString()).CompareTo(nienkhoa_hocky) < 0)
-                    { cmbHK.Items.RemoveAt(i); }
+                cmbHK.Items.RemoveAt(0);
             }
         }
 
