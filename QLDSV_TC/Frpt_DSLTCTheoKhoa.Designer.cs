@@ -43,7 +43,7 @@
             this.cmbKhoa.Enabled = false;
             this.cmbKhoa.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(182, 30);
+            this.cmbKhoa.Location = new System.Drawing.Point(192, 30);
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(368, 30);
             this.cmbKhoa.TabIndex = 3;
@@ -53,7 +53,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(63, 34);
+            this.labelControl1.Location = new System.Drawing.Point(73, 34);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(43, 22);
             this.labelControl1.TabIndex = 2;
@@ -63,16 +63,17 @@
             // 
             this.cmbNienKhoa.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNienKhoa.FormattingEnabled = true;
-            this.cmbNienKhoa.Location = new System.Drawing.Point(182, 94);
+            this.cmbNienKhoa.Location = new System.Drawing.Point(192, 94);
             this.cmbNienKhoa.Name = "cmbNienKhoa";
             this.cmbNienKhoa.Size = new System.Drawing.Size(176, 30);
             this.cmbNienKhoa.TabIndex = 5;
+            this.cmbNienKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbNienKhoa_SelectedIndexChanged);
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(63, 98);
+            this.labelControl2.Location = new System.Drawing.Point(73, 98);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(86, 22);
             this.labelControl2.TabIndex = 4;
@@ -82,7 +83,7 @@
             // 
             this.cmbHocKy.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbHocKy.FormattingEnabled = true;
-            this.cmbHocKy.Location = new System.Drawing.Point(470, 94);
+            this.cmbHocKy.Location = new System.Drawing.Point(480, 94);
             this.cmbHocKy.Name = "cmbHocKy";
             this.cmbHocKy.Size = new System.Drawing.Size(80, 30);
             this.cmbHocKy.TabIndex = 7;
@@ -91,7 +92,7 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(385, 98);
+            this.labelControl3.Location = new System.Drawing.Point(395, 98);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(58, 22);
             this.labelControl3.TabIndex = 6;
@@ -101,7 +102,7 @@
             // 
             this.btPreview.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btPreview.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btPreview.Location = new System.Drawing.Point(182, 152);
+            this.btPreview.Location = new System.Drawing.Point(132, 152);
             this.btPreview.Name = "btPreview";
             this.btPreview.Size = new System.Drawing.Size(117, 43);
             this.btPreview.TabIndex = 8;
@@ -113,7 +114,7 @@
             // 
             this.btThoat.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btThoat.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThoat.Location = new System.Drawing.Point(433, 152);
+            this.btThoat.Location = new System.Drawing.Point(383, 152);
             this.btThoat.Name = "btThoat";
             this.btThoat.Size = new System.Drawing.Size(117, 43);
             this.btThoat.TabIndex = 9;

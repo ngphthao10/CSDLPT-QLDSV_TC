@@ -732,11 +732,6 @@
             this.cmbHK.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLTC, "HOCKY", true));
             this.cmbHK.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbHK.FormattingEnabled = true;
-            this.cmbHK.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4"});
             this.cmbHK.Location = new System.Drawing.Point(191, 244);
             this.cmbHK.Name = "cmbHK";
             this.cmbHK.Size = new System.Drawing.Size(80, 31);
@@ -751,6 +746,7 @@
             this.cmbNK.Name = "cmbNK";
             this.cmbNK.Size = new System.Drawing.Size(172, 31);
             this.cmbNK.TabIndex = 1;
+            this.cmbNK.SelectedIndexChanged += new System.EventHandler(this.cmbNK_SelectedIndexChanged);
             // 
             // panelControl1
             // 

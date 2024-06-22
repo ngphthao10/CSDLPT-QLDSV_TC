@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Accessibility;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace QLDSV_TC
         int vitri = -1;
         int maLTC = -1;
         string flag;
+        string nienkhoa_hocky = "";
         public formLopTinChi()
         {
             InitializeComponent();
@@ -30,7 +32,6 @@ namespace QLDSV_TC
         {
 
             DS.EnforceConstraints = false;
-            bdsLTC.ResetBindings(false);
 
             this.LOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
             this.LOPTINCHITableAdapter.Fill(this.DS.LOPTINCHI);
@@ -85,6 +86,30 @@ namespace QLDSV_TC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (flag == "THEM" || flag == "SUA")
+            {
+                DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn chuyển khoa mà không lưu thông tin không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialog == DialogResult.No)
+                {
+                    cmbKhoa.SelectedIndex = Program.mKhoa;
+                    return;
+                }
+                else
+                {
+                    bdsLTC.CancelEdit();
+                    if (btThem.Enabled == false)
+                        bdsLTC.Position = vitri;
+
+                    btThem.Enabled = btXoa.Enabled = btChinhSua.Enabled = btReload.Enabled = btThoat.Enabled = true;
+                    btGhi.Enabled = btPhucHoi.Enabled = false;
+
+                    gridControlLTC.Enabled = true;
+                    pnThongTin.Enabled = false;
+
+                    flag = "";
+                }
+            }
+
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView") return;
             Program.servername = cmbKhoa.SelectedValue.ToString();
 
@@ -92,6 +117,7 @@ namespace QLDSV_TC
             {
                 Program.mlogin = Program.remotelogin;
                 Program.password = Program.remotepassword;
+                Program.mKhoa = cmbKhoa.SelectedIndex;
             }
             else
             {
@@ -119,19 +145,11 @@ namespace QLDSV_TC
             SqlDataReader reader = Program.ExecSqlDataReader("SELECT TOP 1  HOCKY, NIENKHOA FROM LOPTINCHI ORDER BY MALTC DESC");
             if (reader != null && reader.Read())
             {
-                string nk_hk = reader.GetString(1);
-                cmbNK.Items.Add(nk_hk);
-                cmbNK.Items.Add(nk_hk.Substring(5, 4) + "-" + (int.Parse(nk_hk.Substring(5, 4)) + 1));
-                filterComboboxHK(reader.GetInt32(0));
+                string nk = reader.GetString(1);
+                cmbNK.Items.Add(nk);
+                cmbNK.Items.Add(nk.Substring(5, 4) + "-" + (int.Parse(nk.Substring(5, 4)) + 1));
+                nienkhoa_hocky = cmbNK.Items[0].ToString() + "_" + reader.GetInt32(0).ToString();
                 reader.Close();
-            }
-        }
-
-        private void filterComboboxHK(int hockymoi)
-        {
-            for (int i = 0; i < cmbHK.Items.Count; i++)
-            {
-                if (int.Parse(cmbHK.Items[i].ToString()) < hockymoi) { cmbHK.Items.RemoveAt(i);}
             }
         }
 
@@ -186,25 +204,26 @@ namespace QLDSV_TC
 
         private bool checkDataLopTinChi(int maLTC)
         {
-            if (cmbHK.SelectedItem.ToString().Trim() == "")
+            /*|| cmbHK.Text.Trim() == ""*/
+            if (cmbHK.Text.Trim() == "")
             {
                 MessageBox.Show("Học kỳ không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (cmbNK.Text == "" )
+            if (cmbNK.Text.Trim() == "")
             {
                 MessageBox.Show("Niên khóa không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
 
-            if (cmbMH.SelectedText == "[EditValue is null]")
+            if (cmbMH.EditValue == null || cmbMH.SelectedText == "[EditValue is null]")
             {
                 MessageBox.Show("Môn học không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
             }
 
-            if (cmbGV.SelectedText == "[EditValue is null]")
+            if (cmbGV.EditValue == null || cmbGV.SelectedText == "[EditValue is null]")
             {
                 MessageBox.Show("Giảng viên không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return false;
@@ -226,33 +245,52 @@ namespace QLDSV_TC
             string query = "DECLARE @value INT\n" +
                            "EXEC @value = sp_CHECKLOPTINCHI " +
                            maLTC + ", " +
-                           "'" + cmbMH.Text + "', " +
-                           "'" + cmbNK.Text + "', " +
-                           cmbHK.SelectedItem.ToString() + ", " +
-                           tfNhom.Text + "\n" +
+                           "'" + cmbMH.EditValue.ToString().Trim() + "', " +
+                           "'" + cmbNK.Text.Trim() + "', " +
+                           cmbHK.Text.Trim() + ", " +
+                           tfNhom.Text.Trim() + "\n" +
                            "SELECT @value";
             System.Diagnostics.Debug.WriteLine(query);
             int result = Program.CheckPrimaryKey(query);
-            if (result == -1)
+
+            if (flag == "THEM")
             {
-                MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (result == -1)
+                {
+                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (result == 1)
+                {
+                    MessageBox.Show("Lỗi trùng mã lớp tín chỉ!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (result == 2)
+                {
+                    MessageBox.Show("Lỗi trùng MAMH, NIENKHOA, HOCKY, NHOM!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return false;
+                }
             }
-            if (result == 1)
+            else if (flag == "SUA" && maLTC != int.Parse(((DataRowView)bdsLTC.Current)["MALTC"].ToString()))
             {
-                MessageBox.Show("Lỗi trùng mã lớp tín chỉ!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (result == -1)
+                {
+                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                if (result == 2)
+                {
+                    MessageBox.Show("Lỗi trùng MAMH, NIENKHOA, HOCKY, NHOM!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return false;
+                }
             }
-            if (result == 2)
-            {
-                MessageBox.Show("Lỗi trùng MAMH, NIENKHOA, HOCKY, NHOM!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                return false;
-            }
+
             return true;
         }
 
         private void btGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            maLTC = getMaLTC() + 1;
             if (checkDataLopTinChi(maLTC))
             {
                 try
@@ -269,6 +307,7 @@ namespace QLDSV_TC
                     return;
                 }
             }
+            else return;
 
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = btThoat.Enabled = true;
             btGhi.Enabled = btPhucHoi.Enabled = false;
@@ -278,10 +317,21 @@ namespace QLDSV_TC
         private void btChinhSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             vitri = bdsLTC.Position;
+
+            // check điều kiện không cho chỉnh sửa những lớp tín chỉ trong quá khứ
+            DataRowView currentRow = (DataRowView)bdsLTC.Current;
+            if ((currentRow["NIENKHOA"].ToString() + "_" + currentRow["HOCKY"].ToString()).CompareTo(nienkhoa_hocky) < 0)
+            {
+                MessageBox.Show("Không thể chỉnh sửa lớp tín chỉ trong quá khứ!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             pnThongTin.Enabled = true; gridControlLTC.Enabled = false;
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = false;
             btGhi.Enabled = btPhucHoi.Enabled = btThoat.Enabled = true;
 
+            maLTC = int.Parse(((DataRowView)bdsLTC.Current)["MALTC"].ToString());
             flag = "SUA";
         }
 
@@ -360,6 +410,38 @@ namespace QLDSV_TC
 
             if (bdsLTC.Count == 0)
                 btChinhSua.Enabled = btXoa.Enabled = false;
+        }
+
+        private void cmbNK_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillComboboxHK();
+
+            foreach (Object item in cmbHK.Items)
+                Debug.WriteLine(item.ToString());
+            for (int i = 0; i < cmbHK.Items.Count; i++)
+            {
+                if (( cmbNK.Text + "_" + cmbHK.Items[i].ToString()).CompareTo(nienkhoa_hocky) < 0)
+                    { cmbHK.Items.RemoveAt(i); }
+            }
+        }
+
+        private void fillComboboxHK()
+        {
+            cmbHK.Items.Clear();
+            for (int i = 1; i <= 4; i++)
+                cmbHK.Items.Add(i);
+        }
+
+        private int getMaLTC()
+        {
+            int maLTC = -1;
+            SqlDataReader reader = Program.ExecSqlDataReader("SELECT IDENT_CURRENT('LOPTINCHI')");
+            if (reader != null && reader.Read())
+            {
+                maLTC = (int) reader.GetDecimal(0);
+                reader.Close();
+            }
+            return maLTC;
         }
     }
 }

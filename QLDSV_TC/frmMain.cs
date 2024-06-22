@@ -123,6 +123,7 @@ namespace QLDSV_TC
             else
             {
                 Frpt_DSLTCTheoKhoa f = new Frpt_DSLTCTheoKhoa();
+                f.MdiParent = this;
                 f.Show();
             }
         }

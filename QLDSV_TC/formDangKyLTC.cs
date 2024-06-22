@@ -74,6 +74,19 @@ namespace QLDSV_TC
 
         private void btLoad_Click(object sender, EventArgs e)
         {
+            // check nhập niên khóa - học kỳ
+            if (cmbHK.SelectedItem == null || cmbHK.Text.Trim() == ""  )
+            {
+                MessageBox.Show("Học kỳ không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cmbNK.Text == "")
+            {
+                MessageBox.Show("Niên khóa không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+
             this.SP_DSLTC_DKTableAdapter.Connection.ConnectionString = Program.connstr;
             this.SP_DSLTC_DKTableAdapter.Fill(this.DS.SP_DSLTC_DK, int.Parse(cmbHK.Text), cmbNK.SelectedValue.ToString());
 
@@ -101,8 +114,10 @@ namespace QLDSV_TC
 
         private void btLuu_Click(object sender, EventArgs e)
         {
+            // check lỗi logic không cho đăng ký/ hủy đăng ký
             string nk_hk = getNK_HK_HienTai();
-            if ((cmbHK.Text + "_" + cmbNK.SelectedValue.ToString()).Equals(nk_hk) == false)
+            if ((cmbNK.SelectedValue.ToString() + "_" + cmbHK.Text).Equals(nk_hk) == false
+                || checkQuaHanDK_HDK(maSV, int.Parse(cmbHK.Text), cmbNK.Text))
             {
                 loadCheckBox();
                 MessageBox.Show("Lớp tín chỉ đã quá hạn đăng ký/ hủy đăng ký", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -124,6 +139,8 @@ namespace QLDSV_TC
                 }
             }
 
+
+            // đăng ký/ hủy đăng ký
             for (int rowIndex = 0; rowIndex < gridViewDSLTC.RowCount; rowIndex++)
             {
                 int maltc = Convert.ToInt32(gridViewDSLTC.GetRowCellValue(rowIndex, colMALTC));
@@ -165,7 +182,7 @@ namespace QLDSV_TC
         private string getNK_HK_HienTai()
         {
             string result = "";
-            SqlDataReader reader = Program.ExecSqlDataReader("SELECT TOP 1 NK_HK = CAST(HOCKY AS VARCHAR) + '_' + NIENKHOA FROM LOPTINCHI ORDER BY MALTC DESC");
+            SqlDataReader reader = Program.ExecSqlDataReader("SELECT TOP 1 NK_HK =  NIENKHOA + '_' + CAST(HOCKY AS VARCHAR) FROM LOPTINCHI ORDER BY MALTC DESC");
             if (reader != null && reader.Read())
             {
                 result = reader.GetString(0);
@@ -208,6 +225,26 @@ namespace QLDSV_TC
             else tongtc = 0;
             reader.Close();
             return tongtc;
+        }
+
+        private bool checkQuaHanDK_HDK(string masv, int hocky, string nienkhoa)
+        {
+            bool result = false;
+            SqlDataReader reader = Program.ExecSqlDataReader("SELECT 1 FROM LINK2.QLDSV_TC.DBO.CT_DONGHOCPHI " +
+                "WHERE MASV = '" + masv + "' AND HOCKY = " + hocky + " AND NIENKHOA = '" + nienkhoa + "'");
+            if (reader != null && reader.Read())
+            {
+                result = true;
+                reader.Close();
+            }
+            return result;
+        }
+
+        private void cmbNK_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbHK.DataSource = (DataTable)Program.ExecSqlDataTable("SELECT DISTINCT HOCKY FROM LOPTINCHI WHERE NIENKHOA = '" + cmbNK.Text + "'");
+            cmbHK.DisplayMember = "HOCKY";
+            cmbHK.ValueMember = "HOCKY";
         }
     }
 }
