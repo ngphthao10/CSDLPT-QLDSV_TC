@@ -121,6 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlNQX1BoaWV1RGllbVNWIj48RmllbGQgTmFtZT0iVEVOTUgiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRElFTV9DQyIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkRJRU1fR0siIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iRElFTV9DSyIgVHlwZT0iRG91YmxlIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlNQX1BoaWV1RGllbVNWIj48RmllbGQgTmFtZT0iVEVOTUgiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRElFTUhFVE1PTiIgVHlwZT0iRG91YmxlIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
 </root>

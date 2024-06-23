@@ -13,12 +13,13 @@ namespace QLDSV_TC
             InitializeComponent();
         }
 
-        public Xrpt_PhieuDiemSV (string MASV)
+        public Xrpt_PhieuDiemSV(string masv)
         {
             InitializeComponent();
             this.sqlDataSource1.Connection.ConnectionString = Program.connstr;
-            this.sqlDataSource1.Queries[0].Parameters[0].Value = MASV;
+            this.sqlDataSource1.Queries[0].Parameters[0].Value = masv;
             this.sqlDataSource1.Fill();
         }
+
     }
 }
