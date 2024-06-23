@@ -217,7 +217,7 @@ namespace QLDSV_TC
             int tongtc;
             SqlDataReader reader = Program.ExecSqlDataReader("SELECT TONGTC = SUM(SOTIET_LT + SOTIET_TH)/15 FROM MONHOC WHERE MAMH IN " +
                 "(SELECT MAMH FROM LOPTINCHI WHERE NIENKHOA = '" + cmbNK.SelectedValue.ToString() + "' AND HOCKY = " + cmbHK.Text + " AND MALTC IN " +
-                "(SELECT MALTC FROM DANGKY WHERE MASV = '" + maSV + "'))");
+                "(SELECT MALTC FROM DANGKY WHERE MASV = '" + maSV + "' AND HUYDANGKY = 0))");
             
             if (reader != null && reader.Read())
             {

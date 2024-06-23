@@ -120,6 +120,7 @@ namespace QLDSV_TC
         private void fillComboboxNK()
         {
             SqlDataReader reader = Program.ExecSqlDataReader("SELECT TOP 1  HOCKY, NIENKHOA FROM LOPTINCHI ORDER BY MALTC DESC");
+            cmbNK.Items.Clear();
             if (reader != null && reader.Read())
             {
                 string nk = reader.GetString(1);
@@ -237,6 +238,11 @@ namespace QLDSV_TC
                     MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+                if (result == 1)
+                {
+                    MessageBox.Show("Lỗi trùng mã lớp tín chỉ ở site khác", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
                 if (result == 2)
                 {
                     MessageBox.Show("Lỗi trùng MAMH, NIENKHOA, HOCKY, NHOM!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -271,7 +277,7 @@ namespace QLDSV_TC
 
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = btThoat.Enabled = true;
             btGhi.Enabled = btPhucHoi.Enabled = false;
-            pnThongTin.Enabled = false; gridControlLTC.Enabled = true;
+            pnThongTin.Enabled = false; gridControlLTC.Enabled = cmbKhoa.Enabled = true;
 
             flag = "";
         }
@@ -354,7 +360,7 @@ namespace QLDSV_TC
 
         private void btThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (flag != "CHINHSUA" && flag != "THEM")   this.Close();
+            if (flag != "SUA" && flag != "THEM")   this.Close();
             else
             {
                 DialogResult dialog = MessageBox.Show("Bạn đang trong quá trình chỉnh sửa thông tin bạn thật sự muốn thoát không?", "Thông báo!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);

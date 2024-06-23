@@ -25,11 +25,13 @@ namespace QLDSV_TC
         {
             try
             {
+              
                 String currencyToWords = chuyenTienSangChu.ConvertToText(long.Parse(xrlblSotien.Text.Replace(",", "").Replace("đ","")));
                 lblTienChu.Text = "(" + currencyToWords.Replace("  ", " ") + " đồng)";
             }
             catch (Exception ex) {
-                MessageBox.Show("Hiện chưa có danh sách học phí!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                xrlblSotien.Value = 0;
+                lblTienChu.Text = "(không đồng)";
             }
 
         }

@@ -43,21 +43,50 @@ namespace QLDSV_TC
             // Phân quyền
             if (Program.mGroup == "PGV" || Program.mGroup == "KHOA")
             {
-                this.btDKLTC.Visibility = BarItemVisibility.Never;
+                this.btnMonHoc.Visibility = BarItemVisibility.Always;
                 this.btMoLTC.Visibility = BarItemVisibility.Always;
+                this.btDKLTC.Visibility = BarItemVisibility.Never;
                 this.btReportDSLTC.Visibility = BarItemVisibility.Always;
                 this.btReportDSSV_DKLTC.Visibility = BarItemVisibility.Always;
+                this.btnQLSV.Visibility = BarItemVisibility.Always;
+                this.btnQLLH.Visibility = BarItemVisibility.Always;
+                this.btnBDTK.Visibility = BarItemVisibility.Always;
+                this.btnNhapDiem.Visibility = BarItemVisibility.Always;
+                this.btnBDTK2.Visibility = BarItemVisibility.Always;
+                this.btnBDMH_LTC.Visibility = BarItemVisibility.Always;
+                this.btnPhieuDiem.Visibility = BarItemVisibility.Always;
                 this.btTaoTK.Visibility = BarItemVisibility.Always;
+                this.btXoaTK.Visibility = BarItemVisibility.Always;
+                this.rb_sub_diem.Visible = true;
+                this.rbSub_ReportLTC.Visible = true;
             }
 
             if (Program.mGroup == "SV")
             {
+                this.btnMonHoc.Visibility = BarItemVisibility.Never;
                 this.btMoLTC.Visibility = BarItemVisibility.Never;
-                this.btReportDSLTC.Visibility = BarItemVisibility.Never;
-                this.btnTTDHP.Visibility = BarItemVisibility.Never;
-                this.btReportDSSV_DKLTC.Visibility = BarItemVisibility.Never;
                 this.btDKLTC.Visibility = BarItemVisibility.Always;
+                this.btReportDSLTC.Visibility = BarItemVisibility.Never;
+                this.btReportDSSV_DKLTC.Visibility = BarItemVisibility.Never;
+                this.btnQLSV.Visibility = BarItemVisibility.Never;
+                this.btnQLLH.Visibility = BarItemVisibility.Never;
+                this.btnBDTK.Visibility = BarItemVisibility.Never;
+                this.btnNhapDiem.Visibility = BarItemVisibility.Never;
+                this.btnBDTK2.Visibility = BarItemVisibility.Never;
+                this.btnBDMH_LTC.Visibility = BarItemVisibility.Never;
+                this.btnPhieuDiem.Visibility = BarItemVisibility.Always;
                 this.btTaoTK.Visibility = BarItemVisibility.Never;
+                this.btXoaTK.Visibility = BarItemVisibility.Never;
+                this.rb_sub_diem.Visible = false;
+                this.rbSub_ReportLTC.Visible = false;
+            }
+
+            if (Program.mGroup == "PKT")
+            {
+                this.btnDongHP.Visibility = BarItemVisibility.Always;
+                this.btnTTDHP.Visibility = BarItemVisibility.Always;
+                this.btTaoTK.Visibility = BarItemVisibility.Always;
+                this.btXoaTK.Visibility = BarItemVisibility.Always;
             }
         }
         private void btTaoTK_ItemClick(object sender, ItemClickEventArgs e)
@@ -92,6 +121,7 @@ namespace QLDSV_TC
                 btDangNhap.Visibility = BarItemVisibility.Always;
                 btDangXuat.Visibility = BarItemVisibility.Never;
                 btTaoTK.Visibility = BarItemVisibility.Never;
+                btXoaTK.Visibility = BarItemVisibility.Never;
 
                 // ẩn các rb
                 rbpQLSV.Visible = rbpQLHP.Visible = rbpQLD.Visible = rbQuanLyLTC.Visible = false;
@@ -278,6 +308,18 @@ namespace QLDSV_TC
                 }
             }
 
+        }
+
+        private void btXoaTK_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmXoaTK));
+            if (form != null) form.Activate();
+            else
+            {
+                frmXoaTK f = new frmXoaTK();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }

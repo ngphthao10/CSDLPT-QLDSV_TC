@@ -94,7 +94,7 @@ namespace QLDSV_TC
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedValue = Program.servername;
          
-
+            cmbKhoa.Enabled = false;
             if (Program.mGroup == "PGV")
             {
                 if (Program.mPhanManh == 0)
@@ -105,13 +105,13 @@ namespace QLDSV_TC
                 {
                     getTeacher("VT");
                 }
-                cmbKhoa.Enabled = true;
+
                 rdgGroup.Properties.Items[0].Enabled = true; 
                 rdgGroup.Properties.Items[1].Enabled = true;
                 rdgGroup.Properties.Items[2].Enabled = false;
                 rdgGroup.SelectedIndex = 0;
             }
-            else if (Program.mGroup == "Khoa")
+            else if (Program.mGroup == "KHOA")
             {
                 if(Program.mPhanManh == 0)
                 {
@@ -121,7 +121,7 @@ namespace QLDSV_TC
                 {
                     getTeacher("VT");
                 }
-                cmbKhoa.Enabled = false;
+
                 rdgGroup.Properties.Items[0].Enabled = false;
                 rdgGroup.Properties.Items[1].Enabled = true;
                 rdgGroup.Properties.Items[2].Enabled = false;
@@ -160,14 +160,7 @@ namespace QLDSV_TC
             if (cmbKhoa.SelectedValue.ToString() == "System.Data.DataRowView")
                 return;
 
-            if (cmbKhoa.SelectedIndex == 0)
-            {
-                getTeacher("CNTT");
-            }
-            else if (cmbKhoa.SelectedIndex == 1)
-            {
-                getTeacher("VT");
-            }
+
             Program.servername = cmbKhoa.SelectedValue.ToString();
 
             if (cmbKhoa.SelectedIndex != Program.mPhanManh)

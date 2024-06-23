@@ -149,7 +149,7 @@ namespace QLDSV_TC
             { //nhom SV
                 Program.frmMain.rbQuanLyLTC.Visible = true;
                 Program.frmMain.rbpQLSV.Visible = false;
-                Program.frmMain.rbpQLD.Visible = false;
+                Program.frmMain.rbpQLD.Visible = true;
                 Program.frmMain.rbpQLHP.Visible = false;
             }
 
@@ -172,6 +172,10 @@ namespace QLDSV_TC
             txtTenDN.Text = null;
             txtMatKhau.Text = null;
             txtTenDN.Focus();
+
+            Program.frmMain.lblMaGV.Text = "Mã ND: ";
+            Program.frmMain.lblHoTen.Text = "Họ tên: ";
+            Program.frmMain.lblNhom.Text = "Nhóm: ";
         }
 
         public int checkTKSV()
