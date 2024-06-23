@@ -143,6 +143,7 @@
             this.btTaoTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btTaoTK.ImageOptions.Image")));
             this.btTaoTK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btTaoTK.ImageOptions.LargeImage")));
             this.btTaoTK.Name = "btTaoTK";
+            this.btTaoTK.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btTaoTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btTaoTK_ItemClick);
             // 
             // btDangXuat
@@ -264,6 +265,7 @@
             // 
             this.btnMonHoc.Caption = "Môn học";
             this.btnMonHoc.Id = 24;
+            this.btnMonHoc.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMonHoc.ImageOptions.SvgImage")));
             this.btnMonHoc.Name = "btnMonHoc";
             this.btnMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonHoc_ItemClick);
             // 
@@ -271,6 +273,7 @@
             // 
             this.btnNhapDiem.Caption = "Nhập điểm";
             this.btnNhapDiem.Id = 25;
+            this.btnNhapDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNhapDiem.ImageOptions.SvgImage")));
             this.btnNhapDiem.Name = "btnNhapDiem";
             this.btnNhapDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapDiem_ItemClick);
             // 
@@ -278,6 +281,7 @@
             // 
             this.barButtonItem1.Caption = "Bảng điểm môn học,lớp tín chỉ";
             this.barButtonItem1.Id = 26;
+            this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
@@ -285,6 +289,7 @@
             // 
             this.btnPhieuDiem.Caption = "Phiếu điểm";
             this.btnPhieuDiem.Id = 28;
+            this.btnPhieuDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhieuDiem.ImageOptions.SvgImage")));
             this.btnPhieuDiem.Name = "btnPhieuDiem";
             this.btnPhieuDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuDiem_ItemClick);
             // 
