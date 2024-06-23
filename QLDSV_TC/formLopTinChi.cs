@@ -74,6 +74,7 @@ namespace QLDSV_TC
 
             vitri = bdsLTC.Position;
             bdsLTC.AddNew();
+            maLTC = getMaLTC() + 1;
             cbHuyLop.Checked = false;
 
             pnThongTin.Enabled = true;   cmbKhoa.Enabled = gridControlLTC.Enabled = false;
@@ -229,25 +230,7 @@ namespace QLDSV_TC
             System.Diagnostics.Debug.WriteLine(query);
             int result = Program.CheckPrimaryKey(query);
 
-            if (flag == "THEM")
-            {
-                if (result == -1)
-                {
-                    MessageBox.Show("Lỗi kết nối đến cơ sở dữ liệu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if (result == 1)
-                {
-                    MessageBox.Show("Lỗi trùng mã lớp tín chỉ!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-                if (result == 2)
-                {
-                    MessageBox.Show("Lỗi trùng MAMH, NIENKHOA, HOCKY, NHOM!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    return false;
-                }
-            }
-            else if (flag == "SUA") // chỉnh lại check MAMH, NIENKHOA, HOCKY, NHOM trường hợp ghi bản ghi hiện tại
+            if (flag == "THEM" || flag == "SUA")
             {
                 if (result == -1)
                 {
@@ -266,7 +249,7 @@ namespace QLDSV_TC
 
         private void btGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            maLTC = getMaLTC() + 1;
+            
             if (checkDataLopTinChi(maLTC))
             {
                 try
@@ -289,11 +272,14 @@ namespace QLDSV_TC
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = btThoat.Enabled = true;
             btGhi.Enabled = btPhucHoi.Enabled = false;
             pnThongTin.Enabled = false; gridControlLTC.Enabled = true;
+
+            flag = "";
         }
 
         private void btChinhSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             vitri = bdsLTC.Position;
+            maLTC = int.Parse(((DataRowView)bdsLTC.Current)["MALTC"].ToString());
 
             // check điều kiện không cho chỉnh sửa những lớp tín chỉ trong quá khứ
             DataRowView currentRow = (DataRowView)bdsLTC.Current;
@@ -308,7 +294,7 @@ namespace QLDSV_TC
             btThem.Enabled = btChinhSua.Enabled = btXoa.Enabled = btReload.Enabled = false;
             btGhi.Enabled = btPhucHoi.Enabled = btThoat.Enabled = true;
 
-            maLTC = int.Parse(((DataRowView)bdsLTC.Current)["MALTC"].ToString());
+            
             flag = "SUA";
         }
 

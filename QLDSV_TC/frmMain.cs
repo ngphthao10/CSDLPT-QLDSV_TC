@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraReports.UI;
 using QLDSV_TC;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace QLDSV_TC
                 this.btMoLTC.Visibility = BarItemVisibility.Always;
                 this.btReportDSLTC.Visibility = BarItemVisibility.Always;
                 this.btReportDSSV_DKLTC.Visibility = BarItemVisibility.Always;
+                this.btTaoTK.Visibility = BarItemVisibility.Always;
             }
 
             if (Program.mGroup == "SV")
@@ -55,7 +57,7 @@ namespace QLDSV_TC
                 this.btnTTDHP.Visibility = BarItemVisibility.Never;
                 this.btReportDSSV_DKLTC.Visibility = BarItemVisibility.Never;
                 this.btDKLTC.Visibility = BarItemVisibility.Always;
-                /*this.btnDongHP.Visibility = BarItemVisibility.Always;*/
+                this.btTaoTK.Visibility = BarItemVisibility.Never;
             }
         }
         private void btTaoTK_ItemClick(object sender, ItemClickEventArgs e)
@@ -89,6 +91,7 @@ namespace QLDSV_TC
                 // ẩn nút đăng xuất, show nút đăng nhập
                 btDangNhap.Visibility = BarItemVisibility.Always;
                 btDangXuat.Visibility = BarItemVisibility.Never;
+                btTaoTK.Visibility = BarItemVisibility.Never;
 
                 // ẩn các rb
                 rbpQLSV.Visible = rbpQLHP.Visible = rbpQLD.Visible = rbQuanLyLTC.Visible = false;
@@ -249,14 +252,32 @@ namespace QLDSV_TC
 
         private void btnPhieuDiem_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form form = this.CheckExists(typeof(Frpt_PhieuDiemSV));
-            if (form != null) form.Activate();
-            else
+            if (Program.mGroup == "PGV" || Program.mGroup == "KHOA")
             {
-                Frpt_PhieuDiemSV f = new Frpt_PhieuDiemSV();
-                f.MdiParent = this;
-                f.Show();
+                Form form = this.CheckExists(typeof(Frpt_PhieuDiemSV));
+                if (form != null) form.Activate();
+                else
+                {
+                    Frpt_PhieuDiemSV f = new Frpt_PhieuDiemSV();
+                    f.MdiParent = this;
+                    f.Show();
+                }
             }
+            else if (Program.mGroup == "SV")
+            {
+                Form form = this.CheckExists(typeof(Xrpt_PhieuDiemSV));
+                if (form != null) form.Activate();
+                else
+                {
+                    Xrpt_PhieuDiemSV rpt = new Xrpt_PhieuDiemSV(Program.username);
+                    rpt.lbMASV.Text = Program.username;
+                    rpt.lbHOTENSV.Text = Program.mHoten;
+
+                    ReportPrintTool print = new ReportPrintTool(rpt);
+                    print.ShowPreviewDialog();
+                }
+            }
+
         }
     }
 }

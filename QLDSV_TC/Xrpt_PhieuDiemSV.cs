@@ -8,11 +8,6 @@ namespace QLDSV_TC
 {
     public partial class Xrpt_PhieuDiemSV : DevExpress.XtraReports.UI.XtraReport
     {
-        public Xrpt_PhieuDiemSV()
-        {
-            InitializeComponent();
-        }
-
         public Xrpt_PhieuDiemSV (string MASV)
         {
             InitializeComponent();
