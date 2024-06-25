@@ -26,6 +26,8 @@ namespace QLDSV_TC
         public formLopTinChi()
         {
             InitializeComponent();
+            btGhi.Enabled = false;
+            btPhucHoi.Enabled = false;
         }
 
         private void formLopTinChi_Load(object sender, EventArgs e)
@@ -219,6 +221,8 @@ namespace QLDSV_TC
                 return false;
             }
 
+            
+
 
             string query = "DECLARE @value INT\n" +
                            "EXEC @value = sp_CHECKLOPTINCHI " +
@@ -265,6 +269,8 @@ namespace QLDSV_TC
 
                     this.LOPTINCHITableAdapter.Connection.ConnectionString = Program.connstr;
                     this.LOPTINCHITableAdapter.Update(this.DS.LOPTINCHI);
+                    MessageBox.Show("Ghi lớp tín chỉ thành công!\n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 catch (Exception ex)
                 {
@@ -292,6 +298,12 @@ namespace QLDSV_TC
             if ((currentRow["NIENKHOA"].ToString() + "_" + currentRow["HOCKY"].ToString()).CompareTo(nienkhoa_hocky) < 0)
             {
                 MessageBox.Show("Không thể chỉnh sửa lớp tín chỉ trong quá khứ!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (bdsDK.Count > 0)
+            {
+                MessageBox.Show("Không thể sửa lớp tín chỉ có sinh viên đăng ký!", "", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
 

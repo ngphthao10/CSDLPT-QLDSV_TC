@@ -203,7 +203,7 @@ namespace QLDSV_TC
                 }
                 if (resultMa == 1)
                 {
-                    MessageBox.Show("Mã tài khoản đã tồn tại. Mời bạn nhập mã khác !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("LoginName đã tồn tại. Mời bạn nhập mã khác !", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 if (resultMa == 2)
                 {

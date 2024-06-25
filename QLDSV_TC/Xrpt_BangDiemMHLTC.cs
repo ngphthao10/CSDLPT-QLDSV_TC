@@ -23,6 +23,7 @@ namespace QLDSV_TC
             this.sqlDataSource1.Queries[0].Parameters[2].Value = MonHoc;
             this.sqlDataSource1.Queries[0].Parameters[3].Value = Nhom;
             this.sqlDataSource1.Fill();
+            lblHoTen.Text = "Người lập: " + Program.mHoten;
         }
 
     }

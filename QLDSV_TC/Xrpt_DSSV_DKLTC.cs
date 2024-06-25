@@ -17,6 +17,7 @@ namespace QLDSV_TC
             this.sqlDS.Connection.ConnectionString = Program.connstr;
             this.sqlDS.Queries[0].Parameters[0].Value = maLTC;
             this.sqlDS.Fill();
+            lblHoTen.Text = "Người lập: " + Program.mHoten;
         }
     }
 }

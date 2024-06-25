@@ -82,6 +82,18 @@ namespace QLDSV_TC
 
         private void btPreview_Click(object sender, EventArgs e)
         {
+            if (cmbNienKhoa.Text.Trim() == "")
+            {
+                MessageBox.Show("Niên khóa không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cmbHocKy.Text.Trim() == "")
+            {
+                MessageBox.Show("Học kỳ không được thiếu!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             Xrpt_DSLTCTheoKhoa rpt = new Xrpt_DSLTCTheoKhoa(cmbNienKhoa.Text, int.Parse(cmbHocKy.Text));
             rpt.lbKhoa.Text = cmbKhoa.Text;
             rpt.lbNienKhoa.Text = cmbNienKhoa.Text;

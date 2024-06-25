@@ -51,7 +51,7 @@ namespace QLDSV_TC
             {
                 cmbKhoa.Enabled = true;
             }
-            else if (Program.mGroup == "Khoa")
+            else if (Program.mGroup == "KHOA")
             {
                 cmbKhoa.Enabled = false;
             }
@@ -168,11 +168,11 @@ namespace QLDSV_TC
                 Sqlcmd.CommandType = CommandType.StoredProcedure;
                 Sqlcmd.Parameters.Add(para);
                 Sqlcmd.ExecuteNonQuery();
-                MessageBox.Show("Ghi điểm thành công!", "Thành công");
+                MessageBox.Show("Ghi điểm thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
-                MessageBox.Show("Ghi điểm thất bại!", "Lỗi");
+                MessageBox.Show("Ghi điểm thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -193,7 +193,7 @@ namespace QLDSV_TC
             }
 
             if (Program.KetNoi() == 0)
-                MessageBox.Show("Lỗi kết nối về phân mảnh mới", "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi kết nối về phân mảnh mới", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
     }

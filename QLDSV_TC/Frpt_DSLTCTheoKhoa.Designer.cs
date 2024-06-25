@@ -35,7 +35,6 @@
             this.cmbHocKy = new System.Windows.Forms.ComboBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.btPreview = new System.Windows.Forms.Button();
-            this.btThoat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cmbKhoa
@@ -103,7 +102,7 @@
             this.btPreview.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btPreview.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPreview.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btPreview.Location = new System.Drawing.Point(132, 152);
+            this.btPreview.Location = new System.Drawing.Point(258, 151);
             this.btPreview.Name = "btPreview";
             this.btPreview.Size = new System.Drawing.Size(117, 43);
             this.btPreview.TabIndex = 8;
@@ -111,24 +110,11 @@
             this.btPreview.UseVisualStyleBackColor = false;
             this.btPreview.Click += new System.EventHandler(this.btPreview_Click);
             // 
-            // btThoat
-            // 
-            this.btThoat.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btThoat.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btThoat.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btThoat.Location = new System.Drawing.Point(383, 152);
-            this.btThoat.Name = "btThoat";
-            this.btThoat.Size = new System.Drawing.Size(117, 43);
-            this.btThoat.TabIndex = 9;
-            this.btThoat.Text = "Thoát";
-            this.btThoat.UseVisualStyleBackColor = false;
-            // 
             // Frpt_DSLTCTheoKhoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 224);
-            this.Controls.Add(this.btThoat);
             this.Controls.Add(this.btPreview);
             this.Controls.Add(this.cmbHocKy);
             this.Controls.Add(this.labelControl3);
@@ -155,6 +141,5 @@
         private System.Windows.Forms.ComboBox cmbHocKy;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.Button btPreview;
-        private System.Windows.Forms.Button btThoat;
     }
 }

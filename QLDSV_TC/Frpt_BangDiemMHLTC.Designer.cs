@@ -175,24 +175,36 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.Appearance.BackColor = System.Drawing.Color.Black;
+            this.btnPreview.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnPreview.Appearance.Options.UseBackColor = true;
             this.btnPreview.Appearance.Options.UseFont = true;
+            this.btnPreview.Appearance.Options.UseForeColor = true;
+            this.btnPreview.Appearance.Options.UseTextOptions = true;
+            this.btnPreview.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.btnPreview.Location = new System.Drawing.Point(283, 248);
             this.btnPreview.Margin = new System.Windows.Forms.Padding(10);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(151, 52);
+            this.btnPreview.Size = new System.Drawing.Size(140, 38);
             this.btnPreview.TabIndex = 14;
             this.btnPreview.Text = "Preview";
             this.btnPreview.Click += new System.EventHandler(this.btnPreview_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.BackColor = System.Drawing.Color.Black;
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Appearance.Options.UseBackColor = true;
             this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.Appearance.Options.UseForeColor = true;
+            this.btnCancel.Appearance.Options.UseTextOptions = true;
+            this.btnCancel.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.btnCancel.Location = new System.Drawing.Point(505, 248);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(10);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(154, 52);
+            this.btnCancel.Size = new System.Drawing.Size(142, 38);
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

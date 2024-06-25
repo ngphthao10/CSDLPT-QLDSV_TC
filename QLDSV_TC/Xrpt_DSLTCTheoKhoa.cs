@@ -15,6 +15,7 @@ namespace QLDSV_TC
             this.sqlDataSource1.Queries[0].Parameters[0].Value = nienKhoa;
             this.sqlDataSource1.Queries[0].Parameters[1].Value = hocKy;
             this.sqlDataSource1.Fill();
+            this.lblHoTen.Text =  "Người lập:" + Program.mHoten;
         }
     }
 }

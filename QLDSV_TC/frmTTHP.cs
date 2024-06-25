@@ -131,7 +131,7 @@ namespace QLDSV_TC
             {
                 MessageBox.Show("Không tìm thấy mã sinh viên bạn vừa nhập!\nVui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            btnGhiHP.Enabled = btnNopHP.Enabled= false;
         }
 
         private void gridViewHP_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -139,12 +139,12 @@ namespace QLDSV_TC
             vitriHP = gridViewHP.FocusedRowHandle;
 
             System.Diagnostics.Debug.WriteLine(vitriHP.ToString());
-            btnNopHP.Enabled = gcCTHP.Enabled = true;
+            gcCTHP.Enabled = true;
             panelCTHP.Enabled = false;
             if (Convert.ToInt32(gridViewHP.GetFocusedDataRow()["HOCPHI"]) == Convert.ToInt32(gridViewHP.GetFocusedDataRow()["DADONG"]))
                 btnNopHP.Enabled = btnGhiHP.Enabled = false;
             else
-                btnNopHP.Enabled = btnGhiHP.Enabled = true;
+                btnNopHP.Enabled = true;
             loadFrmCTHP(vitriHP);
         }
 
@@ -219,9 +219,9 @@ namespace QLDSV_TC
                 btnGhiHP.Enabled = false;
                 panelCTHP.Visible = true;
                 if (Convert.ToInt32(gridViewHP.GetFocusedDataRow()["HOCPHI"]) == Convert.ToInt32(gridViewHP.GetFocusedDataRow()["DADONG"]))
-                    btnNopHP.Enabled = btnGhiHP.Enabled = false;
+                    btnNopHP.Enabled = false;
                 else
-                    btnNopHP.Enabled = btnGhiHP.Enabled = true;
+                    btnNopHP.Enabled = true;
             }
         }
 

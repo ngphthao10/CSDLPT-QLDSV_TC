@@ -86,6 +86,7 @@
             this.sqlDataSource3 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.qldsV_TCDataSet1 = new QLDSV_TC.QLDSV_TCDataSet();
             this.cT_DONGHOCPHITableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.CT_DONGHOCPHITableAdapter();
+            this.lblHoTen = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsV_TCDataSet1)).BeginInit();
@@ -98,19 +99,21 @@
             // BottomMargin
             // 
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lblHoTen,
             this.pageInfo1,
             this.pageInfo2});
             this.BottomMargin.Name = "BottomMargin";
             // 
             // pageInfo1
             // 
-            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(197.5F, 0F);
             this.pageInfo1.Name = "pageInfo1";
             this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.pageInfo1.SizeF = new System.Drawing.SizeF(325F, 23F);
+            this.pageInfo1.SizeF = new System.Drawing.SizeF(127.5F, 23F);
             this.pageInfo1.StyleName = "PageInfo";
             this.pageInfo1.StylePriority.UseTextAlignment = false;
             this.pageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.pageInfo1.TextFormatString = "{0:dd/MM/yyyy hh:mm}";
             // 
             // pageInfo2
             // 
@@ -685,6 +688,19 @@
             // 
             this.cT_DONGHOCPHITableAdapter.ClearBeforeFill = true;
             // 
+            // lblHoTen
+            // 
+            this.lblHoTen.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTen.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.lblHoTen.Multiline = true;
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.lblHoTen.SizeF = new System.Drawing.SizeF(197.5F, 23F);
+            this.lblHoTen.StylePriority.UseFont = false;
+            this.lblHoTen.StylePriority.UseTextAlignment = false;
+            this.lblHoTen.Text = "lblHoTen";
+            this.lblHoTen.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
             // Xrpt_DanhSachDongHocPhiCuaLop
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -761,5 +777,6 @@
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource3;
         private QLDSV_TCDataSet qldsV_TCDataSet1;
         private QLDSV_TCDataSetTableAdapters.CT_DONGHOCPHITableAdapter cT_DONGHOCPHITableAdapter;
+        private DevExpress.XtraReports.UI.XRLabel lblHoTen;
     }
 }

@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition2 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
-            DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition3 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(100F);
+            DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition crossTabColumnDefinition3 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnDefinition(31.66667F);
             DevExpress.XtraReports.UI.CrossTab.CrossTabColumnField crossTabColumnField1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabColumnField();
             DevExpress.XtraReports.UI.CrossTab.CrossTabDataField crossTabDataField1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabDataField();
             DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition crossTabRowDefinition1 = new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(25F);
@@ -67,6 +67,9 @@
             this.crossTabHeaderStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.crossTabDataStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.crossTabTotalStyle = new DevExpress.XtraReports.UI.XRControlStyle();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.xrPageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.lblHoTen = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.crossTab1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -98,7 +101,7 @@
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(255F, 47.84635F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(230.8333F, 46.17968F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -109,7 +112,7 @@
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(525F, 47.84635F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(500.8333F, 46.17968F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -120,7 +123,7 @@
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(415.8334F, 85.83334F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(391.6667F, 84.16666F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -131,7 +134,7 @@
             // lblLop
             // 
             this.lblLop.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLop.LocationFloat = new DevExpress.Utils.PointFloat(310F, 47.84635F);
+            this.lblLop.LocationFloat = new DevExpress.Utils.PointFloat(285.8333F, 46.17968F);
             this.lblLop.Multiline = true;
             this.lblLop.Name = "lblLop";
             this.lblLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -142,7 +145,7 @@
             // lblKhoaHoc
             // 
             this.lblKhoaHoc.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKhoaHoc.LocationFloat = new DevExpress.Utils.PointFloat(640F, 47.84635F);
+            this.lblKhoaHoc.LocationFloat = new DevExpress.Utils.PointFloat(615.8333F, 46.17968F);
             this.lblKhoaHoc.Multiline = true;
             this.lblKhoaHoc.Name = "lblKhoaHoc";
             this.lblKhoaHoc.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -153,7 +156,7 @@
             // lblKhoa
             // 
             this.lblKhoa.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKhoa.LocationFloat = new DevExpress.Utils.PointFloat(487.5001F, 85.83334F);
+            this.lblKhoa.LocationFloat = new DevExpress.Utils.PointFloat(463.3333F, 84.16666F);
             this.lblKhoa.Multiline = true;
             this.lblKhoa.Name = "lblKhoa";
             this.lblKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -211,14 +214,14 @@
             crossTabRowField1.FieldName = "INFO";
             this.crossTab1.RowFields.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabRowField[] {
             crossTabRowField1});
-            this.crossTab1.SizeF = new System.Drawing.SizeF(300F, 75F);
+            this.crossTab1.SizeF = new System.Drawing.SizeF(231.6667F, 75F);
             this.crossTab1.TotalAreaStyleName = "crossTabTotalStyle";
             // 
             // xrCrossTabCell1
             // 
             this.xrCrossTabCell1.BackColor = System.Drawing.Color.Silver;
             this.xrCrossTabCell1.ColumnIndex = 0;
-            this.xrCrossTabCell1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrCrossTabCell1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrCrossTabCell1.Name = "xrCrossTabCell1";
             this.xrCrossTabCell1.RowIndex = 0;
             this.xrCrossTabCell1.Text = "MASV-HỌ TÊN";
@@ -226,7 +229,7 @@
             // xrCrossTabCell2
             // 
             this.xrCrossTabCell2.ColumnIndex = 1;
-            this.xrCrossTabCell2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrCrossTabCell2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrCrossTabCell2.Name = "xrCrossTabCell2";
             this.xrCrossTabCell2.RowIndex = 1;
             // 
@@ -234,7 +237,7 @@
             // 
             this.xrCrossTabCell3.BackColor = System.Drawing.Color.Silver;
             this.xrCrossTabCell3.ColumnIndex = 1;
-            this.xrCrossTabCell3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrCrossTabCell3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrCrossTabCell3.Name = "xrCrossTabCell3";
             this.xrCrossTabCell3.RowIndex = 0;
             // 
@@ -254,7 +257,7 @@
             // xrCrossTabCell6
             // 
             this.xrCrossTabCell6.ColumnIndex = 0;
-            this.xrCrossTabCell6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrCrossTabCell6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrCrossTabCell6.Name = "xrCrossTabCell6";
             this.xrCrossTabCell6.RowIndex = 1;
             // 
@@ -298,6 +301,10 @@
             // 
             // BottomMargin
             // 
+            this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrPageInfo1,
+            this.lblHoTen,
+            this.xrPageInfo2});
             this.BottomMargin.Name = "BottomMargin";
             // 
             // TitleStyle
@@ -335,6 +342,43 @@
             this.crossTabTotalStyle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.crossTabTotalStyle.Name = "crossTabTotalStyle";
             this.crossTabTotalStyle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(500F, 0F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(401.1667F, 23F);
+            this.xrPageInfo1.StylePriority.UseFont = false;
+            this.xrPageInfo1.StylePriority.UseTextAlignment = false;
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrPageInfo2
+            // 
+            this.xrPageInfo2.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(244.1666F, 0F);
+            this.xrPageInfo2.Name = "xrPageInfo2";
+            this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrPageInfo2.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
+            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(255.8334F, 23F);
+            this.xrPageInfo2.StylePriority.UseFont = false;
+            this.xrPageInfo2.StylePriority.UseTextAlignment = false;
+            this.xrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrPageInfo2.TextFormatString = "{0:dd/MM/yyyy hh:mm}";
+            // 
+            // lblHoTen
+            // 
+            this.lblHoTen.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoTen.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.lblHoTen.Multiline = true;
+            this.lblHoTen.Name = "lblHoTen";
+            this.lblHoTen.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblHoTen.SizeF = new System.Drawing.SizeF(231.6667F, 23F);
+            this.lblHoTen.StylePriority.UseFont = false;
+            this.lblHoTen.StylePriority.UseTextAlignment = false;
+            this.lblHoTen.Text = "lblHoTen";
+            this.lblHoTen.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // Xrpt_BangDiemTongKetVer2
             // 
@@ -393,5 +437,8 @@
         public DevExpress.XtraReports.UI.XRLabel lblLop;
         public DevExpress.XtraReports.UI.XRLabel lblKhoaHoc;
         public DevExpress.XtraReports.UI.XRLabel lblKhoa;
+        private DevExpress.XtraReports.UI.XRLabel lblHoTen;
+        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
+        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
     }
 }

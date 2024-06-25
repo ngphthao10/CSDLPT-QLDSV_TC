@@ -18,6 +18,7 @@ namespace QLDSV_TC
             this.sqlDataSource1.Queries[0].Parameters[1].Value = nienkhoa;
             this.sqlDataSource1.Queries[0].Parameters[2].Value = hocky;
             this.sqlDataSource1.Fill();
+            this.lblHoTen.Text = "Người lập: " + Program.mHoten.ToString();
             lblTienChu.BeforePrint += xrlblCurrencyToWords_BeforePrint;
         }
 

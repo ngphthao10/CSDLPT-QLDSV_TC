@@ -106,8 +106,12 @@
             // 
             // btnPreview
             // 
-            this.btnPreview.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.Appearance.BackColor = System.Drawing.Color.Black;
+            this.btnPreview.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPreview.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnPreview.Appearance.Options.UseBackColor = true;
             this.btnPreview.Appearance.Options.UseFont = true;
+            this.btnPreview.Appearance.Options.UseForeColor = true;
             this.btnPreview.Location = new System.Drawing.Point(191, 278);
             this.btnPreview.Margin = new System.Windows.Forms.Padding(5);
             this.btnPreview.Name = "btnPreview";
@@ -118,8 +122,12 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.BackColor = System.Drawing.Color.Black;
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Appearance.Options.UseBackColor = true;
             this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.Appearance.Options.UseForeColor = true;
             this.btnCancel.Location = new System.Drawing.Point(403, 278);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancel.Name = "btnCancel";

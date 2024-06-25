@@ -182,8 +182,8 @@ namespace QLDSV_TC
         {
             if (conn_publisher.State == ConnectionState.Closed) conn_publisher.Open();
 
-            if (cmbKhoa.Text == "Khoa Công nghệ thông tin") makhoa = "CNTT";
-            else if (cmbKhoa.Text == "Khoa Viễn thông") makhoa = "VT";
+            if (cmbKhoa.SelectedIndex == 0) makhoa = "CNTT";
+            else if (cmbKhoa.SelectedIndex == 1) makhoa = "VT";
             else return 0;
            
             string query = "EXEC SP_CHECKSV_LOGIN '" + txtTenDN.Text + "', '" + txtMatKhau.Text + "', '" + makhoa + "'";

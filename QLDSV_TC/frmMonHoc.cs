@@ -52,7 +52,7 @@ namespace QLDSV_TC
                 cmbPM.Enabled = true;
                 btnThem.Enabled = btnXoa.Enabled = btnHieuChinh.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = btnReload.Enabled = true;
             }
-            else if (Program.mGroup == "Khoa")
+            else if (Program.mGroup == "KHOA")
             {
                 cmbPM.Enabled = false;
                 btnThem.Enabled = btnXoa.Enabled = btnHieuChinh.Enabled = btnGhi.Enabled = btnPhucHoi.Enabled = btnReload.Enabled = true;
@@ -114,7 +114,7 @@ namespace QLDSV_TC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi Reload: " + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi Reload: " + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -135,7 +135,7 @@ namespace QLDSV_TC
             //}
             if (checkMonHoc_LTC(txtMaMH.Text.Trim()) == 1)
             {
-                MessageBox.Show("Không thể xóa môn học này vì đã có lớp tín chỉ", "", MessageBoxButtons.OK);
+                MessageBox.Show("Không thể xóa môn học này vì đã có lớp tín chỉ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (MessageBox.Show("Bạn có thật sự muốn xóa môn học này?", "Xác nhận", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -146,11 +146,11 @@ namespace QLDSV_TC
                     bdsMONHOC.RemoveCurrent();
                     this.MONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.MONHOCTableAdapter.Update(this.DS.MONHOC);
-                    MessageBox.Show("Xóa môn học thành công!", "Thành công");
+                    MessageBox.Show("Xóa môn học thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi xóa môn học. Bạn hãy xóa lại\n" + ex.Message, "", MessageBoxButtons.OK);
+                    MessageBox.Show("Lỗi xóa môn học. Bạn hãy xóa lại\n" + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.MONHOCTableAdapter.Fill(this.DS.MONHOC);
                     bdsMONHOC.Position = bdsMONHOC.Find("MAMH", maMH);
                     return;
@@ -169,36 +169,24 @@ namespace QLDSV_TC
             return this.MONHOCTableAdapter.GetData().Any(monHoc => monHoc.MAMH.Trim().ToUpper() != maMH.Trim().ToUpper() && monHoc.TENMH.Trim().ToUpper() == tenMH.Trim().ToUpper());
         }
 
-        //private int checkMaMH(string maMH)
-        //{
-        //    string query = "EXEC SP_CHECKMAMH" + " '" + maMH + "'";
-        //    return Program.CheckPrimaryKey(query);
-        //}
-
-        //private int checkTenMH(string tenMH)
-        //{
-        //    string query = "EXEC SP_CHECKTENMH"+ " N'" + tenMH + "'";
-        //    return Program.CheckPrimaryKey(query);
-        //}
-
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (txtMaMH.Text.Trim() == "")
             {
-                MessageBox.Show("Mã môn học không được để trống!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Mã môn học không được để trống!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaMH.Focus();
                 return;
             }
 
             if (txtMaMH.Text.Length > 10)
             {
-                MessageBox.Show("Mã môn học không dài quá 10 ký tự!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Mã môn học không dài quá 10 ký tự!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaMH.Focus();
                 return;
             }
             if (txtTenMH.Text.Trim() == "")
             {
-                MessageBox.Show("Tên môn học không được để trống!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Tên môn học không được để trống!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTenMH.Focus();
                 return;
             }
@@ -206,7 +194,7 @@ namespace QLDSV_TC
             {
                 if (checkTenMH(txtMaMH.Text.Trim(), txtTenMH.Text.Trim()))
                 {
-                    MessageBox.Show("Tên môn học đã tồn tại!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Tên môn học đã tồn tại!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtTenMH.Focus();
                     return;
                 }
@@ -215,14 +203,14 @@ namespace QLDSV_TC
             {
                 if (checkMaMH(txtMaMH.Text.Trim()))
                 {
-                    MessageBox.Show("Mã môn học đã tồn tại!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Mã môn học đã tồn tại!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtTenMH.Focus();
                     return;
                 }
 
                 if (checkTenMH(txtMaMH.Text.Trim(), txtTenMH.Text.Trim()))
                 {
-                    MessageBox.Show("Tên môn học đã tồn tại!", "", MessageBoxButtons.OK);
+                    MessageBox.Show("Tên môn học đã tồn tại!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtTenMH.Focus();
                     return;
                 }
@@ -230,7 +218,7 @@ namespace QLDSV_TC
 
             if (txtTenMH.Text.Length > 50)
             {
-                MessageBox.Show("Tên môn học không dài quá 50 ký tự!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Tên môn học không dài quá 50 ký tự!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtMaMH.Focus();
                 return;
             }
@@ -248,46 +236,16 @@ namespace QLDSV_TC
             }
             if ((int.Parse(txtSoTietLT.Text) + int.Parse(txtSoTietTH.Text)) % 15 != 0)
             {
-                MessageBox.Show("Số tiết lý thuyết cộng số tiết thực hành phải là bội của 15!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Số tiết lý thuyết cộng số tiết thực hành phải là bội của 15!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoTietTH.Focus();
                 return;
             }
             if ((int.Parse(txtSoTietLT.Text) + int.Parse(txtSoTietTH.Text)) == 0)
             {
-                MessageBox.Show("Số tiết lý thuyết và số tiết thực hành không đồng thời bằng 0!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Số tiết lý thuyết và số tiết thực hành không đồng thời bằng 0!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoTietTH.Focus();
                 return;
             }
-
-            //if (flatmode == "add")
-            //{
-            //    //if (checkMaMH(txtMaMH.Text.Trim()) == -1)
-            //    //{
-            //    //    MessageBox.Show("Lỗi kết nối với database", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    //    return;
-            //    //}
-            //    if (checkMaMH(txtMaMH.Text.Trim()) == 1)
-            //    {
-            //        MessageBox.Show("Mã môn học đã tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        return;
-            //    }
-            //}
-            //if (flatmode == "add" || flatmode == "edit")
-            //{
-            //    //if (checkTenMH(txtMaMH.Text.Trim(), txtTenMH.Text.Trim()) == -1)
-            //    //{
-            //    //    MessageBox.Show("Lỗi kết nối với database", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    //    return;
-            //    //}
-            //    if (checkTenMH(txtTenMH.Text.Trim()) == 1)
-            //    {
-            //        MessageBox.Show("Tên môn học đã tồn tại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        return;
-            //    }
-            //}
-
-
-
 
             try
             {
@@ -300,7 +258,7 @@ namespace QLDSV_TC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi ghi môn học.\n" + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi ghi môn học.\n" + ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             gcMonHoc.Enabled = true;
@@ -327,7 +285,7 @@ namespace QLDSV_TC
             }
 
             if (Program.KetNoi() == 0)
-                MessageBox.Show("Lỗi kết nối về phân mảnh mới", "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi kết nối về phân mảnh mới", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 this.MONHOCTableAdapter.Connection.ConnectionString = Program.connstr;

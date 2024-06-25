@@ -90,9 +90,13 @@
             // 
             // btnGhiDiem
             // 
-            this.btnGhiDiem.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnGhiDiem.Appearance.BackColor = System.Drawing.Color.Black;
+            this.btnGhiDiem.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnGhiDiem.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnGhiDiem.Appearance.Options.UseBackColor = true;
             this.btnGhiDiem.Appearance.Options.UseFont = true;
-            this.btnGhiDiem.Location = new System.Drawing.Point(1311, 29);
+            this.btnGhiDiem.Appearance.Options.UseForeColor = true;
+            this.btnGhiDiem.Location = new System.Drawing.Point(1392, 29);
             this.btnGhiDiem.Margin = new System.Windows.Forms.Padding(10);
             this.btnGhiDiem.Name = "btnGhiDiem";
             this.btnGhiDiem.Size = new System.Drawing.Size(151, 31);
@@ -102,9 +106,13 @@
             // 
             // btnNhapDiem
             // 
-            this.btnNhapDiem.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNhapDiem.Appearance.BackColor = System.Drawing.Color.Black;
+            this.btnNhapDiem.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnNhapDiem.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnNhapDiem.Appearance.Options.UseBackColor = true;
             this.btnNhapDiem.Appearance.Options.UseFont = true;
-            this.btnNhapDiem.Location = new System.Drawing.Point(1156, 29);
+            this.btnNhapDiem.Appearance.Options.UseForeColor = true;
+            this.btnNhapDiem.Location = new System.Drawing.Point(1197, 29);
             this.btnNhapDiem.Margin = new System.Windows.Forms.Padding(10);
             this.btnNhapDiem.Name = "btnNhapDiem";
             this.btnNhapDiem.Size = new System.Drawing.Size(139, 32);
@@ -114,8 +122,12 @@
             // 
             // btnTaiLTC
             // 
-            this.btnTaiLTC.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTaiLTC.Appearance.BackColor = System.Drawing.Color.Black;
+            this.btnTaiLTC.Appearance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnTaiLTC.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnTaiLTC.Appearance.Options.UseBackColor = true;
             this.btnTaiLTC.Appearance.Options.UseFont = true;
+            this.btnTaiLTC.Appearance.Options.UseForeColor = true;
             this.btnTaiLTC.Location = new System.Drawing.Point(991, 30);
             this.btnTaiLTC.Margin = new System.Windows.Forms.Padding(10);
             this.btnTaiLTC.Name = "btnTaiLTC";
@@ -221,7 +233,7 @@
             // gc_DS1_DangKy
             // 
             this.gc_DS1_DangKy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_DS1_DangKy.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gc_DS1_DangKy.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gc_DS1_DangKy.Location = new System.Drawing.Point(0, 467);
             this.gc_DS1_DangKy.MainView = this.gridView2;
             this.gc_DS1_DangKy.Margin = new System.Windows.Forms.Padding(10);
